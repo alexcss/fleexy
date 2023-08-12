@@ -12,7 +12,7 @@
  */
 defined( 'ABSPATH' ) || exit;
 
-$context                 = Timber::context();
+$context = Timber::context();
 
 $context['title']        = get_the_title( get_option( 'page_for_posts', true ) );
 $context['categories']   = Timber::get_terms( 'category' );

@@ -1,53 +1,57 @@
+//@import "~bootstrap/scss/bootstrap";
+
 body {
   color: orange;
+  background: white;
 }
-// 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
-////@import "functions";
-////@import "variables";
-////@import "variables-dark";
-////@import "maps";
-////@import "mixins";
-////
-////// 2. Include any default variable overrides here
-////@import "_vars-bootstrap.scss";
-////
-////@import "global/_fonts";
-////
-////// 3. Include remainder of required Bootstrap stylesheets
-////@import "root";
-////
-////// 4. Include any optional Bootstrap CSS as needed
-////@import "reboot";
-////@import "type";
-//////@import "images";
-////@import "containers";
-//////@import "transitions";
-////@import "grid";
-////
-////// HELPERS
-//////@import "helpers/clearfix";
-//////@import "helpers/colored-links";
-//////@import "helpers/ratio";
-//////@import "helpers/position";
-//////@import "helpers/stacks";
-////@import "helpers/visually-hidden";
-//////@import "helpers/stretched-link";
-//////@import "helpers/text-truncation";
-//////@import "helpers/vr";
-////
-//////@import "tables";
-//////@import "pagination";
-//////@import "breadcrumb";
-//////@import "forms";
-////@import "buttons";
-////@import "close";
-//////@import "carousel";
-////@import "nav";
-////@import "navbar";
-//////@import "card";
-//////@import "modal";
-//////@import "accordion";
-////@import "offcanvas";
+
+//// 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
+//@import "~bootstrap/scss/functions";
+//@import "~bootstrap/scss/variables";
+//@import "~bootstrap/scss/variables-dark";
+//@import "~bootstrap/scss/maps";
+//@import "~bootstrap/scss/mixins";
+//
+//// 2. Include any default variable overrides here
+//@import "_vars-bootstrap.scss";
+//
+//@import "global/_fonts";
+//
+//// 3. Include remainder of required Bootstrap stylesheets
+//@import "~bootstrap/scss/root";
+//
+//// 4. Include any optional Bootstrap CSS as needed
+//@import "~bootstrap/scss/reboot";
+//@import "~bootstrap/scss/type";
+////@import "images";
+//@import "~bootstrap/scss/containers";
+////@import "transitions";
+//@import "~bootstrap/scss/grid";
+//
+//// HELPERS
+////@import "helpers/clearfix";
+////@import "helpers/colored-links";
+////@import "helpers/ratio";
+////@import "helpers/position";
+////@import "helpers/stacks";
+//@import "~bootstrap/scss/helpers/visually-hidden";
+////@import "helpers/stretched-link";
+////@import "helpers/text-truncation";
+////@import "helpers/vr";
+//
+////@import "tables";
+////@import "pagination";
+////@import "breadcrumb";
+////@import "forms";
+//@import "~bootstrap/scss/buttons";
+//@import "~bootstrap/scss/close";
+////@import "carousel";
+//@import "~bootstrap/scss/nav";
+//@import "~bootstrap/scss/navbar";
+////@import "card";
+////@import "modal";
+////@import "accordion";
+//@import "~bootstrap/scss/offcanvas";
 //
 //@import "global/wp-admin.scss";
 //@import "global/typo.scss";
@@ -58,7 +62,7 @@ body {
 //@import "modules/navigation.scss";
 //@import "modules/footer.scss";
 //@import "modules/content.scss";
-
+//
 //@import "main.scss";
 //
 //@import "templates/front.scss";

@@ -1,13 +1,15 @@
-import { defineConfig, loadEnv } from 'vite'
-import autoprefixer from 'autoprefixer'
-import flynt from './vite-plugin-flynt'
-import globImporter from 'node-sass-glob-importer'
-import FullReload from 'vite-plugin-full-reload'
-import fs from 'fs'
+import { defineConfig, loadEnv } from 'vite';
+import autoprefixer from 'autoprefixer';
+import flynt from './vite-plugin-flynt';
+import globImporter from 'node-sass-glob-importer';
+import FullReload from 'vite-plugin-full-reload';
+import fs from 'fs';
 
-const wordpressHost = 'http://fleexy.loc'
+const path = require('path');
 
-const dest = './dist'
+const wordpressHost = 'http://fleexy.loc';
+
+const dest = './dist';
 const entries = [
   './src/assets/scss/app.scss',
   './src/assets/js/app.js'
@@ -16,13 +18,11 @@ const entries = [
   // './assets/main.scss',
   // './assets/print.scss',
   // './assets/editor-style.scss'
-]
+];
 const watchFiles = [
-  '*.php',
-  '*.twig',
-  'templates/**/*',
-  'inc/**/*'
-]
+  '**/*.php',
+  '**/*.twig'
+];
 
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '')
@@ -44,7 +44,8 @@ export default defineConfig(({ mode }) => {
     },
     resolve: {
       alias: {
-        '@': __dirname
+        '@': __dirname,
+        '~bootstrap': path.resolve(__dirname, 'node_modules/bootstrap'),
       }
     },
     plugins: [flynt({ dest, host }), FullReload(watchFiles)],

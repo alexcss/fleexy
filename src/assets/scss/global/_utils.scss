@@ -1,5 +1,5 @@
 // 4. Include any optional Bootstrap CSS as needed
-@import "utilities";
+@import "~bootstrap/scss/utilities";
 
 // 5. Optionally include utilities API last to generate classes based on the Sass map in `_utilities.scss`
 $utilities:(
@@ -168,4 +168,4 @@ $utilities:(
   //  )
   //),
 );
-@import "utilities/api";
+@import "~bootstrap/scss/utilities/api";

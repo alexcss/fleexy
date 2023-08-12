@@ -1,17 +1,20 @@
 <?php
 
 namespace FP\Theme;
-use FP\Theme\Assets;
-use FP\Theme\ScriptAndStyleLoader;
+
+use FP\Utils\Assets;
+use FP\Utils\Script_And_Style_Loader;
 
 defined( 'ABSPATH' ) || exit;
+
 class Enqueue {
 
 	public function __construct() {
-		call_user_func(function () {
-			$loader = new ScriptAndStyleLoader();
-			add_filter('script_loader_tag', [$loader, 'filterScriptLoaderTag'], 10, 3);
-		});
+
+		call_user_func( function () {
+			$loader = new Script_And_Style_Loader();
+			add_filter( 'script_loader_tag', [ $loader, 'filter_script_loader_tag' ], 10, 3 );
+		} );
 
 		add_action( 'wp_enqueue_scripts', [ $this, 'global_assets' ], 99 );
 		add_action( 'wp_enqueue_scripts', [ $this, 'cf7_js_styles' ] );
@@ -19,28 +22,12 @@ class Enqueue {
 		add_action( 'enqueue_block_editor_assets', [ $this, 'admin_styles_and_scripts' ], 999, 2 );
 		//add_action( 'init', [ $this, 'admin_editor_style' ] );
 
-
 	}
 
 	public function admin_editor_style() {
 		add_editor_style( THEME_URI . 'dist/assets/css/admin-editor.css' );
 	}
-	public function asset_path($filename)	{
-		$filename_split = explode('.', $filename);
-		$dir = end($filename_split);
-		$manifest_path = dirname(dirname(__FILE__)) . '/dist/manifest.json';
 
-		if (file_exists($manifest_path)) {
-			$manifest = json_decode(file_get_contents($manifest_path), true);
-		} else {
-			$manifest = [];
-		}
-
-		if (array_key_exists($filename, $manifest)) {
-			return $manifest[$filename];
-		}
-		return $filename;
-	}
 	public function admin_styles_and_scripts() {
 		wp_enqueue_style( 'custom-admin', THEME_URI . 'dist/assets/css/admin-editor.css', null, THEME_VERSION );
 		wp_enqueue_script( 'custom-admin', THEME_URI . 'dist/assets/js/admin.js', [
@@ -53,11 +40,11 @@ class Enqueue {
 	public function global_assets() {
 
 
-		wp_enqueue_script( 'app-js', Assets::requireUrl('src/assets/js/app.js'), [], null );
-		wp_script_add_data('app-js', 'defer', true);
-		wp_script_add_data('app-js', 'module', true);
+		wp_enqueue_script( 'app', Assets::require_url( 'src/assets/js/app.js' ), [], null );
+		wp_script_add_data( 'app', 'defer', true );
+		wp_script_add_data( 'app', 'module', true );
 
-		wp_enqueue_style( 'app-css', Assets::requireUrl('src/assets/scss/app.scss'), [], null );
+		wp_enqueue_style( 'app', Assets::require_url( 'src/assets/scss/app.scss' ), [], null );
 
 		wp_localize_script( 'app', 'fpData', [
 			'restURL' => rest_url(),

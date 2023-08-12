@@ -13,7 +13,6 @@
  * @since   Timber 0.2
  */
 
-
 defined( 'ABSPATH' ) || exit;
 
 $category_query = [
