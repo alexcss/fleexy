@@ -1,0 +1,38 @@
+# Browsersync config
+BROWSERSYNC:
+  # URL of local development server goes here (ex. http://localsite.dev)
+  url: "http://kopa-lakemedel.loc/"
+# Gulp will reference these paths when it copies files
+PATHS:
+  # Path to dist folder
+  dist: "dist"
+  # Paths to static assets that aren't images, CSS, or JavaScript
+  assets:
+    - "src/assets/**/*"
+    - "!src/assets/{images,images/**/*,js,js/**/*,scss,scss/**/*}"
+  # Paths to Sass libraries, which can then be loaded with @import
+  sass:
+  # Paths to JavaScript entry points for webpack to bundle modules
+    - "node_modules/bootstrap/scss/"
+    - "node_modules/@splidejs/"
+    - "src/assets/scss/"
+  entriestyles:
+    - "src/assets/scss/*.scss"
+#  entries:
+#    - "src/assets/js/*.js"
+#    - "src/assets/js/templates/*.js"
+  # Paths for the package task to include/exclude in .zip archive
+  package:
+    - "**/*"
+    - "!**/node_modules/**"
+    - "!**/packaged/**"
+    - "!/src/*"
+    - "!**/codesniffer.ruleset.xml"
+    - "!**/composer.json"
+    - "!**/composer.lock"
+    - "!**/config.yml"
+    - "!**/config-default.yml"
+    - "!**/gulpfile.babel.js"
+    - "!**/package.json"
+    - "!**/package-lock.json"
+    - "!**/webpack.config.js"

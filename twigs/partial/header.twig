@@ -1,0 +1,45 @@
+<header class="fp-header bg-body" data-header>
+	{% if header.bar_text %}
+		<div class="pb-md-24 pb-xl-50" data-header-bar>
+			<div class="fp-bar">
+				<div class="container text-center py-6">
+					<div class="fp-bar__content text-body">{{ header.bar_text }}</div>
+				</div>
+			</div>
+		</div>
+	{% endif %}
+    <div class="fp-header-nav py-16 py-md-20 px-lg-70">
+		<div class="container">
+			<div class="row align-items-center">
+				<div class="col-auto d-flex align-items-center gap-30">
+					<a class="fp-site-logo d-inline-flex" href="{{ site.url|e('esc_url') }}" rel="home" title="{{ site.name }}">
+						{% if header.logo %}
+							<img src="{{ header.logo.url }}" alt="{{ header.logo.alt }}" width="135" height="23"/>
+						{% else %}
+							{{ site.name }}
+						{% endif %}
+					</a>
+					<button type="button" class="fp-search-button d-none d-lg-flex justify-content-center align-items-center" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop" aria-label="{{ __('Toggle Search', 'fp') }}">
+						<svg width="20" height="20"><use xlink:href="{{ svg_sprite }}#icon-search"></use></svg>
+					</button>
+				</div>
+				<div class="col d-flex align-items-center justify-content-end">
+					<nav class="navbar navbar-expand-lg d-none d-lg-flex">
+						{% include "partial/menu.twig" with {'items': menu.desktop_nav.get_items, 'class': 'navbar-nav d-flex'} %}
+					</nav>
+					<div class="d-flex d-lg-none align-items-center justify-content-end gap-30">
+						<button type="button" class="fp-search-button d-flex justify-content-center align-items-center" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop" aria-label="{{ __('Toggle Search', 'fp') }}">
+							<svg width="20" height="20"><use xlink:href="{{ svg_sprite }}#icon-search"></use></svg>
+						</button>
+						<button class="fp-burger-menu" type="button" data-burger-menu data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" aria-label="{{ __('Toggle Menu', 'fp') }}">
+							<span></span>
+							<span></span>
+							<span></span>
+							<span></span>
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</header>

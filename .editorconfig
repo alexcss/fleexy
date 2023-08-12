@@ -1,0 +1,24 @@
+# top-most EditorConfig file
+root = true
+
+[*] # All files
+charset = utf-8
+indent_style = tab
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+[*.scss] # Sass
+indent_style = space
+indent_size = 2
+
+[*.js] # JavaScript
+indent_style = space
+indent_size = 2
+
+[*.json] # JSON
+indent_style = space
+indent_size = 2
+
+[*.md] # Markdown
+trim_trailing_whitespace = false

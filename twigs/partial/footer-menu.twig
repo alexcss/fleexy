@@ -1,0 +1,11 @@
+{% if items %}
+	<ul class="fp-footer-nav list-none {{ class }}">
+		{% for item in items %}
+			<li>
+				<a class="d-inline-flex h5 mb-0" href="{{ item.link.url }}" {% if item.target  %} target="{{ item.link.target ?: '_self' }}" {% endif %}>
+					{{ item.link.title }}
+				</a>
+			</li>
+		{% endfor %}
+	</ul>
+{% endif %}

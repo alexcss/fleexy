@@ -1,0 +1,26 @@
+{% extends "base.twig" %}
+
+{% block content %}
+    <main>
+        <div class="container">
+            <h1 class="h2">{{ title }}</h1>
+            {% if categories %}
+                <div class="fp-post-tags d-flex flex-wrap mb-3">
+					<a href="{{ archive_link }}" class="{{ active_blog ? 'active' : '' }}">{{ __('All', 'fp') }}</a>
+                </div>
+            {% endif %}
+            <div class="row">
+                {% if posts | length > 0 %}
+                    {% for post in posts %}
+                        <div class="col-12 col-md-6 {{ (loop.index <= 2) ? 'col-lg-6' : 'col-lg-4' }}">
+                            {% include "partial/product-card.twig" with {'post': post } %}
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <h2>{{ __('Sorry, no posts found', 'fp') }}</h2>
+                {% endif %}
+            </div>
+        </div>
+        {% include "partial/pagination.twig" %}
+    </main>
+{% endblock %}

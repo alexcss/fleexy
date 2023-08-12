@@ -1,0 +1,47 @@
+{% if footer.logo or (footer_policy_menu.menu | length > 0) or (footer_first_menu.menu | length > 0 and footer_first_menu.title) or (footer_second_menu.menu | length > 0 and footer_second_menu.title) or (footer_third_menu.menu | length > 0 and footer_third_menu.title) or (footer.copyright) %}
+	<footer>
+		<div class="container">
+			{% if footer.logo or (footer_policy_menu.menu | length > 0) or (footer_first_menu.menu | length > 0 and footer_first_menu.title) or (footer_second_menu.menu | length > 0 and footer_second_menu.title) or (footer_third_menu.menu | length > 0 and footer_third_menu.title) %}
+				<div class="bg-3 pt-70 pb-30 pb-md-50 pb-lg-80 px-30 position-relative border-radius-15 border-radius-lg-25">
+					{% if footer.logo %}
+						<div class="fp-footer-logo bg-body z-1 position-absolute top-0 start-0 p-10 pe-20 ps-lg-50 pe-lg-50 ps-xl-70 ppe-xl-70">
+							<span class="bottom-corner position-absolute z-1 bg-body"></span>
+							<span class="right-corner position-absolute z-1 bg-body"></span>
+							<a class="fp-site-logo" href="{{ site.url|e('esc_url') }}" rel="home" title="{{ site.name }}">
+								<img src="{{ footer.logo.url }}" alt="{{ footer.logo.alt }}" width="158" height="70"/>
+							</a>
+						</div>
+					{% endif %}
+					<div class="row text-center text-md-start row-gap-15">
+						<div class="col-lg-3 order-lg-0 order-2 mt-15 mt-lg-0 d-lg-flex align-items-lg-end">
+							{% if footer_policy_menu.menu | length > 0 %}
+								{% include "partial/footer-menu.twig" with {'items': footer_policy_menu.menu, 'class': 'fp-footer-nav--policy' } %}
+							{% endif %}
+						</div>
+						<div class="col-md-4 col-lg-3">
+							{% if footer_first_menu.menu | length > 0 and footer_first_menu.title %}
+								<p class="fp-footer-menu-toggle fp-copy-small d-inline-flex mb-0 mb-md-20 mb-lg-30" data-dropdown-toggle>{{ footer_first_menu.title }}</p>
+								{% include "partial/footer-menu.twig" with {'items': footer_first_menu.menu, 'class': 'dropdown' } %}
+							{% endif %}
+						</div>
+						<div class="col-md-4 col-lg-3">
+							{% if footer_second_menu.menu | length > 0 and footer_second_menu.title %}
+								<p class="fp-footer-menu-toggle fp-copy-small d-inline-flex mb-0 mb-md-20 mb-lg-30" data-dropdown-toggle>{{ footer_second_menu.title }}</p>
+								{% include "partial/footer-menu.twig" with {'items': footer_second_menu.menu, 'class': 'dropdown' } %}
+							{% endif %}
+						</div>
+						<div class="col-md-4 col-lg-3">
+							{% if footer_third_menu.menu | length > 0 and footer_third_menu.title %}
+								<p class="fp-footer-menu-toggle fp-copy-small d-inline-flex mb-0 mb-md-20 mb-lg-30" data-dropdown-toggle>{{ footer_third_menu.title }}</p>
+								{% include "partial/footer-menu.twig" with {'items': footer_third_menu.menu, 'class': 'dropdown' } %}
+							{% endif %}
+						</div>
+					</div>
+				</div>
+			{% endif %}
+			{% if footer.copyright %}
+				<div class="text-center text-accent-2 py-20">{{ footer.copyright|replace({'[year]': "now"|date('Y')}) }}</div>
+			{% endif %}
+		</div>
+	</footer>
+{% endif %}

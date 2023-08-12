@@ -1,0 +1,43 @@
+{
+  "name": "flex-press/theme",
+  "type": "wordpress-theme",
+  "description": "WordPress theme",
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://wpackagist.org"
+    },
+    {
+      "type": "composer",
+      "url": "https://connect.advancedcustomfields.com"
+    }
+  ],
+  "require": {
+    "php": ">=7.4",
+    "timber/timber": "^2.0.0"
+  },
+  "require-dev": {
+    "squizlabs/php_codesniffer": "^3.4"
+  },
+  "extra": {
+    "installer-paths": {
+      "vendor/{$vendor}/{$name}/": [
+        "type:wordpress-muplugin",
+        "type:wordpress-plugin",
+        "type:wordpress-theme"
+      ]
+    }
+  },
+  "autoload": {
+    "psr-4": {
+      "FP\\": "inc/"
+    }
+  },
+  "config": {
+    "allow-plugins": {
+      "composer/installers": true
+    }
+  }
+}

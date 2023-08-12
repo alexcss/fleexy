@@ -1,0 +1,35 @@
+{% extends "base.twig" %}
+
+{% block content %}
+	<main>
+		<div class="container">
+			<section class="mb-40 mb-md-60 mb-xl-100 mb-xxl-120">
+				<div class="row">
+					<div class="col-12 col-lg-3">
+						{% include 'partial/category-list.twig' with { 'title' : sidebar_title } %}
+					</div>
+					<div class="col-12 col-lg-9">
+						<div class="fp-products-list row row-gap-20 row-gap-md-30 row-gap-lg-45">
+							{% if posts | length > 0 %}
+								{% for post in posts %}
+									<div class="col-12 col-md-6 col-lg-4">
+										{% include 'partial/product-card.twig' %}
+									</div>
+								{% endfor %}
+							{% else %}
+								<div class="col-12">
+									<h5 class="mb-0 fp-text-capital text-uppercase">
+										{{ __('No results', 'fp') }}
+									</h5>
+								</div>
+							{% endif %}
+						</div>
+					</div>
+				</div>
+			</section>
+			{% include "partial/pagination.twig" with {'classes' : 'mt-80'} %}
+		</div>
+	</main>
+{% endblock %}
+
+

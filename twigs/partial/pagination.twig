@@ -1,0 +1,29 @@
+{% if posts.pagination.pages is not empty %}
+    <div class="d-flex justify-content-center {{ classes }}">
+        <ul class="fp-pagination d-flex flex-wrap gap-10">
+            {% if posts.pagination.prev %}
+                <li>
+                    <a class="fp-pagination__item d-flex justify-content-center align-items-center prev" href="{{posts.pagination.prev.link}}" aria-label="{{ __('Prev Page', 'fp') }}" title="{{ __('Prev Page', 'fp') }}">
+                        <svg width="40" height="40"><use xlink:href="{{ svg_sprite }}#icon-pagination-prev"></use></svg>
+                    </a>
+                </li>
+            {% endif %}
+            {% for page in posts.pagination.pages %}
+                <li>
+                    {% if page.link %}
+                        <a class="fp-pagination__item d-flex justify-content-center align-items-center {{page.class}}" href="{{page.link}}" aria-label="{{ __('Page %s'|format(page.title), 'fp') }}" title="{{ __('Page %s'|format(page.title), 'fp') }}">{{page.title}}</a>
+                    {% else %}
+                        <span class="fp-pagination__item d-flex justify-content-center align-items-center {{page.class}}" aria-label="{{ __('Page %s'|format(page.title), 'fp') }}" title="{{ __('Page %s'|format(page.title), 'fp') }}">{{page.title}}</span>
+                    {% endif %}
+                </li>
+            {% endfor %}
+            {% if posts.pagination.next %}
+                <li>
+                    <a class="fp-pagination__item d-flex justify-content-center align-items-center next" href="{{posts.pagination.next.link}}" aria-label="{{ __('Next Page', 'fp') }}" title="{{ __('Next Page', 'fp') }}">
+                        <svg width="40" height="40"><use xlink:href="{{ svg_sprite }}#icon-pagination-next"></use></svg>
+                    </a>
+                </li>
+            {% endif %}
+        </ul>
+    </div>
+{% endif %}

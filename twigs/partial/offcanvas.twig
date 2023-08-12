@@ -1,0 +1,23 @@
+<div data-offcanvas class="offcanvas offcanvas-end d-lg-none" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+    <div class="offcanvas-body d-flex flex-column justify-content-center align-items-center">
+        <nav class="navbar">
+            {% include "partial/menu.twig" with {'items': menu.desktop_nav.get_items, 'class': 'navbar-nav d-block text-center', 'offcanvas': true} %}
+        </nav>
+    </div>
+</div>
+
+<div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
+	<div class="offcanvas-body bg-3 d-flex flex-column justify-content-center align-items-center">
+		<form role="search" method="get" id="searchform" class="fp-search-form position-relative" action="{{ site.link }}">
+			<div class="position-relative">
+				<svg class="icon position-absolute top-50 translate-middle" width="16" height="16"><use xlink:href="{{ svg_sprite }}#icon-search"></use></svg>
+				<input type="text" value="{{ function('get_search_query') }}" name="s" id="s" placeholder="Search..." required/>
+			</div>
+			<button class="position-absolute top-50 end-0 translate-middle z-1 d-flex justify-content-center align-items-center border-radius-circle border-1 border-color-accent-2" type="submit" id="searchsubmit" aria-label="{{ __('Search', 'fp') }}">
+				<svg width="32" height="32">
+					<use xlink:href="{{ svg_sprite }}#icon-link-arrow"></use>
+				</svg>
+			</button>
+		</form>
+	</div>
+</div>
