@@ -5,6 +5,20 @@ body {
   background: white;
 }
 
+h1, h2.blue {
+  color: oklab(59.686% 0.1009 0.1192) !important;
+}
+
+
+
+.wp-section {
+  color: red;
+  display: flex;
+  gap: 30px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  transition: transform 0.3s;
+}
+
 //// 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
 //@import "~bootstrap/scss/functions";
 //@import "~bootstrap/scss/variables";

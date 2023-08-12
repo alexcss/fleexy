@@ -1,5 +1,4 @@
 import { defineConfig, loadEnv } from 'vite';
-import autoprefixer from 'autoprefixer';
 import flynt from './vite-plugin-flynt';
 import globImporter from 'node-sass-glob-importer';
 import FullReload from 'vite-plugin-full-reload';
@@ -38,9 +37,6 @@ export default defineConfig(({ mode }) => {
           importer: globImporter()
         }
       },
-      postcss: {
-        plugins: [autoprefixer()]
-      }
     },
     resolve: {
       alias: {
@@ -48,7 +44,10 @@ export default defineConfig(({ mode }) => {
         '~bootstrap': path.resolve(__dirname, 'node_modules/bootstrap'),
       }
     },
-    plugins: [flynt({ dest, host }), FullReload(watchFiles)],
+    plugins: [
+      flynt({ dest, host }),
+      FullReload(watchFiles),
+    ],
     server: {
       https: isSecure
         ? {
