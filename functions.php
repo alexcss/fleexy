@@ -10,13 +10,16 @@ define( 'THEME_URI', trailingslashit( esc_url( get_stylesheet_directory_uri() ) 
 
 $composer_autoload = __DIR__ . '/vendor/autoload.php';
 if ( file_exists( $composer_autoload ) ) {
+
 	require_once $composer_autoload;
 
 	/* Theme */
 	new FP\Theme\Support();
+
 	new FP\Theme\Assets();
 	new FP\Theme\Enqueue();
 	new FP\Theme\Comments();
+
 
 	/* Gutenberg */
 	new FP\Gutenberg\Core();

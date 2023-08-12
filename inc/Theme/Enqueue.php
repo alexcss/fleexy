@@ -2,17 +2,24 @@
 
 namespace FP\Theme;
 use FP\Theme\Assets;
+use FP\Theme\ScriptAndStyleLoader;
 
 defined( 'ABSPATH' ) || exit;
-
 class Enqueue {
 
 	public function __construct() {
+		call_user_func(function () {
+			$loader = new ScriptAndStyleLoader();
+			add_filter('script_loader_tag', [$loader, 'filterScriptLoaderTag'], 10, 3);
+		});
+
 		add_action( 'wp_enqueue_scripts', [ $this, 'global_assets' ], 99 );
 		add_action( 'wp_enqueue_scripts', [ $this, 'cf7_js_styles' ] );
 		add_action( 'login_enqueue_scripts', [ $this, 'login_stylesheet' ], 20 );
 		add_action( 'enqueue_block_editor_assets', [ $this, 'admin_styles_and_scripts' ], 999, 2 );
 		//add_action( 'init', [ $this, 'admin_editor_style' ] );
+
+
 	}
 
 	public function admin_editor_style() {
@@ -45,8 +52,13 @@ class Enqueue {
 
 	public function global_assets() {
 
-		wp_enqueue_style( 'app', Assets::requireUrl('src/assets/scss/app.scss'), [], THEME_VERSION );
-		wp_enqueue_script( 'app', THEME_URI . 'dist/assets/js/app.js', null, THEME_VERSION, true );
+
+		wp_enqueue_script( 'app-js', Assets::requireUrl('src/assets/js/app.js'), [], null );
+		wp_script_add_data('app-js', 'defer', true);
+		wp_script_add_data('app-js', 'module', true);
+
+		wp_enqueue_style( 'app-css', Assets::requireUrl('src/assets/scss/app.scss'), [], null );
+
 		wp_localize_script( 'app', 'fpData', [
 			'restURL' => rest_url(),
 			'nonce'   => wp_create_nonce( 'wp_rest' ),

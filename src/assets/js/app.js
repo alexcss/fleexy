@@ -1,4 +1,8 @@
-import './lib/_bootstrap.js';
-import {Main} from "./_main";
+import 'vite/modulepreload-polyfill'
 
-new Main();
+
+if (import.meta.env.DEV) {
+  import('@vite/client')
+}
+
+console.log('js');
