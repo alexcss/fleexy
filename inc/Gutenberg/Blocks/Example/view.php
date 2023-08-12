@@ -39,5 +39,5 @@ $data = [
 
 $context = array_merge( $context, $data );
 
-\Timber\Timber::render( './view.twig', $context );
+Timber::render( './view.twig', $context );
 
