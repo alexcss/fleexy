@@ -8,11 +8,11 @@
 			<div class="fp-products-list row row-gap-20 row-gap-md-30 row-gap-lg-45">
 				{% for post in posts %}
 					<div class="col-12 col-md-6 col-lg-4 col-xl-3">
-						{% include 'partial/product-card.twig' %}
+						{{ post.title }}
 					</div>
 				{% else %}
 					<div class="col-12">
-						<div class="text-center h3">{{ no_result }}</div>
+						<div class="text-center h3">{{ __('No results', 'fp') }}</div>
 					</div>
 				{% endfor %}
 			</div>

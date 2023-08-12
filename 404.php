@@ -10,7 +10,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-$context         = Timber::get_context();
+$context         = Timber::context();
 $context['post'] = get_field( '404_page', 'options' );
 
 $data = [

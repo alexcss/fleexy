@@ -15,9 +15,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-$context         = \Timber\Timber::context();
-$timber_post     = new \Timber\Post();
-$context['post'] = $timber_post;
+$context = Timber::context();
 
 $data = [
 

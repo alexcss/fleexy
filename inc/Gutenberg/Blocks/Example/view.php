@@ -31,7 +31,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
 	]
 );
 
-$context = \Timber\Timber::get_context();
+$context = Timber::context();
 
 $data = [
 	'title' => get_field( 'title' ),

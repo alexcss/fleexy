@@ -22,12 +22,11 @@ $category_query = [
 	'parent'     => 0
 ];
 
-$context                  = \Timber\Timber::get_context();
+$context                  = Timber::context();
 $context['sidebar_title'] = get_field( 'category_page_title', 'options' ) ?: __( 'Category', 'fp' );
 $context['title']         = get_the_title( get_option( 'page_for_posts', true ) );
-$context['categories']    = \Timber\Timber::get_terms( $category_query );
-$context['posts']         = new Timber\PostQuery();
+$context['categories']    = Timber::get_terms( $category_query );
 
 $templates = array( 'home.twig' );
 
-\Timber\Timber::render( $templates, $context );
+Timber::render( $templates, $context );
