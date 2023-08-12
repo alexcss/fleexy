@@ -2,6 +2,9 @@
   "dependencies": {
     "bootstrap": "5.3.1"
   },
+  "engines": {
+    "node": ">=18"
+  },
   "scripts": {
     "checkVersion": "check-node-version --package -p",
     "start": "run-s --silent dev",
