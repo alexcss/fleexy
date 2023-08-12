@@ -17,7 +17,7 @@ class Support {
 		}
 	}
 
-	public function theme_support() {
+	public function theme_support(): void {
 		register_nav_menus(
 			[
 				'desktop_nav' => esc_html__( 'Desktop Nav', 'fp' ),
@@ -33,7 +33,7 @@ class Support {
 		add_filter( 'acf/fields/wysiwyg/toolbars', [ $this, 'custom_header_toolbar' ] );
 	}
 
-	public function custom_header_toolbar( $toolbars ) {
+	public function custom_header_toolbar( $toolbars ): array {
 		$toolbars['FP Header Toolbar'][1] = [
 			'bold',
 			'italic',

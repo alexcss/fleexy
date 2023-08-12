@@ -59,7 +59,7 @@ abstract class Options_Page extends Group {
 		acf_add_local_field_group( $args );
 	}
 
-	protected function create_main_options_page() {
+	protected function create_main_options_page(): void {
 		acf_add_options_page( [
 			'page_title' => __( 'Theme General Settings', 'fp' ),
 			'menu_title' => __( 'Theme General Settings', 'fp' ),

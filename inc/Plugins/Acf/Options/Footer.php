@@ -12,7 +12,7 @@ class Footer extends Options_Page {
 		return __( 'Footer Area', 'fp' );
 	}
 
-	public function init_fields() {
+	public function init_fields(): void {
 		$this->add_tab( 'Global' );
 
 		$this->add_field( [

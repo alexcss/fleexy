@@ -37,7 +37,7 @@ class Post extends Post_Type {
 		acf_add_local_field_group( $args );
 	}
 
-	public function init_fields() {
+	public function init_fields(): void {
 		$this->add_tab( __( 'Settings', 'fp' ) );
 	}
 }

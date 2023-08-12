@@ -12,7 +12,7 @@ class Header extends Options_Page {
 		return __( 'Header Area', 'fp' );
 	}
 
-	public function init_fields() {
+	public function init_fields(): void {
 		$this->add_field( [
 			'name'       => 'header',
 			'label'      => __( 'Header', 'fp' ),

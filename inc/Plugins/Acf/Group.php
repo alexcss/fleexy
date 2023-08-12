@@ -23,7 +23,7 @@ abstract class Group {
 	 */
 	abstract public function init(): void;
 
-	protected function handle_sub_fields() {
+	protected function handle_sub_fields(): void {
 		foreach ( $this->fields as $index => $field ) {
 			if ( isset( $field['sub_fields'] ) ) {
 				$this->fields[ $index ]['sub_fields'] = $this->handle_sub_field_keys( $field['sub_fields'], [ $field['name'] ] );
@@ -68,7 +68,7 @@ abstract class Group {
 		$this->fields[] = $field;
 	}
 
-	protected function get_key( $name ) {
+	protected function get_key( $name ): string {
 		if ( is_array( $name ) ) {
 			$name = implode( '_', $name );
 		}

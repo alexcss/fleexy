@@ -14,7 +14,7 @@ class Assets {
 	 *
 	 * @var array
 	 */
-	protected static array $assetManifest;
+	protected static array $asset_manifest;
 
 	/**
 	 * Gets the asset's url.
@@ -25,7 +25,7 @@ class Assets {
 	 * @since 0.1.0
 	 *
 	 */
-	public static function require_url( string $asset ) {
+	public static function require_url( string $asset ): string|bool {
 		return self::get( 'url', $asset );
 	}
 
@@ -38,7 +38,7 @@ class Assets {
 	 * @since 0.1.0
 	 *
 	 */
-	public static function require_path( string $asset ) {
+	public static function require_path( string $asset ): string|bool {
 		return self::get( 'path', $asset );
 	}
 
@@ -52,7 +52,7 @@ class Assets {
 	 * @since 0.2.0
 	 *
 	 */
-	public static function get_contents( string $asset ) {
+	public static function get_contents( string $asset ): string|bool {
 		$file = self::require_path( $asset );
 		if ( file_exists( $file ) ) {
 			return file_get_contents( $file );
@@ -69,35 +69,35 @@ class Assets {
 	 * If the asset is not found, it will return the original asset path.
 	 * This is useful for loading assets from the theme directory.
 	 *
-	 * @param string $returnType The type of the return value. Either 'url' or 'path'.
+	 * @param string $return_type The type of the return value. Either 'url' or 'path'.
 	 * @param string $asset The filename of the required asset.
 	 *
 	 * @return string|false
 	 */
-	protected static function get( string $returnType, string $asset ) {
-		if ( ! isset( self::$assetManifest ) ) {
-			$distPath     = get_template_directory() . '/dist';
-			$manifestPath = $distPath . '/manifest.json';
-			if ( is_file( $manifestPath ) ) {
-				self::$assetManifest = json_decode( file_get_contents( $manifestPath ), true );
+	protected static function get( string $return_type, string $asset ): string|bool {
+		if ( ! isset( self::$asset_manifest ) ) {
+			$dist_path     = get_template_directory() . '/dist';
+			$manifest_path = $dist_path . '/manifest.json';
+			if ( is_file( $manifest_path ) ) {
+				self::$asset_manifest = json_decode( file_get_contents( $manifest_path ), true );
 			} else {
-				self::$assetManifest = [];
+				self::$asset_manifest = [];
 			}
 		}
 
-		$assetSuffix = self::$assetManifest[ $asset ]['file'] ?? $asset;
-		$filePath    = get_template_directory() . '/dist/' . $assetSuffix;
+		$asset_suffix = self::$asset_manifest[ $asset ]['file'] ?? $asset;
+		$file_path    = get_template_directory() . '/dist/' . $asset_suffix;
 
-		if ( 'path' == $returnType ) {
-			return file_exists( $filePath ) ? $filePath : get_template_directory() . '/' . $assetSuffix;
+		if ( 'path' == $return_type ) {
+			return file_exists( $file_path ) ? $file_path : get_template_directory() . '/' . $asset_suffix;
 		}
 
-		if ( 'url' == $returnType ) {
+		if ( 'url' == $return_type ) {
 			if ( file_exists( self::vite_hot_file() ) ) {
 				return trailingslashit( trim( file_get_contents( self::vite_hot_file() ) ) ) . $asset;
 			}
 
-			return file_exists( $filePath ) ? get_template_directory_uri() . '/dist/' . $assetSuffix : get_template_directory_uri() . '/' . $assetSuffix;
+			return file_exists( $file_path ) ? get_template_directory_uri() . '/dist/' . $asset_suffix : get_template_directory_uri() . '/' . $asset_suffix;
 		}
 
 		return false;
@@ -108,7 +108,7 @@ class Assets {
 	 *
 	 * @return boolean
 	 */
-	public static function is_hot_module_replacement() {
+	public static function is_hot_module_replacement(): bool {
 		return file_exists( self::vite_hot_file() );
 	}
 
@@ -117,7 +117,7 @@ class Assets {
 	 *
 	 * @return string
 	 */
-	protected static function vite_hot_file() {
+	protected static function vite_hot_file(): string {
 		return get_template_directory() . '/dist/hot';
 	}
 }

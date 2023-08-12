@@ -54,18 +54,18 @@ abstract class Gutenberg_Block extends Group {
 		acf_add_local_field_group( $args );
 	}
 
-	public function register_block() {
+	public function register_block(): void {
 		register_block_type( $this->path );
 		$this->enqueue_styles( $this->assets_uri );
 		$this->register_script( $this->assets_uri );
 	}
 
-	public function register_script( $path ) {
+	public function register_script( $path ): void {
 		$file_js = $path . '/app.js';
 		wp_register_script( 'block-' . static::NAME, $file_js, [], THEME_VERSION, true );
 	}
 
-	public static function enqueue_script() {
+	public static function enqueue_script(): void {
 		wp_enqueue_script( 'block-' . static::NAME );
 	}
 

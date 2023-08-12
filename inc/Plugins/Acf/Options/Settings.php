@@ -12,7 +12,7 @@ class Settings extends Options_Page {
 		return __( 'Settings', 'fp' );
 	}
 
-	public function init_fields() {
+	public function init_fields(): void {
 		$this->add_field( [
 			'name'       => 'settings',
 			'label'      => __( 'Settings', 'fp' ),

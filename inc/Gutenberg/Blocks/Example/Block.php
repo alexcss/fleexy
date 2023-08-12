@@ -11,7 +11,7 @@ class Block extends Gutenberg_Block {
 	// dashes only
 	const NAME = 'fp-example';
 
-	public function init_fields() {
+	public function init_fields(): void {
 
 		$this->add_field( [
 			'name'          => 'title',

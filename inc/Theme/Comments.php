@@ -33,22 +33,22 @@ class Comments {
 
 	}
 
-	public function disable_comments_admin_bar() {
+	public function disable_comments_admin_bar(): void {
 		if ( is_admin_bar_showing() ) {
 			remove_action( 'admin_bar_menu', 'wp_admin_bar_comments_menu', 60 );
 		}
 	}
 
-	public function disable_comments_dashboard() {
+	public function disable_comments_dashboard(): void {
 		remove_meta_box( 'dashboard_recent_comments', 'dashboard', 'normal' );
 	}
 
-	public function disable_comments_admin_menu() {
+	public function disable_comments_admin_menu(): void {
 		remove_menu_page( 'edit-comments.php' );
 		remove_submenu_page( 'options-general.php', 'options-discussion.php' );
 	}
 
-	public function disable_comments_post_types_support() {
+	public function disable_comments_post_types_support(): void {
 		$post_types = get_post_types();
 		foreach ( $post_types as $post_type ) {
 			if ( post_type_supports( $post_type, 'comments' ) ) {
@@ -58,7 +58,7 @@ class Comments {
 		}
 	}
 
-	public function disable_comments_admin_menu_redirect() {
+	public function disable_comments_admin_menu_redirect(): void {
 		global $pagenow;
 		if ( ( 'edit-comments.php' === $pagenow || $pagenow === 'options-discussion.php' ) && ! is_super_admin() ) {
 			wp_redirect( admin_url() );

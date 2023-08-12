@@ -32,14 +32,14 @@ class Core {
 
 	}
 
-	public function remove_block_pattern() {
+	public function remove_block_pattern(): void {
 		remove_theme_support( 'core-block-patterns' );
 	}
 
 	/**
 	 * Templates and Page IDs without editor
 	 */
-	function disable_editor( $id = false ) {
+	function disable_editor( $id = false ): array|bool {
 
 		$excluded_templates = [
 			//page-templates/contact-us.php',
@@ -76,8 +76,6 @@ class Core {
 
 	public function allowed_blocks( $allowed_blocks ): array {
 
-		$blocks = array_merge( static::DEFAULT_BLOCKS, static::CUSTOM_BLOCKS );
-
-		return $blocks;
+		return array_merge( static::DEFAULT_BLOCKS, static::CUSTOM_BLOCKS );
 	}
 }
