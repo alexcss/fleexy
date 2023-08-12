@@ -2,6 +2,29 @@
   "dependencies": {
     "bootstrap": "5.3.1"
   },
+  "scripts": {
+    "checkVersion": "check-node-version --package -p",
+    "start": "run-s --silent dev",
+    "dev": "run-s --silent checkVersion clean serve",
+    "clean": "rimraf ./dist && mkdirp ./dist",
+    "serve": "vite dev",
+    "watch": "vite build -w",
+    "build": "run-s --silent checkVersion lint build:production",
+    "build:production": "cross-env NODE_ENV=production vite build",
+    "lint": "run-p --silent lint:*",
+    "lint:scripts": "cross-env standard",
+    "lint:styles": "cross-env stylelint '**/*.scss'",
+    "lint:php": "cross-env ./vendor/bin/phpcs",
+    "lintFix": "run-p --silent lintFix:*",
+    "lintFix:scripts": "cross-env standard --fix",
+    "lintFix:styles": "cross-env stylelint '**/*.scss' --fix",
+    "lintFix:php": "cross-env ./vendor/bin/phpcbf",
+    "release": "run-s --silent checkVersion && standard-version -a",
+    "replaceVersion": "run-s --silent checkVersion && npm i -g replace-in-files-cli && run-p --silent replaceVersion:*",
+    "replaceVersion:style.css": "cross-env replace-in-files --regex='Version: (.*)' --replacement=Version:\\ $npm_package_version ./style.css",
+    "replaceVersion:js": "cross-env replace-in-files --string='%%NEXT_VERSION%%' --replacement=$npm_package_version './**/*.js' '!./dist/**/*' '!./node_modules/**/*'",
+    "replaceVersion:php": "cross-env replace-in-files --string='%%NEXT_VERSION%%' --replacement=$npm_package_version './**/*.php' '!./dist/**/*' '!./node_modules/**/*' '!./vendor/**/*'"
+  },
   "devDependencies": {
     "vite": "^4.4.9",
     "ansi-colors": "^4.1.3",
