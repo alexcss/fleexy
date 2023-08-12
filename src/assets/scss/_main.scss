@@ -1,0 +1,17 @@
+a, button{
+  transition-duration: 0.2s;
+  transition-property: color, background-color, opacity, border-color;
+}
+img, svg{
+  max-width: 100%;
+  height: auto;
+}
+
+.container{
+  @each $size, $value in $container-padding{
+    @include media-breakpoint-up($size) {
+      padding-left: $value;
+      padding-right: $value;
+    }
+  }
+}

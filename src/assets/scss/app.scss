@@ -1,0 +1,66 @@
+body{
+  color: blue;
+}
+// 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
+////@import "functions";
+////@import "variables";
+////@import "variables-dark";
+////@import "maps";
+////@import "mixins";
+////
+////// 2. Include any default variable overrides here
+////@import "_vars-bootstrap.scss";
+////
+////@import "global/_fonts";
+////
+////// 3. Include remainder of required Bootstrap stylesheets
+////@import "root";
+////
+////// 4. Include any optional Bootstrap CSS as needed
+////@import "reboot";
+////@import "type";
+//////@import "images";
+////@import "containers";
+//////@import "transitions";
+////@import "grid";
+////
+////// HELPERS
+//////@import "helpers/clearfix";
+//////@import "helpers/colored-links";
+//////@import "helpers/ratio";
+//////@import "helpers/position";
+//////@import "helpers/stacks";
+////@import "helpers/visually-hidden";
+//////@import "helpers/stretched-link";
+//////@import "helpers/text-truncation";
+//////@import "helpers/vr";
+////
+//////@import "tables";
+//////@import "pagination";
+//////@import "breadcrumb";
+//////@import "forms";
+////@import "buttons";
+////@import "close";
+//////@import "carousel";
+////@import "nav";
+////@import "navbar";
+//////@import "card";
+//////@import "modal";
+//////@import "accordion";
+////@import "offcanvas";
+//
+//@import "global/wp-admin.scss";
+//@import "global/typo.scss";
+//
+//@import "components/buttons.scss";
+//
+//@import "modules/editor-style";
+//@import "modules/navigation.scss";
+//@import "modules/footer.scss";
+//@import "modules/content.scss";
+
+//@import "main.scss";
+//
+//@import "templates/front.scss";
+//
+//@import "global/_utils"; //must be last in this file

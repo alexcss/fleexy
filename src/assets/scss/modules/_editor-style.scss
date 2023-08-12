@@ -1,0 +1,5 @@
+body#tinymce{
+  height: auto; // Fix editor style bug
+  font-family: $font-family-base;
+  padding: 15px !important;
+}

@@ -1,0 +1,31 @@
+@each $size, $headers in $headings-styles {
+  @include media-breakpoint-up($size) {
+    @each $header, $header-defs in $headers {
+      #{$header}, .#{$header} {
+
+        @if map-has-key($header-defs, font-size) {
+          font-size: map-get($header-defs, font-size);
+        }
+        @if map-has-key($header-defs, line-height) {
+          line-height: map-get($header-defs, line-height);
+        }
+
+        @if map-has-key($header-defs, margin-top) {
+          margin-top: map-get($header-defs, margin-top);
+        }
+        @if map-has-key($header-defs, margin-bottom) {
+          margin-bottom: map-get($header-defs, margin-bottom);
+        }
+      }
+    }
+  }
+}
+
+h1, .h1{
+}
+h2, .h2{
+}
+h3, .h3{
+}
+h4, .h4, h5, .h5, h6, .h6{
+}

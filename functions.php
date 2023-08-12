@@ -14,6 +14,7 @@ if ( file_exists( $composer_autoload ) ) {
 
 	/* Theme */
 	new FP\Theme\Support();
+	new FP\Theme\Assets();
 	new FP\Theme\Enqueue();
 	new FP\Theme\Comments();
 

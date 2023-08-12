@@ -1,0 +1,6 @@
+button, [type=button], [type=reset], [type=submit]{
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+  color: $body-color
+}
