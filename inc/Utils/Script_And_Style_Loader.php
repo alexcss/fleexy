@@ -2,6 +2,8 @@
 
 namespace FP\Utils;
 
+defined( 'ABSPATH' ) || exit;
+
 /**
  * Provides functions to add async/defer attributes to enqueued / registered scripts or add a preload link.
  */
