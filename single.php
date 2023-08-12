@@ -23,4 +23,4 @@ $data = [
 
 $context = array_merge( $context, $data );
 
-\Timber\Timber::render( array( 'single.twig' ), $context );
+Timber::render( [ 'single.twig' ], $context );

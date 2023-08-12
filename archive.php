@@ -28,6 +28,6 @@ $context['categories']      = Timber::get_terms( $category_query );
 $category                   = get_category( get_query_var( 'cat' ) );
 $context['active_category'] = $category;
 
-$templates = array( 'home.twig' );
+$templates = [ 'home.twig' ];
 
-\Timber\Timber::render( $templates, $context );
+Timber::render( $templates, $context );

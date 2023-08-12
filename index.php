@@ -18,5 +18,5 @@ $context['title']        = get_the_title( get_option( 'page_for_posts', true ) )
 $context['categories']   = Timber::get_terms( 'category' );
 $context['archive_link'] = get_permalink( get_option( 'page_for_posts' ) );
 
-$templates = array( 'index.twig' );
+$templates = [ 'index.twig' ];
 Timber::render( $templates, $context );

@@ -23,6 +23,6 @@ $data = [
 
 $context = array_merge( $context, $data );
 
-$templates = array( 'search.twig' );
+$templates = [ 'search.twig' ];
 
 Timber::render( $templates, $context );

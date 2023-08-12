@@ -26,6 +26,6 @@ $context['sidebar_title'] = get_field( 'category_page_title', 'options' ) ?: __(
 $context['title']         = get_the_title( get_option( 'page_for_posts', true ) );
 $context['categories']    = Timber::get_terms( $category_query );
 
-$templates = array( 'home.twig' );
+$templates = [ 'home.twig' ];
 
 Timber::render( $templates, $context );
