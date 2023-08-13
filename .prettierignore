@@ -1,0 +1,8 @@
+# Exclude all directories
+**/*.js
+**/*.jsx
+
+# Include only the 'components'
+!src/js/**/*.js
+
+!inc/Gutenberg/Blocks/**/*.js

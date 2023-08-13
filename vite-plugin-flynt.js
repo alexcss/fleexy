@@ -2,7 +2,7 @@ import path from 'path'
 import fs from 'fs'
 
 let exitHandlersBound = false
-export default function ({ dest, host }) {
+export default function ({dest, host}) {
   const hotFile = path.join(dest, 'hot')
   let viteDevServerUrl, resolvedConfig
   return {
@@ -17,15 +17,15 @@ export default function ({ dest, host }) {
       }
     },
 
-    configResolved (config) {
+    configResolved(config) {
       resolvedConfig = config
     },
-    transform (code) {
+    transform(code) {
       if (resolvedConfig.command === 'serve') {
         return code.replace(/__flynt_vite_placeholder__/g, viteDevServerUrl)
       }
     },
-    configureServer (server) {
+    configureServer(server) {
       const appUrl = host
 
       server.httpServer?.on('listening', () => {
@@ -77,7 +77,7 @@ export default function ({ dest, host }) {
 /**
  * Resolve the dev server URL from the server address and configuration.
  */
-function resolveDevServerUrl (address, config) {
+function resolveDevServerUrl(address, config) {
   const configHmrProtocol = typeof config.server.hmr === 'object' ? config.server.hmr.protocol : null
   const clientProtocol = configHmrProtocol ? (configHmrProtocol === 'wss' ? 'https' : 'http') : null
   const serverProtocol = config.server.https ? 'https' : 'http'
@@ -93,7 +93,8 @@ function resolveDevServerUrl (address, config) {
 
   return `${protocol}://${host}:${port}`
 }
-function isIpv6 (address) {
+
+function isIpv6(address) {
   return address.family === 'IPv6' ||
     // In node >=18.0 <18.4 this was an integer value. This was changed in a minor version.
     // See: https://github.com/laravel/vite-plugin/issues/103
