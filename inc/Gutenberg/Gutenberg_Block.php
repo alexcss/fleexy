@@ -56,8 +56,8 @@ abstract class Gutenberg_Block extends Group {
 
 	public function register_block(): void {
 		register_block_type( $this->path );
-		$this->enqueue_styles( $this->assets_uri );
-		$this->register_script( $this->assets_uri );
+//		$this->enqueue_styles( $this->assets_uri );
+//		$this->register_script( $this->assets_uri );
 	}
 
 	public function register_script( $path ): void {

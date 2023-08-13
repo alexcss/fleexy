@@ -25,12 +25,12 @@ class Enqueue {
 	}
 
 	public function admin_editor_style(): void {
-		add_editor_style( THEME_URI . 'dist/assets/css/admin-editor.css' );
+		add_editor_style( THEME_URI . 'dist/css/admin-editor.css' );
 	}
 
 	public function admin_styles_and_scripts(): void {
-		wp_enqueue_style( 'custom-admin', THEME_URI . 'dist/assets/css/admin-editor.css', null, THEME_VERSION );
-		wp_enqueue_script( 'custom-admin', THEME_URI . 'dist/assets/js/admin.js', [
+		wp_enqueue_style( 'custom-admin', THEME_URI . 'dist/css/admin-editor.css', null, THEME_VERSION );
+		wp_enqueue_script( 'custom-admin', THEME_URI . 'dist/js/admin.js', [
 			'wp-blocks',
 			'wp-dom-ready',
 			'wp-edit-post'
@@ -40,11 +40,11 @@ class Enqueue {
 	public function global_assets(): void {
 
 
-		wp_enqueue_script( 'app', Assets::require_url( 'src/assets/js/app.js' ), [], null );
+		wp_enqueue_script( 'app', Assets::require_url( 'src/js/app.js' ), [], null );
 		wp_script_add_data( 'app', 'defer', true );
 		wp_script_add_data( 'app', 'module', true );
 
-		wp_enqueue_style( 'app', Assets::require_url( 'src/assets/scss/app.scss' ), [], null );
+		wp_enqueue_style( 'app', Assets::require_url( 'src/scss/app.scss' ), [], null );
 
 		wp_localize_script( 'app', 'fpData', [
 			'restURL' => rest_url(),
@@ -67,7 +67,7 @@ class Enqueue {
 	}
 
 	public function login_stylesheet(): void {
-		wp_enqueue_style( 'custom-login', THEME_URI . 'dist/assets/css/login.css', [], THEME_VERSION, 'all' );
+		wp_enqueue_style( 'custom-login', THEME_URI . 'dist/css/login.css', [], THEME_VERSION, 'all' );
 	}
 
 	// Dequeue cf7/captcha scripts and styles, preventing them from loading everywhere

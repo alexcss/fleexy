@@ -8,7 +8,7 @@ module.exports = {
       purgeCss({
         content: ['./**/*.twig',],
         skippedContentGlobs: ['./node_modules/**'],
-        css: ['./dist/assets/*.css'],
+        css: ['./dist/*.css'],
         safelist: {
           deep: [/modal$/, /modal-backdrop$/, /fade/, /show/, /offcanvas$/],
         }

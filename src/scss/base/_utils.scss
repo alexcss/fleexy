@@ -1,0 +1,17 @@
+// 1. Include any optional Bootstrap CSS as needed
+@import '~bootstrap/utilities';
+
+// 2. Optionally include utilities API last to generate classes based on the Sass map in `_utilities.scss`
+$utilities: map-merge(
+    $utilities,
+    (
+      'max-width': (
+        property: max-width,
+        responsive:true,
+        class: mw,
+        values: (0: initial)
+      ),
+    )
+);
+
+@import '~bootstrap/utilities/api';

@@ -10,8 +10,8 @@ const wordpressHost = 'http://fleexy.loc';
 
 const dest = './dist';
 const entries = [
-  './src/assets/scss/app.scss',
-  './src/assets/js/app.js'
+  './src/scss/app.scss',
+  './src/js/app.js'
   // './assets/admin.scss',
   // './assets/main.js',
   // './assets/main.scss',
@@ -41,7 +41,7 @@ export default defineConfig(({ mode }) => {
     resolve: {
       alias: {
         '@': __dirname,
-        '~bootstrap': path.resolve(__dirname, 'node_modules/bootstrap'),
+        '~bootstrap': path.resolve(__dirname, 'node_modules/bootstrap/scss'),
       }
     },
     plugins: [

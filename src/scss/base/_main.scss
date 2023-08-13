@@ -1,3 +1,6 @@
+body {
+  -webkit-font-smoothing: antialiased;
+}
 a, button{
   transition-duration: 0.2s;
   transition-property: color, background-color, opacity, border-color;

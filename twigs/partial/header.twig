@@ -28,9 +28,6 @@
 						{% include "partial/menu.twig" with {'items': menu.desktop_nav.get_items, 'class': 'navbar-nav d-flex'} %}
 					</nav>
 					<div class="d-flex d-lg-none align-items-center justify-content-end gap-30">
-						<button type="button" class="fp-search-button d-flex justify-content-center align-items-center" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop" aria-label="{{ __('Toggle Search', 'fp') }}">
-							<svg width="20" height="20"><use xlink:href="{{ svg_sprite }}#icon-search"></use></svg>
-						</button>
 						<button class="fp-burger-menu" type="button" data-burger-menu data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" aria-label="{{ __('Toggle Menu', 'fp') }}">
 							<span></span>
 							<span></span>

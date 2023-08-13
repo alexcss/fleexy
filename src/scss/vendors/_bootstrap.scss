@@ -1,0 +1,36 @@
+
+// 3. Include remainder of required Bootstrap stylesheets
+@import '~bootstrap/root';
+
+// 4. Include any optional Bootstrap CSS as needed
+@import '~bootstrap/reboot';
+@import '~bootstrap/type';
+//@import '~bootstrap/images';
+@import '~bootstrap/containers';
+//@import '~bootstrap/transitions';
+@import '~bootstrap/grid';
+
+// HELPERS
+//@import '~bootstrap/helpers/clearfix';
+//@import '~bootstrap/helpers/colored-links';
+//@import '~bootstrap/helpers/ratio';
+//@import '~bootstrap/helpers/position';
+//@import '~bootstrap/helpers/stacks';
+@import '~bootstrap/helpers/visually-hidden';
+//@import '~bootstrap/helpers/stretched-link';
+//@import '~bootstrap/helpers/text-truncation';
+//@import '~bootstrap/helpers/vr';
+
+//@import '~bootstrap/tables';
+//@import '~bootstrap/pagination';
+//@import '~bootstrap/breadcrumb';
+//@import '~bootstrap/forms';
+@import '~bootstrap/buttons';
+//@import '~bootstrap/close';
+//@import '~bootstrap/carousel';
+@import '~bootstrap/nav';
+@import '~bootstrap/navbar';
+//@import '~bootstrap/card';
+//@import '~bootstrap/modal';
+//@import '~bootstrap/accordion';
+@import '~bootstrap/offcanvas';
