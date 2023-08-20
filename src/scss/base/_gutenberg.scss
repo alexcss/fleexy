@@ -1,2 +1,70 @@
 @import '../inc/Gutenberg/Blocks/**/assets/style.scss';
 
+/*! purgecss start ignore */
+
+@mixin cs-white {
+  --background-color: #{$white};
+  --highlight: #{$primary};
+  --text-color: #{$black};
+}
+
+@mixin cs-blue {
+  --background-color: #{$bg-light-blue};
+  --highlight: #{$blue};
+  --text-color: #{$black};
+}
+
+@mixin cs-orange {
+  --background-color: #{$bg-light-orange};
+  --highlight: #{$primary};
+  --text-color: #{$black};
+}
+
+@mixin cs-green {
+  --background-color: #{$bg-light-green};
+  --highlight: #{$green};
+  --text-color: #{$black};
+}
+
+:root {
+  @include cs-white();
+}
+
+::selection:not(:is(img, svg, a, .fp-button)) {
+  background: var(--highlight);
+  color: var(--text-color);
+}
+
+.is-style-cs {
+  &-light-green {
+    @include cs-green();
+  }
+
+  &-light-blue {
+    @include cs-blue();
+  }
+
+  &-light-orange {
+    @include cs-orange();
+  }
+
+  &-white {
+    @include cs-white();
+  }
+}
+
+.fp-block {
+  background: var(--background-color);
+  color: var(--text-color);
+}
+
+.fp-highlight {
+  color: var(--highlight);
+
+  &::selection {
+    background: var(--text-color);
+    color: var(--highlight);
+  }
+}
+
+/*! purgecss end ignore */

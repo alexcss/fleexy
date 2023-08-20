@@ -1,0 +1,7 @@
+{% if fields.image %}
+	<section {{ anchor }} {{ attribute }}>
+		<picture class="w-100">
+			<img class="w-100" src="{{ Image(fields.image)|resize(1920) }}" alt="{{ fields.image.alt }}">
+		</picture>
+	</section>
+{% endif %}

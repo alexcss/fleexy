@@ -19,6 +19,8 @@ if ( file_exists( $composer_autoload ) ) {
 	new FP\Theme\Enqueue();
 	new FP\Theme\Comments();
 
+	/* Post_Type */
+	new FP\Post_Type\Manager();
 
 	/* Gutenberg */
 	new FP\Gutenberg\Core();
