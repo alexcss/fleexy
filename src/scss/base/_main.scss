@@ -1,20 +1,40 @@
+/*! purgecss start ignore */
+
+// magic number with help us to recalculate 1rem to 10px
+html {
+  font-size: 62.5%;
+}
+
 body {
   -webkit-font-smoothing: antialiased;
 }
-a, button{
+
+a, button {
   transition-duration: 0.2s;
   transition-property: color, background-color, opacity, border-color;
 }
-img, svg{
+
+img, svg {
   max-width: 100%;
   height: auto;
 }
 
-.container{
-  @each $size, $value in $container-padding{
+picture {
+  display: inline-block;
+}
+
+.container {
+  @each $size, $value in $container-padding {
     @include media-breakpoint-up($size) {
       padding-left: $value;
       padding-right: $value;
     }
   }
 }
+
+.fp-highlight {
+  color: $primary;
+  font-style: italic;
+}
+
+/*! purgecss end ignore */

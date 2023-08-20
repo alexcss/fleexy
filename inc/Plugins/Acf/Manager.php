@@ -10,7 +10,7 @@ class Manager {
 		Options\Settings::class,
 		Options\Header::class,
 		Options\Footer::class,
-		Post_Types\Post::class
+		Post_Types\Page::class
 	];
 
 	public function __construct() {

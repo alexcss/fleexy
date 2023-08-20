@@ -4,6 +4,8 @@ $black: #050201;
 $gray: #ADADAD;
 $gray-light: #E6E6E6;
 $gray-dark: #4A4745;
+$blue: #3E8CF3;
+$green: #40c07e;
 
 $primary: #F2A84F;
 
@@ -22,14 +24,14 @@ $container-max-widths: (
   //md: 720px,
   //lg: 960px,
   //xl: 1140px,
-  xxl: 1440px
+  xl: 1440px
 );
 
 // container padding
 $container-padding: (
   xs : 16px,
-  md : 40px,
-  xl : 60px,
+  md : 24px,
+  xl : 40px,
 );
 
 // offcanvas settings
@@ -42,9 +44,6 @@ $link-decoration: none;
 $blur: 20px;
 
 // fonts settings
-//$font-family-base: 'Manrope';
-//$font-family-base: 'Brygada';
-
 $font-weight-lighter: lighter;
 $font-weight-light: 300;
 $font-weight-normal: 400;
@@ -53,7 +52,14 @@ $font-weight-semibold: 600;
 $font-weight-bold: 700;
 $font-weight-bolder: bolder;
 
+$font-size-base: 1.6rem;
+$font-family-base: 'Manrope', sans-serif;
+$line-height-base: 1.5;
 $font-weight-base: $font-weight-medium;
+
+$headings-font-family: 'Brygada 1918', serif;
+$headings-font-weight: $font-weight-medium;
+$headings-line-height: 1;
 
 // position variations
 $position-values: (
@@ -98,12 +104,18 @@ $spacers: (
 // colors
 $background-color: (
   'white': $white,
-  'primary': $primary
+  'primary': $primary,
+  'black': $black,
+  'light-blue': $bg-light-blue,
+  'light-orange': $bg-light-orange,
+  'light-green': $bg-light-green
 );
 
 // text colors
 $text-color: (
   'white': $white,
+  'black': $black,
+  'gray': $gray,
 );
 
 
@@ -121,30 +133,37 @@ $z-index: (
   5: 5
 );
 
+$border-values: (
+  circle: 50%,
+  16: 16px,
+  32: 32px,
+  40: 40px,
+);
+
 // heading styles
 $headings-styles: (
   xs: (
-    'h1': ('font-size': 44px, 'margin-bottom' : 22px),
-    'h2': ('font-size': 24px, 'margin-bottom' : 12px),
-    'h3': ('font-size': 18px, 'margin-bottom' : 12px),
-    'h4': ('font-size': 14px, 'margin-bottom' : 12px),
-    'h5': ('font-size': 10px, 'margin-bottom' : 12px),
-    'h6': ('font-size': 10px, 'margin-bottom' : 12px),
+    'h1': ('font-size': 5.6rem),
+    'h2': ('font-size': 4.8rem),
+    'h3': ('font-size': 3.2rem),
+    'h4': ('font-size': 2.4rem),
+    'h5': ('font-size': 2rem),
+    'h6': ('font-size': 1.6rem),
   ),
-  md: (
-    'h1': ('font-size': 64px, 'margin-bottom' : 34px),
-    'h2': ('font-size': 32px, 'margin-bottom' : 26px),
-    'h3': ('font-size': 20px, 'margin-bottom' : 20px),
-    'h4': ('font-size': 18px, 'margin-bottom' : 20px),
-    'h5': ('font-size': 10px, 'margin-bottom' : 20px),
-    'h6': ('font-size': 10px, 'margin-bottom' : 20px),
-  ),
-  xxl: (
-    'h1': ('font-size': 84px, 'margin-bottom' : 38px),
-    'h2': ('font-size': 52px, 'margin-bottom' : 38px),
-    'h3': ('font-size': 32px, 'margin-bottom' : 34px),
-    'h4': ('font-size': 24px, 'margin-bottom' : 34px),
-    'h5': ('font-size': 12px, 'margin-bottom' : 34px),
-    'h6': ('font-size': 12px, 'margin-bottom' : 34px),
+  //md: (
+  //  'h1': ('font-size': 64px),
+  //  'h2': ('font-size': 32px),
+  //  'h3': ('font-size': 20px),
+  //  'h4': ('font-size': 18px),
+  //  'h5': ('font-size': 10px),
+  //  'h6': ('font-size': 10px),
+  //),
+  xl: (
+    'h1': ('font-size': 8.8rem),
+    'h2': ('font-size': 7.2rem),
+    'h3': ('font-size': 3.2rem),
+    'h4': ('font-size': 2.4rem),
+    'h5': ('font-size': 2rem),
+    'h6': ('font-size': 1.6rem),
   ),
 );

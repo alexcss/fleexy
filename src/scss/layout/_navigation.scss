@@ -93,14 +93,11 @@
     .nav-item {
       > .nav-link {
         /* Regular menu item style */
-        line-height: 1.5;
-        color: $primary;
-        padding: 0 15px;
-
+        //color: $white;
+        padding: 0;
         &:hover {
           /* menu item style on hover */
-          background: $primary;
-          color: $white;
+          color: $primary;
         }
       }
 
@@ -109,8 +106,7 @@
       &.current_page_parent {
         > a {
           /* Style of Current page and Ancestor page */
-          background: $primary;
-          color: $white;
+          color: $primary;
         }
       }
 
@@ -122,7 +118,6 @@
 
       &.is-active > a {
         /* Parent link style on dropdown hover */
-        background: $white;
         color: $primary;
       }
     }

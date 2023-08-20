@@ -60,7 +60,6 @@ $utilities: map-merge(
         class: d,
         values: block flex inline-flex inline-block none grid
       ),
-
       'margin-x': (
         responsive: false,
         property: margin-right margin-left,
@@ -97,7 +96,6 @@ $utilities: map-merge(
         class: mt,
         values: $spacers
       ),
-
       'padding': (
         responsive: true,
         property: padding,
@@ -140,7 +138,6 @@ $utilities: map-merge(
         class: ps,
         values: $spacers
       ),
-
       'color': (
         property: color,
         class: text,
@@ -233,7 +230,6 @@ $utilities: map-merge(
           2: 2,
         ),
       ),
-
       'gap': (
         responsive: true,
         property: gap,
@@ -267,6 +263,12 @@ $utilities: map-merge(
       'overflow': (
         property: overflow,
         values: hidden visible,
+      ),
+      'border-radius': (
+        responsive: true,
+        property: border-radius,
+        class: border-radius,
+        values: $border-values,
       ),
     )
 );

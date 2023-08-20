@@ -1,0 +1,33 @@
+.fp-hero-block {
+  &__inner {
+
+    background-position: left center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 812px;
+    overflow: hidden;
+    margin-left: -16px;
+    margin-right: -16px;
+    @include media-breakpoint-up(md) {
+      margin-left: -24px;
+      margin-right: -24px;
+    }
+    @include media-breakpoint-up(lg) {
+      aspect-ratio: 16/9;
+      min-height: auto;
+    }
+    @include media-breakpoint-up(xl) {
+      margin-left: -32px;
+      margin-right: -32px;
+    }
+    &:after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(17deg, rgba(16, 7, 2, 0.69) 0%, rgba(16, 7, 2, 0.00) 100%);
+    }
+  }
+}

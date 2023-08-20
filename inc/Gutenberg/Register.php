@@ -7,7 +7,11 @@ defined( 'ABSPATH' ) || exit;
 class Register {
 
 	const BLOCKS = [
-		Blocks\Example\Block::class,
+//		Blocks\Example\Block::class,
+		Blocks\Hero\Block::class,
+		Blocks\Image\Block::class,
+		Blocks\Our_Team\Block::class,
+		Blocks\Testimonial\Block::class,
 	];
 
 	const BLOCKS_DIR = 'Blocks';

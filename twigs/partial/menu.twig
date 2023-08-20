@@ -1,12 +1,12 @@
 {% if items %}
 	<ul class="{{ class }}">
-	{% for item in items %}
-		<li class="nav-item {{ item.classes | join(' ') }}" {{ offcanvas is defined ? "data-bs-dismiss='offcanvas'" : '' }}>
-			<a class="nav-link" href="{{ item.link }}" {% if item.target  %} target="{{ item.target }}" {% endif %}>
-                {{ item.title }}
-            </a>
-			{% include "partial/menu.twig" with {'items': item.children, 'class': 'menu vertical'} %}
-		</li>
-	{% endfor %}
+		{% for item in items %}
+			<li class="nav-item {{ item.classes | join(' ') }}" {{ offcanvas is defined ? "data-bs-dismiss='offcanvas'" : '' }}>
+				<a class="nav-link" href="{{ item.link }}" {% if item.target  %} target="{{ item.target }}" {% endif %}>
+					{{ item.title }}
+				</a>
+				{% include "partial/menu.twig" with {'items': item.children, 'class': 'menu vertical d-flex flex-column d-none'} %}
+			</li>
+		{% endfor %}
 	</ul>
 {% endif %}
