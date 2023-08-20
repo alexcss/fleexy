@@ -102,38 +102,36 @@ $spacers: (
 );
 
 // colors
-$background-color: (
+$theme-colors: (
+  'primary':    $primary,
+  'secondary':  $secondary,
+  'success':    $success,
+  'info':       $info,
+  'warning':    $warning,
+  'danger':     $danger,
+  'light':      $light,
+  'dark':       $dark,
+
   'white': $white,
-  'primary': $primary,
   'black': $black,
+  'gray': $gray,
   'light-blue': $bg-light-blue,
   'light-orange': $bg-light-orange,
   'light-green': $bg-light-green
 );
 
-// text colors
-$text-color: (
-  'white': $white,
-  'black': $black,
-  'gray': $gray,
-);
-
-
-// border types variations
-$border: (
-  'none': 0,
-);
 
 // z-index variations
-$z-index: (
+$zindex-levels: (
+  n1: -1,
+  0: 0,
   1: 1,
   2: 2,
-  3: 3,
-  4: 4,
-  5: 5
+  3: 3
 );
 
-$border-values: (
+$rounded: (
+  0: 0,
   circle: 50%,
   16: 16px,
   32: 32px,
