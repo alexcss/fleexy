@@ -10,7 +10,27 @@ $utilities: map-merge(
         property: border-radius,
         class: rounded,
         values: $rounded
-      )
+      ),
+      "rounded-top": (
+        property: border-top-left-radius border-top-right-radius,
+        class: rounded-top,
+        values: $rounded
+      ),
+      "rounded-end": (
+        property: border-top-right-radius border-bottom-right-radius,
+        class: rounded-end,
+        values: $rounded
+      ),
+      "rounded-bottom": (
+        property: border-bottom-right-radius border-bottom-left-radius,
+        class: rounded-bottom,
+        values: $rounded
+      ),
+      "rounded-start": (
+        property: border-bottom-left-radius border-top-left-radius,
+        class: rounded-start,
+        values: $rounded
+      ),
     )
 );
 
