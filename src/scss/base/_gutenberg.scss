@@ -8,12 +8,6 @@
   --text-color: #{$black};
 }
 
-@mixin cs-blue {
-  --background-color: #{$bg-light-blue};
-  --highlight: #{$blue};
-  --text-color: #{$black};
-}
-
 @mixin cs-orange {
   --background-color: #{$bg-light-orange};
   --highlight: #{$primary};
@@ -23,6 +17,18 @@
 @mixin cs-green {
   --background-color: #{$bg-light-green};
   --highlight: #{$green};
+  --text-color: #{$black};
+}
+
+@mixin cs-blue {
+  --background-color: #{$bg-light-blue};
+  --highlight: #{$blue};
+  --text-color: #{$black};
+}
+
+@mixin cs-eggshell {
+  --background-color: #{$eggshell};
+  --highlight: #{$primary};
   --text-color: #{$black};
 }
 
@@ -36,6 +42,10 @@
 }
 
 .is-style-cs {
+  &-light-orange {
+    @include cs-orange();
+  }
+
   &-light-green {
     @include cs-green();
   }
@@ -44,12 +54,11 @@
     @include cs-blue();
   }
 
-  &-light-orange {
-    @include cs-orange();
-  }
-
   &-white {
     @include cs-white();
+  }
+  &-light-eegshell {
+    @include cs-eggshell();
   }
 }
 
@@ -64,6 +73,19 @@
   &::selection {
     background: var(--text-color);
     color: var(--highlight);
+  }
+}
+
+.fp-blur {
+  background: rgba(255, 255, 255, 0.01);
+  border: 1px solid rgba(254, 251, 244, 0.10);
+  backdrop-filter: blur($blur);
+}
+
+.fp-no-scroll {
+  &::-webkit-scrollbar {
+    display: none;
+    scrollbar-width: none;
   }
 }
 

@@ -25,8 +25,12 @@ class Support {
 	public function theme_support(): void {
 		register_nav_menus(
 			[
-				'desktop_nav' => esc_html__( 'Desktop Nav', 'fp' ),
-				'footer_nav'  => esc_html__( 'Footer Nav', 'fp' ),
+				'desktop_nav'  => esc_html__( 'Desktop Nav', 'fp' ),
+				'footer_nav_1' => esc_html__( 'Footer Nav 1', 'fp' ),
+				'footer_nav_2' => esc_html__( 'Footer Nav 2', 'fp' ),
+				'footer_nav_3' => esc_html__( 'Footer Nav 3', 'fp' ),
+				'footer_nav_4' => esc_html__( 'Footer Nav 4', 'fp' ),
+				'footer_nav_5' => esc_html__( 'Footer Nav 5', 'fp' ),
 			]
 		);
 		add_theme_support( 'menus' );

@@ -1,0 +1,24 @@
+.fp-footer {
+  a {
+    display: inline-block;
+    color: $black;
+    font-weight: $font-weight-semibold;
+    font-size: 1.8rem;
+    @media (hover) {
+      &:hover {
+        color: $primary;
+      }
+    }
+  }
+}
+
+.fp-footer-logo {
+  width: 196px;
+  @include media-breakpoint-up(md) {
+    width: initial;
+  }
+}
+
+.fp-footer-menu {
+  list-style: none;
+}

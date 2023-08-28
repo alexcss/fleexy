@@ -1,0 +1,21 @@
+<section {{ anchor }} {{ attribute }} data-slider-block>
+	<div class="splide fp-slider-block__row">
+		<div class="splide__track">
+			<div class="splide__list">
+				{% for image in fields.slider %}
+					<div class="splide__slide">
+						<picture>
+							<source media="(max-width: 680px)"
+									srcset="{{ image.url|resize(206, 300, 'center')|towebp }} 1x, {{ image.url|resize(309, 450, 'center')|towebp }} 1.5x"
+									type="image/webp" width="206" height="300">
+							<source media="(max-width: 680px)"
+									srcset="{{ image.url|resize(206, 300, 'center')|tojpg }} 1x, {{ image.url|resize(309, 450, 'center')|tojpg }} 1.5x"
+									width="206" height="300">
+							<img class="object-fit-cover" src="{{ image.url|resize(320, 464, 'center') }}" srcset="{{ image.url|resize(480, 696, 'center') }}" alt="{{ iamge.alt }}" width="320" height="464">
+						</picture>
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+</section>

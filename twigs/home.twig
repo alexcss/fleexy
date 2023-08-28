@@ -6,14 +6,14 @@
 			<section class="mb-40 mb-md-60 mb-xl-100 mb-xxl-120">
 				<div class="row">
 					<div class="col-12 col-lg-3">
-						{% include 'partial/category-list.twig' with { 'title' : sidebar_title } %}
+
 					</div>
 					<div class="col-12 col-lg-9">
 						<div class="fp-products-list row row-gap-20 row-gap-md-30 row-gap-lg-45">
 							{% if posts | length > 0 %}
 								{% for post in posts %}
 									<div class="col-12 col-md-6 col-lg-4">
-										{% include 'partial/product-card.twig' %}
+
 									</div>
 								{% endfor %}
 							{% else %}

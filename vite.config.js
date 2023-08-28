@@ -11,6 +11,7 @@ const wordpressHost = 'http://fleexy.loc';
 const dest = './dist';
 const entries = [
 	'./src/scss/app.scss',
+	'./src/scss/admin.scss',
 	'./src/js/app.js',
 	// './assets/admin.scss',
 	// './assets/main.js',
@@ -44,6 +45,10 @@ export default defineConfig(({ mode }) => {
 					__dirname,
 					'node_modules/bootstrap/scss'
 				),
+        '~splide': path.resolve(
+          __dirname,
+          'node_modules/@splidejs/splide/'
+        ),
 			},
 		},
 		plugins: [flynt({ dest, host }), FullReload(watchFiles)],

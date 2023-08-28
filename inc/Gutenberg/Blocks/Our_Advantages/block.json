@@ -1,9 +1,9 @@
 {
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 2,
-  "name": "fp-example",
-  "title": "Example",
-  "description": "Example Block",
+  "name": "fp-our-advantages",
+  "title": "Our Advantages",
+  "description": "Our Advantages Block",
   "category": "custom-blocks",
   "icon": "block-default",
   "keywords": [
@@ -18,6 +18,29 @@
       "page"
     ]
   },
+  "styles": [
+    {
+      "name": "cs-white",
+      "label": "White-Blue",
+      "isDefault": true
+    },
+    {
+      "name": "cs-light-orange",
+      "label": "Light Orange"
+    },
+    {
+      "name": "cs-light-green",
+      "label": "Light Green"
+    },
+    {
+      "name": "cs-light-blue",
+      "label": "Light Blue"
+    },
+    {
+      "name": "cs-light-eegshell",
+      "label": "Light Eggshell"
+    }
+  ],
   "supports": {
     "align": false,
     "anchor": true,

@@ -1,0 +1,54 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "fp-contact-form",
+  "title": "Contact Form",
+  "description": "Contact Form Block",
+  "category": "custom-blocks",
+  "icon": "block-default",
+  "keywords": [
+    "test",
+    "quote"
+  ],
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "view.php",
+    "postTypes": [
+      "post",
+      "page"
+    ]
+  },
+  "supports": {
+    "align": false,
+    "anchor": true,
+    "alignContent": false,
+    "color": {
+      "text": false,
+      "background": false,
+      "link": false
+    },
+    "alignText": false,
+    "spacing": {
+      "customSpacingSize": false,
+      "margin": [
+        "bottom"
+      ]
+    },
+    "typography": {},
+    "fullHeight": false,
+    "mode": false
+  },
+  "attributes": {
+    "backgroundColor": {
+      "type": "string",
+      "default": "purple"
+    }
+  },
+  "example": {
+    "attributes": {
+      "data": {
+        "title": "Our __clients say__"
+      }
+    }
+  }
+}

@@ -1,6 +1,6 @@
 <?php
 /**
- * Example Block Template.
+ * Contact Form Block Template.
  *
  * @param array $block The block settings and attributes.
  * @param string $content The block inner HTML (empty).
@@ -17,10 +17,12 @@ defined( 'ABSPATH' ) || exit;
 $anchor = '';
 if ( ! empty( $block['anchor'] ) ) {
 	$anchor = 'id="' . esc_attr( $block['anchor'] ) . '" ';
+} else {
+	$anchor = 'id="' . esc_attr( $block['id'] ) . '" ';
 }
 
 // Create class attribute allowing for custom "className" and "align" values.
-$class_name = 'fp-block d-flex justify-content-center justify-content-lg-end';
+$class_name = 'fp-block fp-contact-form py-60 py-lg-100 bg-repeat-no-repeat bg-size-cover bg-position-center';
 if ( ! empty( $block['className'] ) ) {
 	$class_name .= ' ' . $block['className'];
 }
@@ -34,7 +36,9 @@ $wrapper_attributes = get_block_wrapper_attributes(
 $context = Timber::context();
 
 $data = [
-	'title' => get_field( 'title' ),
+	'anchor'    => $anchor,
+	'attribute' => $wrapper_attributes,
+	'fields'    => get_fields(),
 ];
 
 $context = array_merge( $context, $data );

@@ -44,20 +44,7 @@
     "spacing": {
       "blockGap": false,
       "customSpacingSize": false,
-      "spacingSizes": [
-        {
-          "slug": "small",
-          "name": "Small"
-        },
-        {
-          "slug": "medium",
-          "name": "Medium"
-        },
-        {
-          "slug": "default",
-          "name": "Default"
-        }
-      ]
+      "spacingSizes": []
     },
     "typography": {
       "customFontSize": false,
@@ -69,10 +56,17 @@
       "textDecoration": false,
       "textTransform": false,
       "letterSpacing": false,
-      "fontWeight": false
+      "fontWeight": false,
+      "fontFamilies": [
+        {
+          "fontFamily": "-apple-system,BlinkMacSystemFont,\"Segoe UI\",Roboto,Oxygen-Sans,Ubuntu,Cantarell,\"Helvetica Neue\",sans-serif",
+          "slug": "system-fonts",
+          "name": "System Fonts"
+        }
+      ]
     },
     "layout": {
-      "contentSize": "1200px",
+      "contentSize": "100%",
       "wideSize": "100%"
     }
   },

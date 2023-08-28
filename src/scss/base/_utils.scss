@@ -11,25 +11,72 @@ $utilities: map-merge(
         class: rounded,
         values: $rounded
       ),
-      "rounded-top": (
+      'rounded-top': (
+        responsive: true,
         property: border-top-left-radius border-top-right-radius,
         class: rounded-top,
         values: $rounded
       ),
-      "rounded-end": (
+      'rounded-end': (
         property: border-top-right-radius border-bottom-right-radius,
         class: rounded-end,
         values: $rounded
       ),
-      "rounded-bottom": (
+      'rounded-bottom': (
         property: border-bottom-right-radius border-bottom-left-radius,
         class: rounded-bottom,
         values: $rounded
       ),
-      "rounded-start": (
+      'rounded-start': (
         property: border-bottom-left-radius border-top-left-radius,
         class: rounded-start,
         values: $rounded
+      ),
+      'border-color': (
+        property: border-color,
+        class: border,
+        values: $theme-colors
+      ),
+      'background-color': (
+        property: background-color,
+        class: bg,
+        values: $theme-colors
+      ),
+      'background-position': (
+        property: background-position,
+        class: bg-position,
+        values: (center)
+      ),
+      'background-repeat': (
+        property: background-repeat,
+        class: bg-repeat,
+        values: (no-repeat)
+      ),
+      'background-size': (
+        property: background-size,
+        class: bg-size,
+        values: (cover, contain)
+      ),
+      'text-color': (
+        property: color,
+        class: text,
+        values: $theme-colors
+      ),
+      'font-family': (
+        property: font-family,
+        class: font-family,
+        values: (
+          heading: $headings-font-family,
+          body: $font-family-base,
+        )
+      ),
+      'font-weight': (
+        property: font-weight,
+        class: font-weight,
+        values: (
+          500: $font-weight-medium,
+          600: $font-weight-semibold,
+        )
       ),
     )
 );

@@ -2,21 +2,26 @@
 
 namespace FP\Post_Type;
 
-
 defined( 'ABSPATH' ) || exit;
 
 class Manager {
-	const POST_TYPES = [
+	private array $post_types = [
 		Testimonial\Testimonial::class,
 	];
 
 	public function __construct() {
-		add_action( 'init', function () {
-			foreach ( self::POST_TYPES as $post_type ) {
-				$c = new $post_type;
-				$c->register();
-			}
-		} );
+		add_action( 'init', [ $this, 'register_post_type' ] );
+	}
 
+	/**
+	 * @return void
+	 *
+	 * @action init
+	 */
+	public function register_post_type(): void {
+		foreach ( $this->post_types as $post_type ) {
+			$post_type = new $post_type;
+			$post_type->register();
+		}
 	}
 }

@@ -1,18 +1,18 @@
 .fp-header {
-  max-width: 1360px;
-  margin: 16px auto;
-  top: 0;
-  z-index: 9;
+  max-width: 1424px;
   backdrop-filter: blur($blur);
+  border: 1px solid rgba(254, 251, 244, 0.24);
+
   a {
     color: $black;
   }
+
   &.is-blur {
-    border: 1px solid rgba(254, 251, 244, 0.10);
     a {
       color: $white;
     }
   }
+
   &.is-white {
     background-color: $white;
     border: 1px solid rgba(5, 2, 1, 0.10);

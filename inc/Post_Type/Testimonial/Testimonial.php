@@ -38,7 +38,7 @@ class Testimonial extends Post_Type {
 			'labels'       => $labels,
 			'public'       => true,
 			'show_ui'      => true,
-			'supports'     => [ 'title', 'editor', 'custom-fields', 'revisions', 'author', 'thumbnail' ],
+			'supports'     => [ 'title', 'custom-fields', 'revisions', 'author' ],
 			//  custom-fields is requred for post_meta to work
 			'map_meta_cap' => true,
 			'show_in_rest' => true,
@@ -46,10 +46,10 @@ class Testimonial extends Post_Type {
 			'rewrite'      => [
 				'slug' => self::SLUG,
 			],
-			'has_archive'  => true,
+			'has_archive'  => false,
 			'menu_icon'    => 'dashicons-book',
 			'template'     => [],
-			'taxonomies'   => array( 'category' ),
+			'taxonomies'   => [],
 		];
 
 		return $args;

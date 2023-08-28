@@ -29,8 +29,8 @@ button, [type=button], [type=reset], [type=submit] {
 
   @media (hover) {
     &:hover {
-      background-color: $black;
-      color: $white;
+      background-color: $primary;
+      color: $black;
     }
   }
 
@@ -46,9 +46,27 @@ button, [type=button], [type=reset], [type=submit] {
     color: $white;
     @media (hover) {
       &:hover {
-        background-color: $white;
+        background-color: $primary;
         color: $black;
       }
     }
+  }
+
+  &--hollow {
+    background-color: transparent;
+    border-color: transparent;
+    color: $black;
+
+    @media (hover) {
+      &:hover {
+        background-color: transparent;
+        color: $black;
+      }
+    }
+  }
+
+  &::selection {
+    color: inherit;
+    background-color: transparent;
   }
 }

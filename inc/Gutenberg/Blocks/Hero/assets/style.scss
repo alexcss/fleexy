@@ -1,25 +1,25 @@
 .fp-hero-block {
+  &__content {
+    & > p {
+      margin-bottom: 16px;
+      @include media-breakpoint-up(lg) {
+        margin-bottom: 24px;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
   &__inner {
 
-    background-position: left center;
-    background-repeat: no-repeat;
-    background-size: cover;
     min-height: 812px;
-    overflow: hidden;
-    margin-left: -16px;
-    margin-right: -16px;
-    @include media-breakpoint-up(md) {
-      margin-left: -24px;
-      margin-right: -24px;
-    }
     @include media-breakpoint-up(lg) {
-      aspect-ratio: 16/9;
+      aspect-ratio: 1424/712;
       min-height: auto;
     }
-    @include media-breakpoint-up(xl) {
-      margin-left: -32px;
-      margin-right: -32px;
-    }
+
     &:after {
       content: '';
       position: absolute;

@@ -13,7 +13,6 @@
                 {% if posts | length > 0 %}
                     {% for post in posts %}
                         <div class="col-12 col-md-6 {{ (loop.index <= 2) ? 'col-lg-6' : 'col-lg-4' }}">
-                            {% include "partial/product-card.twig" with {'post': post } %}
                         </div>
                     {% endfor %}
                 {% else %}

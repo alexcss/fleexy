@@ -1,0 +1,32 @@
+.fp-slider-block {
+  &__row {
+    //margin-top: -80px;
+    @include media-breakpoint-up(lg) {
+      //margin-top: -120px;
+    }
+
+    .splide__slide {
+      &:nth-child(2n+1) {
+        padding-top: 80px;
+        @include media-breakpoint-up(lg) {
+          padding-top: 120px;
+        }
+      }
+
+      img {
+        border-radius: 16px;
+        width: 206px;
+        @include media-breakpoint-up(lg) {
+          width: 320px;
+        }
+      }
+
+      &:nth-child(3n+1) {
+        img {
+          border-radius: 200px;
+        }
+      }
+    }
+
+  }
+}

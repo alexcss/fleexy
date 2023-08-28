@@ -7,10 +7,9 @@ defined( 'ABSPATH' ) || exit;
 class Manager {
 
 	private array $option_pages = [
-		Options\Settings::class,
-		Options\Header::class,
 		Options\Footer::class,
-		Post_Types\Page::class
+		Post_Types\Page::class,
+		Post_Types\Testimonial::class,
 	];
 
 	public function __construct() {

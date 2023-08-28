@@ -22,26 +22,12 @@ class Block extends Gutenberg_Block {
 		] );
 
 		$this->add_field( [
-			'name'       => 'team',
-			'label'      => __( 'Team', 'fp' ),
-			'type'       => 'repeater',
-			'sub_fields' => [
-				[
-					'key'   => 'numbers_text',
-					'label' => __( 'Text', 'fp' ),
-					'name'  => 'numbers_text',
-					'type'  => 'textarea',
-					'rows'  => 4,
-				],
-			],
-		] );
-
-		$this->add_field( [
 			'name'          => 'description',
 			'label'         => __( 'Description', 'fp' ),
-			'type'          => 'textarea',
+			'type'          => 'wysiwyg',
 			'default_value' => 'Take care of your health and well-being. Relax with your family or alone and melt all your troubles away.',
-			'instructions'  => __( 'if you want to highlight a word use this rule __TEXT__', 'fp' ),
+			'toolbar'       => 'basic',
+			'media_upload'  => 0,
 		] );
 
 		$this->add_field( [

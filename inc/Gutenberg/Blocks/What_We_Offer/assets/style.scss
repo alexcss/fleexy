@@ -1,0 +1,10 @@
+.fp-what-we-offer-block {
+  &__title {
+      .fp-highlight {
+        margin-left: 90px;
+        @include media-breakpoint-up(lg) {
+          margin-left: 115px;
+        }
+      }
+  }
+}

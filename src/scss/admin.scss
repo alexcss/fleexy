@@ -1,0 +1,160 @@
+@import 'abstracts/abstracts';
+@import 'vendors/bootstrap';
+
+@import
+  'base/fonts',
+  'base/main',
+  'base/content',
+  'base/wp-admin',
+  'base/gutenberg';
+
+@import
+  'layout/header',
+  'layout/navigation',
+  'layout/footer',
+  'layout/forms';
+
+@import 'components/buttons';
+
+@import 'pages/front';
+
+@import 'base/_utils'; //must be last in this file
+
+/*! purgecss start ignore */
+
+@import url('https://fonts.googleapis.com/css2?family=Brygada+1918:ital,wght@0,500;1,500&family=Manrope:wght@500;600&display=swap');
+
+:root {
+  font-size: 62.5%;
+  --wp-admin-theme-color: #{$primary};
+  --wp-admin-theme-color-darker-10: #{$primary};
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.editor-styles-wrapper {
+  font-family: $font-family-base !important;
+
+  @import 'base/typography';
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  .h1,
+  .h2,
+  .h3,
+  .h4,
+  .h5,
+  .h6 {
+    font-family: $headings-font-family;
+    margin-top: 0 !important;
+  }
+
+  h1 {
+    @include media-breakpoint-up(lg) {
+      font-size: 6rem;
+    }
+  }
+}
+
+.editor-post-title {
+  text-align: center !important;
+}
+
+.edit-post-editor__list-view-panel {
+  min-width: 268px !important;
+}
+
+.interface-complementary-area.edit-post-sidebar {
+
+  @include media-breakpoint-up(lg) {
+    width: 400px;
+  }
+}
+
+button[aria-label="Heading 1"] {
+  display: none !important;
+}
+
+.block-editor-default-block-appender .block-editor-inserter {
+  top: 20px !important;
+  right: 20px !important;
+
+  button {
+    background-color: $primary !important;
+    color: $white !important;
+  }
+}
+
+.components-popover__content {
+  --wp-admin-theme-color: #{$primary};
+}
+
+.components-range-control__tooltip {
+  z-index: 2;
+}
+
+.block-editor-block-list__layout {
+  padding: 0 20px;
+}
+
+.acf_content {
+  margin: 15px;
+}
+
+// Blocks
+
+.fp-button {
+  text-decoration: none !important;
+}
+
+.wp-block-image {
+  float: none !important;
+
+  &.aligncenter {
+    text-align: center;
+  }
+
+  &.alignright {
+    margin-left: auto !important;
+  }
+
+  &.alignleft {
+    margin-right: auto !important;
+  }
+
+  img {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+
+  .components-resizable-box__container {
+    max-width: 100% !important;
+  }
+}
+
+.splide__list {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 16px;
+  overflow-y: auto;
+}
+
+.splide__slide {
+  flex: 0 0 320px;
+}
+
+b,
+strong {
+  font-weight: $font-weight-bold;
+}
+
+/*! purgecss end ignore */
+
+
+

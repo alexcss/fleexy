@@ -1,3 +1,48 @@
-.fp-testimonial-block {
+.fp-testimonial-row {
 
+  .item {
+    &:nth-child(4n+1), &:nth-child(4n+5), &:nth-child(4n+9) {
+      .fp-testimonial {
+        background-color: $green;
+        color: $white;
+      }
+    }
+
+    &:nth-child(4n+2), &:nth-child(4n+6), &:nth-child(4n+10) {
+      .fp-testimonial {
+        background-color: $sandy-brown;
+
+      }
+    }
+
+    &:nth-child(4n+3), &:nth-child(4n+7), &:nth-child(4n+11) {
+      .fp-testimonial {
+        background-color: $primary;
+      }
+    }
+
+    &:nth-child(4n+4), &:nth-child(4n+8), &:nth-child(4n+12) {
+      .fp-testimonial {
+        background-color: $blue;
+      }
+    }
+  }
+}
+
+.fp-testimonial {
+  background-color: var(--background-color);
+
+  &__avatar {
+    width: 64px !important;
+    height: 64px !important;
+  }
+
+  &__feedback {
+    font-size: 2rem;
+    font-weight: $font-weight-normal;
+  }
+
+  &__name {
+    font-weight: $font-weight-semibold;
+  }
 }

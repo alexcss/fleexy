@@ -6,11 +6,11 @@ module.exports = {
     autoprefixer(),
     process.env.NODE_ENV === 'production' && (
       purgeCss({
-        content: ['./**/*.twig',],
+        content: ['./**/*.twig', './**/*.php', './**/*.js',],
         skippedContentGlobs: ['./node_modules/**'],
         css: ['./dist/*.css'],
         safelist: {
-          deep: [/modal$/, /modal-backdrop$/, /fade/, /show/, /offcanvas$/],
+          deep: [/modal$/, /modal-backdrop$/, /fade/, /show/, /offcanvas$/, /splide/],
         }
       })
     )

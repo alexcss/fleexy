@@ -41,6 +41,7 @@ class Timber_Settings {
 
 		$context['menu']         = $menus;
 		$context['header_style'] = get_field( 'header_style' ) ?: 'is-blur';
+		$context['footer']       = get_field( 'footer', 'options' );
 
 		return $context;
 	}

@@ -1,0 +1,32 @@
+.fp-our-advantages-block {
+  @include media-breakpoint-up(xl) {
+    .row {
+      .item {
+        &:nth-child(4n+1), &:nth-child(4n+5), &:nth-child(4n+9) {
+          margin-top: 48px;
+        }
+
+        &:nth-child(4n+2), &:nth-child(4n+6), &:nth-child(4n+10) {
+          margin-top: 240px;
+        }
+
+        &:nth-child(4n+3), &:nth-child(4n+7), &:nth-child(4n+11) {
+
+        }
+
+        &:nth-child(4n+4), &:nth-child(4n+8), &:nth-child(4n+12) {
+          margin-top: 120px;
+        }
+      }
+    }
+  }
+}
+
+.fp-advantages-item {
+  &__image {
+    width: 200px;
+    @include media-breakpoint-up(xl) {
+      width: 290px;
+    }
+  }
+}

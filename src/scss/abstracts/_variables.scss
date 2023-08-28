@@ -1,19 +1,21 @@
 // colors settings
 $white: #fff;
 $black: #050201;
-$gray: #ADADAD;
+$gray: #A7A7A7;
 $gray-light: #E6E6E6;
 $gray-dark: #4A4745;
-$blue: #3E8CF3;
-$green: #40c07e;
+$red: #FF2F2F;
 
 $primary: #F2A84F;
+$green: #0F6A52;
+$blue: #70B4F8;
+$eggshell: #F3E6D6;
+$sandy-brown: #FADEAE;
 
-$bg-eggshell: #F3E6D6;
 $bg-light-orange: #FDF1D7;
-$bg-light-green: #D5F6E6;
-$bg-light-blue: #DCECFD;
 $bg-light-beige: #F9F8F5;
+$bg-light-blue: #DCECFD;
+$bg-light-green: #D5F6E6;
 
 // grid settings
 $grid-gutter-width: 24px;
@@ -70,6 +72,10 @@ $position-values: (
 
 // spacers variations
 $spacers: (
+  n16: -16px,
+  n24: -24px,
+  n32: -32px,
+  auto: auto,
   0: 0,
   4: 4px,
   8: 8px,
@@ -101,23 +107,31 @@ $spacers: (
   240: 240px,
 );
 
+$gutters : $spacers;
+
 // colors
 $theme-colors: (
-  'primary':    $primary,
-  'secondary':  $secondary,
-  'success':    $success,
-  'info':       $info,
-  'warning':    $warning,
-  'danger':     $danger,
-  'light':      $light,
-  'dark':       $dark,
-
+  'primary': $primary,
+  'secondary': $secondary,
+  'success': $success,
+  'info': $info,
+  'warning': $warning,
+  'danger': $red,
+  'light': $light,
+  'dark': $dark,
   'white': $white,
   'black': $black,
   'gray': $gray,
+  'gray-light': $gray-light,
+  'gray-dark': $gray-dark,
+  'green': $green,
+  'blue': $blue,
+  'sandy-brown': $sandy-brown,
+  'eggshell': $eggshell,
   'light-blue': $bg-light-blue,
   'light-orange': $bg-light-orange,
-  'light-green': $bg-light-green
+  'light-green': $bg-light-green,
+  'light-beige': $bg-light-beige,
 );
 
 
@@ -127,13 +141,16 @@ $zindex-levels: (
   0: 0,
   1: 1,
   2: 2,
-  3: 3
+  3: 3,
+  9: 9,
 );
 
 $rounded: (
   0: 0,
   circle: 50%,
+  8: 8px,
   16: 16px,
+  24: 24px,
   32: 32px,
   40: 40px,
 );
@@ -141,12 +158,12 @@ $rounded: (
 // heading styles
 $headings-styles: (
   xs: (
-    'h1': ('font-size': 5.6rem),
-    'h2': ('font-size': 4.8rem),
-    'h3': ('font-size': 3.2rem),
-    'h4': ('font-size': 2.4rem),
-    'h5': ('font-size': 2rem),
-    'h6': ('font-size': 1.6rem),
+    'h1': ('font-size': 5.6rem, 'letter-spacing': -0.04em),
+    'h2': ('font-size': 4.8rem, 'letter-spacing': -0.04em),
+    'h3': ('font-size': 2.8rem, 'letter-spacing': -0.04em),
+    'h4': ('font-size': 2.4rem, 'letter-spacing': -0.04em),
+    'h5': ('font-size': 2rem, 'letter-spacing': -0.04em),
+    'h6': ('font-size': 1.6rem, 'letter-spacing': -0.04em),
   ),
   //md: (
   //  'h1': ('font-size': 64px),

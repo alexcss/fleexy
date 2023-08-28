@@ -27,6 +27,7 @@ class Block extends Gutenberg_Block {
 			'type'          => 'textarea',
 			'default_value' => 'Lorem Ipsum Title',
 			'instructions'  => __( 'if you want to highlight a word use this rule __TEXT__', 'fp' ),
+			'new_lines'     => 'br',
 		] );
 
 		$this->add_field( [

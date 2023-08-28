@@ -1,0 +1,77 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "fp-what-we-offer",
+  "title": "What We Offer",
+  "description": "What We Offer Block",
+  "category": "custom-blocks",
+  "icon": "block-default",
+  "keywords": [
+    "test",
+    "quote"
+  ],
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "view.php",
+    "postTypes": [
+      "post",
+      "page"
+    ]
+  },
+  "styles": [
+    {
+      "name": "cs-white",
+      "label": "White-Blue",
+      "isDefault": true
+    },
+    {
+      "name": "cs-light-orange",
+      "label": "Light Orange"
+    },
+    {
+      "name": "cs-light-green",
+      "label": "Light Green"
+    },
+    {
+      "name": "cs-light-blue",
+      "label": "Light Blue"
+    },
+    {
+      "name": "cs-light-eegshell",
+      "label": "Light Eggshell"
+    }
+  ],
+  "supports": {
+    "align": false,
+    "anchor": true,
+    "alignContent": false,
+    "color": {
+      "text": false,
+      "background": false,
+      "link": false
+    },
+    "alignText": false,
+    "spacing": {
+      "customSpacingSize": false,
+      "margin": [
+        "bottom"
+      ]
+    },
+    "typography": {},
+    "fullHeight": false,
+    "mode": false
+  },
+  "attributes": {
+    "backgroundColor": {
+      "type": "string",
+      "default": "purple"
+    }
+  },
+  "example": {
+    "attributes": {
+      "data": {
+        "title": "Our __clients say__"
+      }
+    }
+  }
+}

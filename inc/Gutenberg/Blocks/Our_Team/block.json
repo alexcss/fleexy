@@ -35,6 +35,10 @@
     {
       "name": "cs-light-blue",
       "label": "Light Blue"
+    },
+    {
+      "name": "cs-light-eegshell",
+      "label": "Light Eggshell"
     }
   ],
   "supports": {

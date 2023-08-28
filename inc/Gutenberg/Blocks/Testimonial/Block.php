@@ -21,6 +21,21 @@ class Block extends Gutenberg_Block {
 			'instructions'  => __( 'if you want to highlight a word use this rule __TEXT__', 'fp' ),
 		] );
 
+		$this->add_field( [
+			'name'          => 'testimonials',
+			'label'         => __( 'Testimonials', 'fp' ),
+			'type'          => 'relationship',
+			'post_status'   => [
+				0 => 'publish',
+			],
+			'post_type'     => [
+				0 => 'testimonial',
+			],
+			'filters'       => [
+				0 => 'search',
+			],
+		] );
+
 	}
 
 }

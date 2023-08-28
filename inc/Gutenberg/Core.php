@@ -21,7 +21,11 @@ class Core {
 		'acf/fp-hero',
 		'acf/fp-image',
 		'acf/fp-our-team',
+		'acf/fp-our-advantages',
 		'acf/fp-testimonial',
+		'acf/fp-contact-form',
+		'acf/fp-slider',
+		'acf/fp-what-we-offer',
 	];
 
 
@@ -65,6 +69,12 @@ class Core {
 	 * Disable Gutenberg by template
 	 */
 	function disable_gutenberg_editor( $can_edit, $post_type ) {
+
+		$disabled_post_types = [ 'testimonial' ];
+
+		if ( in_array( $post_type, $disabled_post_types, true ) ) {
+			$can_edit = false;
+		}
 
 		if ( ! ( is_admin() && ! empty( $_GET['post'] ) ) ) {
 			return $can_edit;

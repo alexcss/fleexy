@@ -11,7 +11,11 @@ class Register {
 		Blocks\Hero\Block::class,
 		Blocks\Image\Block::class,
 		Blocks\Our_Team\Block::class,
+		Blocks\Our_Advantages\Block::class,
 		Blocks\Testimonial\Block::class,
+		Blocks\Contact_Form\Block::class,
+		Blocks\Slider\Block::class,
+		Blocks\What_We_Offer\Block::class,
 	];
 
 	const BLOCKS_DIR = 'Blocks';
