@@ -13,6 +13,7 @@ class Core {
 		'core/list-item',
 		'core/quote',
 		'core/table',
+		'core/shorcode',
 	];
 
 	// TODO: Refactor to use the main block array from Register.php
