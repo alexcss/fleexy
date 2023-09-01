@@ -1,0 +1,117 @@
+# This Staging Deploy workflow will:
+# - Checkout repository
+# - Use required Node.js version
+# - Do a clean install of node dependencies
+# - Build the source code
+# - Create deployment package
+# - Publish deployment package to Flywheel via ssh
+#
+# Requires secrets to be set:
+#   SLACK_BOT_TOKEN          - Slack bot token
+#   FLYWHEEL_SSH_USER        - Flywheel ssh username
+#   FLYWHEEL_SSH_PRIVATE_KEY - Flywheel ssh private key
+
+name: "Flywheel Production Deploy"
+on:
+  push:
+    branches:
+      - main
+env:
+  SLACK_CHANNEL: "_deploy_fleexy"
+  FLYWHEEL_DIR:  "/www/wp-content/themes/flex-press"
+jobs:
+  build-upload:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Report deployment 'starting' status to Slack
+        id: slack
+        uses: voxmedia/github-action-slack-notify-build@v1
+        with:
+          channel: ${{ env.SLACK_CHANNEL }}
+          color: warning
+          status: STARTING (by ${{ github.actor }})
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Use Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '18.12.1'
+          cache: 'yarn'
+      - uses: actions/cache@v2
+        with:
+          path: 'node_modules/'
+          key: ${{ runner.os }}-node-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+      - name: Report deployment 'installing deps' status to Slack
+        uses: voxmedia/github-action-slack-notify-build@v1
+        with:
+          channel: ${{ env.SLACK_CHANNEL }}
+          color: warning
+          message_id: ${{ steps.slack.outputs.message_id }}
+          status: INSTALLING DEPS (by ${{ github.actor }})
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+      - name: Install packages
+        run: |
+          echo "Print versions"
+          echo -n "node: " && node --version
+          echo -n "npm: " && npm --version
+          echo "Install dependencies"
+          composer install
+          yarn install
+      - name: Report deployment 'building' status to Slack
+        uses: voxmedia/github-action-slack-notify-build@v1
+        with:
+          channel: ${{ env.SLACK_CHANNEL }}
+          color: warning
+          message_id: ${{ steps.slack.outputs.message_id }}
+          status: BUILDING (by ${{ github.actor }})
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+      - name: Create installation package
+        run: |
+          echo "Create package"
+          yarn build:production
+      - name: Report deployment 'deploying to Flywheel' status to Slack
+        uses: voxmedia/github-action-slack-notify-build@v1
+        with:
+          channel: ${{ env.SLACK_CHANNEL }}
+          color: warning
+          message_id: ${{ steps.slack.outputs.message_id }}
+          status: DEPLOYING TO FLYWHEEL (by ${{ github.actor }})
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+      # https://getflywheel.com/wordpress-support/deploying-to-flywheel-via-ssh-and-github-actions/
+      - name: Deploy to Flywheel
+        uses: easingthemes/ssh-deploy@main
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.FLYWHEEL_SSH_PRIVATE_KEY }}
+          REMOTE_HOST: ssh.getflywheel.com
+          REMOTE_USER: ${{ secrets.FLYWHEEL_SSH_USER }}
+          ARGS: "-rltgoDzvO --delete"
+          SOURCE: "/"
+          TARGET: ${{ env.FLYWHEEL_DIR }}
+          EXCLUDE: "/node_modules/, /src/, /.github/, /.git/"
+      - name: Post deployment successful status to Slack
+        if: success()
+        uses: voxmedia/github-action-slack-notify-build@v1
+        with:
+          channel: ${{ env.SLACK_CHANNEL }}
+          color: good
+          message_id: ${{ steps.slack.outputs.message_id }}
+          status: SUCCESS (by ${{ github.actor }})
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+      - name: Post deployment failed status to Slack
+        if: failure()
+        uses: voxmedia/github-action-slack-notify-build@v1
+        with:
+          channel: ${{ env.SLACK_CHANNEL }}
+          color: danger
+          message_id: ${{ steps.slack.outputs.message_id }}
+          status: FAILED (by ${{ github.actor }})
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}

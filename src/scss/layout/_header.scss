@@ -2,7 +2,7 @@
   max-width: 1424px;
   backdrop-filter: blur($blur);
   border: 1px solid rgba(254, 251, 244, 0.24);
-
+  top: var(--wp-admin--admin-bar--height, 8px);
   a {
     color: $black;
   }
