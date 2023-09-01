@@ -37,7 +37,7 @@ jobs:
       - name: Use Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '14.19.3'
+          node-version: '18.12.1'
           cache: 'yarn'
       - uses: actions/cache@v2
         with:
@@ -60,7 +60,7 @@ jobs:
           echo -n "node: " && node --version
           echo -n "npm: " && npm --version
           echo "Install dependencies"
-          composer require timber/timber
+          composer install
           yarn install
       - name: Report deployment 'building' status to Slack
         uses: voxmedia/github-action-slack-notify-build@v1
@@ -74,8 +74,7 @@ jobs:
       - name: Create installation package
         run: |
           echo "Create package"
-          yarn package
-          cd ./packaged
+          yarn build:production
       - name: Report deployment 'deploying to Flywheel' status to Slack
         uses: voxmedia/github-action-slack-notify-build@v1
         with:
@@ -93,8 +92,9 @@ jobs:
           REMOTE_HOST: ssh.getflywheel.com
           REMOTE_USER: ${{ secrets.FLYWHEEL_SSH_USER }}
           ARGS: "-rltgoDzvO --delete"
-          SOURCE: "packaged/"
+          SOURCE: "/"
           TARGET: ${{ env.FLYWHEEL_DIR }}
+          EXCLUDE: "/node_modules/, /src/, /.github/, /.git/"
       - name: Post deployment successful status to Slack
         if: success()
         uses: voxmedia/github-action-slack-notify-build@v1
