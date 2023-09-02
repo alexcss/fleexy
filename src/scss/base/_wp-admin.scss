@@ -2,12 +2,7 @@
 body.admin-bar {
 
   // Offset mobile off-canvas menu
-  &.offcanvas {
-    .off-canvas.is-open {
-      top: 46px;
-      @include media-breakpoint-up(783) {
-        top: 32px;
-      }
-    }
+  .offcanvas {
+    top: var(--wp-admin--admin-bar--height);
   }
 }
