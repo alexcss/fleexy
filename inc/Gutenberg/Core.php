@@ -13,8 +13,7 @@ class Core {
 		'core/list-item',
 		'core/quote',
 		'core/table',
-		'core/shortcode',
-		'core/freeform'
+		'core/shortcode'
 	];
 
 	// TODO: Refactor to use the main block array from Register.php
@@ -52,7 +51,7 @@ class Core {
 	function disable_editor( $id = false ): array|bool {
 
 		$excluded_templates = [
-			//page-templates/contact-us.php',
+			'templates/text-page.php',
 		];
 
 		$excluded_ids = [ get_option( 'page_for_posts' ) ];
