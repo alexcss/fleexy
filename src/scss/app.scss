@@ -3,8 +3,6 @@
   'vendors/bootstrap',
   'vendors/splide';
 
-/*! purgecss start ignore */
-
 @import
   'base/fonts',
   'base/main',
@@ -19,11 +17,13 @@
   'layout/footer',
   'layout/forms';
 
-@import
-  'components/breadcrumbs',
-  'components/buttons',
-  'components/bookingpress',
-  'components/lang-switcher';
+
+/*! purgecss start ignore */
+
+@import 'components/breadcrumbs';
+@import 'components/buttons';
+@import 'components/bookingpress';
+@import 'components/lang-switcher';
 
 @import 'pages/front';
 /*! purgecss end ignore */
