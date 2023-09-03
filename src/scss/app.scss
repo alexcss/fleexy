@@ -1,8 +1,9 @@
 @import 'abstracts/abstracts';
 @import
   'vendors/bootstrap',
-  'vendors/splide',
-  'vendors/bookingpress';
+  'vendors/splide';
+
+/*! purgecss start ignore */
 
 @import
   'base/fonts',
@@ -21,9 +22,11 @@
 @import
   'components/breadcrumbs',
   'components/buttons',
+  'components/bookingpress',
   'components/lang-switcher';
 
 @import 'pages/front';
+/*! purgecss end ignore */
 
 @import 'base/_utils'; //must be last in this file
 
