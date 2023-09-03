@@ -1,6 +1,6 @@
-<header class="fp-header {{ header_style|e('html_attr') }} position-fixed z-9 rounded-16 px-16 py-8 mx-auto" data-header>
+<header class="fp-header {{ header_style|e('html_attr') }} position-fixed z-9 rounded-16 px-16 py-12 py-lg-14 mx-auto px-lg-32" data-header>
 	<div class="row align-items-center">
-		<div class="col-auto">
+		<div class="col-6 col-lg-3 col-xl-2">
 			<a class="fp-logo" href="{{ site.url|e('esc_url') }}" rel="home" title="{{ site.name|e('html_attr') }}">
 				<svg width="140" height="40" viewBox="0 0 140 40" fill="none" xmlns="http://www.w3.org/2000/svg">
 					<path d="M65.9084 7.17189C66.4724 7.17189 66.9246 7.07115 67.265 6.87446C67.6054 6.67777 67.97 6.57703 68.359 6.57703C68.7966 6.57703 69.1224 6.70176 69.3461 6.94642C69.5697 7.19588 69.7594 7.57966 69.9101 8.10737L70.9555 12.1707C71.0527 12.5161 71.0138 12.8039 70.8436 13.0342C70.6686 13.2645 70.4255 13.4084 70.1094 13.4612C69.8469 13.5043 69.5989 13.4708 69.3558 13.3556C69.1127 13.2405 68.9133 12.9862 68.7529 12.5881C68.4271 11.6622 68.111 10.9666 67.8047 10.5012C67.4984 10.0359 67.158 9.72406 66.7836 9.56575C66.4092 9.41224 65.9522 9.33068 65.4173 9.33068H61.2844V18.105H64.9116C65.3687 18.105 65.6847 17.9994 65.8598 17.7836C66.0348 17.5677 66.1564 17.1743 66.2196 16.6082C66.3509 15.9846 66.6767 15.6631 67.2018 15.6392C67.7269 15.6152 68.0527 15.9126 68.184 16.5267L69.1953 20.8634C69.3704 21.6358 69.1759 22.1107 68.607 22.2834C68.0624 22.4465 67.6248 22.2451 67.299 21.6886C67.0365 21.1513 66.7739 20.7819 66.5065 20.5756C66.2391 20.3693 65.8063 20.2686 65.2082 20.2686H61.2844V26.0589C61.2844 26.7257 61.5421 27.1287 62.0526 27.2678L63.346 27.5413C63.9003 27.714 64.1774 28.0882 64.1774 28.6687C64.1774 29.3883 63.7641 29.7481 62.9376 29.7481H55.4691C54.6522 29.7481 54.2438 29.3883 54.2438 28.6687C54.2438 28.1218 54.5161 27.7284 55.0606 27.4933L55.8775 27.2678C56.4026 27.0616 56.6603 26.6586 56.6603 26.0589V10.8658C56.6603 10.2662 56.3978 9.86319 55.8775 9.6569L55.0606 9.43143C54.5161 9.19636 54.2438 8.80298 54.2438 8.25609C54.2438 7.53649 54.6522 7.17669 55.4691 7.17669H65.9133L65.9084 7.17189Z"
@@ -31,9 +31,10 @@
 				{% include "partial/menu.twig" with {'items': menu.desktop_nav.get_items, 'class': 'navbar-nav gap-32'} %}
 			</nav>
 		</div>
-		<div class="col-lg-3 col-md-4 d-none d-md-flex justify-content-end">
+		<div class="col-lg-1 col-xl-3 col-md-4 d-none d-md-flex justify-content-end align-items-center">
+			{{ fn('do_action', 'wpml_add_language_selector') }}
 			{% if header.cta_button.url and header.cta_button.title %}
-				<a class="fp-button fp-button--sm" href="{{ header.cta_button.url|e('esc_url') }}" data-bs-toggle="offcanvas" target="{{ header.cta_button.target|e('html_attr') ?: '_self' }}">
+				<a class="fp-button fp-button--sm ms-24 d-none d-xl-flex" href="{{ header.cta_button.url|e('esc_url') }}" data-bs-toggle="offcanvas" target="{{ header.cta_button.target|e('html_attr') ?: '_self' }}">
 					{{ header.cta_button.title|e('wp_kses_post') }}
 					<span class="icon-box">
 						<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">

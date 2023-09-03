@@ -4,8 +4,8 @@ namespace FP\Plugins;
 
 defined( 'ABSPATH' ) || exit;
 
-class Cf7 {
+class Wpml {
 	public function __construct() {
-		add_filter( 'wpcf7_autop_or_not', '__return_false' );
+		define('ICL_DONT_LOAD_LANGUAGE_SELECTOR_CSS', true);
 	}
 }
