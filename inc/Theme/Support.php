@@ -12,10 +12,16 @@ class Support {
 
 //		add_filter( 'big_image_size_threshold', '__return_false' );
 		add_filter( 'big_image_size_threshold', [ $this, 'big_image_size' ] );
+		add_action( 'acf/fields/google_map/api', [ $this, 'setup_google_api_key' ] );
 
 		if ( ! class_exists( 'ACF' ) && ! is_admin() ) {
 			wp_die( 'Pls activate ACF Plugin' );
 		}
+	}
+
+	public function setup_google_api_key( $api ) {
+		$api['key'] = defined(GOOGLE_MAP_API_KEY) ? GOOGLE_MAP_API_KEY : false;
+		return $api;
 	}
 
 	public function big_image_size(): int {

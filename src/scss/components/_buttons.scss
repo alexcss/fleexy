@@ -56,11 +56,12 @@ button, [type=button], [type=reset], [type=submit] {
     background-color: transparent;
     border-color: transparent;
     color: $black;
+    padding-left: 0;
 
     @media (hover) {
       &:hover {
         background-color: transparent;
-        color: $black;
+        color: $primary;
       }
     }
   }

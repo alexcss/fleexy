@@ -18,7 +18,9 @@
   'layout/footer',
   'layout/forms';
 
-@import 'components/buttons';
+@import
+  'components/breadcrumbs',
+  'components/buttons';
 
 @import 'pages/front';
 

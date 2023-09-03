@@ -1,0 +1,38 @@
+<section {{ anchor }} {{ attribute }} style="background-image: url({{ fields.background_image.url | resize(1920) }});" data-google-maps-block>
+	<div class="container">
+		<div class="row">
+			<div class="col-12 col-lg-6 col-xl-4 offset-xl-1">
+				{% if fields.title %}
+					<h2 class="mb-40 mb-lg-56 text-uppercase">{{ fields.title | highlight_text | e('wp_kses_post') }}</h2>
+				{% endif %}
+				{% if fields.address %}
+					<p class="mb-8">{{ fields.address|e('wp_kses_post') }}</p>
+				{% endif %}
+				{% if fields.phone %}
+					<div class="mb-24">
+						<a class="d-inline-block fp-google-maps__link" href="tel:{{ fields.phone | phone_url }}">{{ fields.phone }}</a>
+					</div>
+				{% endif %}
+				{% if fields.cta.url and fields.cta.title %}
+					<a class="fp-button fp-button--hollow fp-button--sm mb-40 mb-lg-0" href="{{ fields.cta.url|e('esc_url') }}" target="{{ fields.cta.target|e('html_attr') ?: '_self' }}">
+						{{ fields.cta.title|e('wp_kses_post') }}
+						<span class="icon-box">
+							<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path fill-rule="evenodd" clip-rule="evenodd" d="M8.23429 2.63431C8.54671 2.32189 9.05324 2.32189 9.36566 2.63431L14.1657 7.43431C14.4781 7.74673 14.4781 8.25326 14.1657 8.56568L9.36566 13.3657C9.05324 13.6781 8.54671 13.6781 8.23429 13.3657C7.92187 13.0533 7.92187 12.5467 8.23429 12.2343L11.6686 8.79999L2.39998 8.8C1.95815 8.79999 1.59998 8.44182 1.59998 7.99999C1.59998 7.55817 1.95815 7.19999 2.39998 7.19999H11.6686L8.23429 3.76568C7.92187 3.45326 7.92187 2.94673 8.23429 2.63431Z" fill="currentColor"/>
+							</svg>
+						</span>
+					</a>
+				{% endif %}
+			</div>
+			<div class="col-12 col-lg-6">
+				{% if fields.map %}
+					<div class="ratio ratio-16x9">
+						<div class="w-100 rounded-32" data-zoom="14" data-google-maps>
+							<div data-marker data-lat="{{ fields.map.lat }}" data-lng="{{ fields.map.lng }}"></div>
+						</div>
+					</div>
+				{% endif %}
+			</div>
+		</div>
+	</div>
+</section>

@@ -13,6 +13,7 @@ const entries = [
 	'./src/scss/app.scss',
 	'./src/scss/admin.scss',
 	'./src/js/app.js',
+	'./src/js/google-maps-block.js',
 	// './assets/admin.scss',
 	// './assets/main.js',
 	// './assets/main.scss',

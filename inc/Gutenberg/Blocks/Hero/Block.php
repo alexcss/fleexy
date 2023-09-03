@@ -22,6 +22,17 @@ class Block extends Gutenberg_Block {
 		] );
 
 		$this->add_field( [
+			'name'  => 'title_size',
+			'label' => __( 'Title Size', 'fp' ),
+			'type'  => 'button_group',
+			'choices' => [
+				'h1' => 'H1',
+				'h2' => 'H2',
+			],
+			'default_value' => 'h2',
+		] );
+
+		$this->add_field( [
 			'name'          => 'description',
 			'label'         => __( 'Description', 'fp' ),
 			'type'          => 'wysiwyg',

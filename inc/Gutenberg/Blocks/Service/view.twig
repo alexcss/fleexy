@@ -1,0 +1,59 @@
+<section {{ anchor }} {{ attribute }}>
+	<div class="container">
+		<div class="row row-gap-40">
+			{% if service %}
+				<div class="col-12 col-md-6 offset-xl-1 order-2 order-md-1">
+					<div class="fp-breadcrumbs mb-28 d-none d-md-block">
+						{{ fn('do_shortcode', '[wpseo_breadcrumb]') }}
+					</div>
+					<h1 class="h2 font-family-body mb-24">{{ service.bookingpress_service_name }}</h1>
+					<div class="d-flex gap-48 mb-40">
+						<div class="d-flex flex-column">
+							<div class="mb-16">{{ service.bookingpress_service_duration_val ~ ' ' ~ service.bookingpress_service_duration_unit }} </div>
+							<p class="h3 mb-0">{{ service.bookingpress_service_price }}</p>
+						</div>
+						<div class="d-flex flex-column">
+							<div class="mb-16">{{ service.bookingpress_service_duration_val ~ ' ' ~ service.bookingpress_service_duration_unit }} </div>
+							<p class="h3 mb-0">{{ service.bookingpress_service_price }}</p>
+						</div>
+					</div>
+					{% if service.bookingpress_service_description %}
+						<p class="fp-service-block__description fp-body-sm text-gray-dark mb-40">{{ service.bookingpress_service_description }}</p>
+					{% endif %}
+					<a class="fp-button fp-button--black justify-content-between w-100 w-sm-auto" href="">
+						{{ _e('Make an appointment', 'fp') }}
+						<span class="icon-box">
+						<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path fill-rule="evenodd" clip-rule="evenodd" d="M8.23429 2.63431C8.54671 2.32189 9.05324 2.32189 9.36566 2.63431L14.1657 7.43431C14.4781 7.74673 14.4781 8.25326 14.1657 8.56568L9.36566 13.3657C9.05324 13.6781 8.54671 13.6781 8.23429 13.3657C7.92187 13.0533 7.92187 12.5467 8.23429 12.2343L11.6686 8.79999L2.39998 8.8C1.95815 8.79999 1.59998 8.44182 1.59998 7.99999C1.59998 7.55817 1.95815 7.19999 2.39998 7.19999H11.6686L8.23429 3.76568C7.92187 3.45326 7.92187 2.94673 8.23429 2.63431Z" fill="currentColor"/>
+						</svg>
+					</span>
+					</a>
+				</div>
+				<div class="col-12 col-md-6 col-xl-4 order-1 order-md-2">
+					<div class="fp-breadcrumbs mb-28 d-md-none">
+						{{ fn('do_shortcode', '[wpseo_breadcrumb]') }}
+					</div>
+					{% if service_image.url %}
+						<picture class="w-100">
+							<source media="(max-width: 680px)"
+									srcset="{{ service_image.url|resize(400, 235, 'center')|towebp }} 1x, {{ service_image.url|resize(600, 353, 'center')|towebp }} 1.5x"
+									type="image/webp" width="400" height="235">
+							<source media="(max-width: 680px)"
+									srcset="{{ service_image.url|resize(400, 235, 'center')|tojpg }} 1x, {{ service_image.url|resize(600, 353, 'center')|tojpg }} 1.5x"
+									width="400" height="235">
+
+							<source media="(max-width: 991px)"
+									srcset="{{ service_image.url|resize(400, 235, 'center')|towebp }} 1x, {{ service_image.url|resize(600, 353, 'center')|towebp }} 1.5x"
+									type="image/webp" width="400" height="235">
+							<source media="(max-width: 991px)"
+									srcset="{{ service_image.url|resize(400, 235, 'center')|tojpg }} 1x, {{ service_image.url|resize(600, 353, 'center')|tojpg }} 1.5x"
+									width="400" height="235">
+
+							<img class="object-fit-cover rounded-8 w-100" src="{{ service_image.url|resize(438, 528, 'center') }}" srcset="{{ service_image.url|resize(657, 792, 'center') }}" alt="{{ iamge.alt }}" width="438" height="528">
+						</picture>
+					{% endif %}
+				</div>
+			{% endif %}
+		</div>
+	</div>
+</section>

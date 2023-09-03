@@ -27,6 +27,9 @@ class Core {
 		'acf/fp-contact-form',
 		'acf/fp-slider',
 		'acf/fp-what-we-offer',
+		'acf/fp-google-maps',
+		'acf/fp-contact-us',
+		'acf/fp-service',
 	];
 
 
