@@ -6,13 +6,27 @@ defined( 'ABSPATH' ) || exit;
 
 use FP\Plugins\Acf\Options_Page;
 
-class Footer extends Options_Page {
+class Base extends Options_Page {
 
 	public function title(): string {
-		return __( 'Footer Area', 'fp' );
+		return __( 'Base options', 'fp' );
 	}
 
 	public function init_fields(): void {
+		$this->add_tab( 'Header' );
+
+		$this->add_field( [
+			'name'       => 'header',
+			'label'      => __( 'Header', 'fp' ),
+			'type'       => 'group',
+			'sub_fields' => [
+				[
+					'label'         => __( 'CTA Button', 'fp' ),
+					'name'          => 'cta_button',
+					'type'          => 'link'
+				],
+			],
+		] );
 		$this->add_tab( 'Footer' );
 
 		$this->add_field( [

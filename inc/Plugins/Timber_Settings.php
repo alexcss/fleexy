@@ -43,6 +43,7 @@ class Timber_Settings {
 		$context['menu']         = $menus;
 		$context['header_style'] = get_field( 'header_style' ) ?: 'is-black';
 		$context['footer']       = get_field( 'footer', 'options' );
+		$context['header']       = get_field( 'header', 'options' );
 
 		return $context;
 	}
