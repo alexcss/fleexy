@@ -54,7 +54,7 @@ class Core {
 	function disable_editor( $id = false ): array|bool {
 
 		$excluded_templates = [
-			//page-templates/contact-us.php',
+			'templates/text-page.php',
 		];
 
 		$excluded_ids = [ get_option( 'page_for_posts' ) ];
