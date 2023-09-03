@@ -45,10 +45,10 @@ class Page extends Post_Type {
 			'label'         => __( 'Header Style', 'fp' ),
 			'type'          => 'button_group',
 			'choices'       => [
-				'is-blur'  => 'Blur',
+				'is-black' => 'Black',
 				'is-white' => 'White',
 			],
-			'default_value' => 'is-blur',
+			'default_value' => 'is-black',
 		] );
 	}
 }

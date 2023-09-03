@@ -22,3 +22,15 @@
 .fp-footer-menu {
   list-style: none;
 }
+
+.fp-footer-menu-title {
+  svg {
+    transition: $transition-base;
+  }
+
+  &[aria-expanded="true"] {
+    svg {
+      transform: rotate(180deg);
+    }
+  }
+}

@@ -8,6 +8,8 @@ define( 'THEME_VERSION', $theme_version );
 define( 'THEME_DIR', trailingslashit( get_stylesheet_directory() ) );
 define( 'THEME_URI', trailingslashit( esc_url( get_stylesheet_directory_uri() ) ) );
 
+define( 'GOOGLE_MAP_API_KEY', 'AIzaSyAs0gvLYei8eRmMho8k19jrjCLGz1V5GgA' );
+
 $composer_autoload = __DIR__ . '/vendor/autoload.php';
 if ( file_exists( $composer_autoload ) ) {
 

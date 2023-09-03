@@ -16,6 +16,7 @@ class Timber_Settings {
 	public function add_custom_filters( $twig ) {
 		$helper = new Helper();
 		$twig->addFilter( new \Twig\TwigFilter( 'highlight_text', [ $helper, 'highlight_text' ] ) );
+		$twig->addFilter( new \Twig\TwigFilter( 'phone_url', [ $helper, 'phone_url' ] ) );
 
 		return $twig;
 	}
@@ -40,7 +41,7 @@ class Timber_Settings {
 		}
 
 		$context['menu']         = $menus;
-		$context['header_style'] = get_field( 'header_style' ) ?: 'is-blur';
+		$context['header_style'] = get_field( 'header_style' ) ?: 'is-black';
 		$context['footer']       = get_field( 'footer', 'options' );
 
 		return $context;

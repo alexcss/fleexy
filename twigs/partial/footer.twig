@@ -18,36 +18,26 @@
 				</a>
 			</div>
 			<div class="col-12 col-xl-9">
-				<div class="d-flex flex-column flex-md-row justify-content-lg-between flex-wrap flex-xl-nowrap gap-40">
+				<div class="d-flex flex-column flex-sm-row justify-content-lg-between flex-wrap flex-xl-nowrap gap-24 gap-md-40">
 					{% if menu.footer_nav_1 %}
-						<div>
-							<p class="fp-body-sm font-weight-600 text-gray text-uppercase mb-24">{{ menu.footer_nav_1.name|e('wp_kses_post') }}</p>
-							{% include "partial/footer_menu.twig" with {'items': menu.footer_nav_1.get_items, 'class': 'fp-footer-menu d-flex flex-column gap-12 m-0 p-0'} %}
-						</div>
+						{% include "partial/footer-mobile-navigation.twig" with {'title': menu.footer_nav_1.name|e('wp_kses_post'), 'menu_items' : menu.footer_nav_1.get_items } %}
+						{% include "partial/footer-desktop-navigation.twig" with {'title': menu.footer_nav_1.name|e('wp_kses_post'), 'menu_items' : menu.footer_nav_1.get_items } %}
 					{% endif %}
 					{% if menu.footer_nav_2 %}
-						<div>
-							<p class="fp-body-sm font-weight-600 text-gray text-uppercase mb-24">{{ menu.footer_nav_2.name|e('wp_kses_post') }}</p>
-							{% include "partial/footer_menu.twig" with {'items': menu.footer_nav_2.get_items, 'class': 'fp-footer-menu d-flex flex-column gap-12 m-0 p-0'} %}
-						</div>
+						{% include "partial/footer-mobile-navigation.twig" with {'title': menu.footer_nav_2.name|e('wp_kses_post'), 'menu_items' : menu.footer_nav_2.get_items } %}
+						{% include "partial/footer-desktop-navigation.twig" with {'title': menu.footer_nav_2.name|e('wp_kses_post'), 'menu_items' : menu.footer_nav_2.get_items } %}
 					{% endif %}
 					{% if menu.footer_nav_3 %}
-						<div>
-							<p class="fp-body-sm font-weight-600 text-gray text-uppercase mb-24">{{ menu.footer_nav_3.name|e('wp_kses_post') }}</p>
-							{% include "partial/footer_menu.twig" with {'items': menu.footer_nav_3.get_items, 'class': 'fp-footer-menu d-flex flex-column gap-12 m-0 p-0'} %}
-						</div>
+						{% include "partial/footer-mobile-navigation.twig" with {'title': menu.footer_nav_3.name|e('wp_kses_post'), 'menu_items' : menu.footer_nav_3.get_items } %}
+						{% include "partial/footer-desktop-navigation.twig" with {'title': menu.footer_nav_3.name|e('wp_kses_post'), 'menu_items' : menu.footer_nav_3.get_items } %}
 					{% endif %}
 					{% if menu.footer_nav_4 %}
-						<div>
-							<p class="fp-body-sm font-weight-600 text-gray text-uppercase mb-24">{{ menu.footer_nav_4.name|e('wp_kses_post') }}</p>
-							{% include "partial/footer_menu.twig" with {'items': menu.footer_nav_4.get_items, 'class': 'fp-footer-menu d-flex flex-column gap-12 m-0 p-0'} %}
-						</div>
+						{% include "partial/footer-mobile-navigation.twig" with {'title': menu.footer_nav_4.name|e('wp_kses_post'), 'menu_items' : menu.footer_nav_4.get_items } %}
+						{% include "partial/footer-desktop-navigation.twig" with {'title': menu.footer_nav_4.name|e('wp_kses_post'), 'menu_items' : menu.footer_nav_4.get_items } %}
 					{% endif %}
 					{% if menu.footer_nav_5 %}
-						<div>
-							<p class="fp-body-sm font-weight-600 text-gray text-uppercase mb-24">{{ menu.footer_nav_5.name|e('wp_kses_post') }}</p>
-							{% include "partial/footer_menu.twig" with {'items': menu.footer_nav_5.get_items, 'class': 'fp-footer-menu d-flex flex-column gap-12 m-0 p-0'} %}
-						</div>
+						{% include "partial/footer-mobile-navigation.twig" with {'title': menu.footer_nav_5.name|e('wp_kses_post'), 'menu_items' : menu.footer_nav_5.get_items } %}
+						{% include "partial/footer-desktop-navigation.twig" with {'title': menu.footer_nav_5.name|e('wp_kses_post'), 'menu_items' : menu.footer_nav_5.get_items } %}
 					{% endif %}
 				</div>
 			</div>

@@ -17,7 +17,7 @@ class Enqueue {
 		} );
 
 		add_action( 'wp_enqueue_scripts', [ $this, 'global_assets' ], 99 );
-		add_action( 'wp_enqueue_scripts', [ $this, 'cf7_js_styles' ] );
+		add_action( 'wp_enqueue_scripts', [ $this, 'blocks_js_and_styles' ] );
 		add_action( 'login_enqueue_scripts', [ $this, 'login_stylesheet' ], 20 );
 		add_action( 'enqueue_block_editor_assets', [ $this, 'admin_styles_and_scripts' ], 999, 2 );
 		//add_action( 'init', [ $this, 'admin_editor_style' ] );
@@ -41,6 +41,7 @@ class Enqueue {
 
 
 		wp_enqueue_script( 'app', Assets::require_url( 'src/js/app.js' ), [], null );
+
 		wp_script_add_data( 'app', 'defer', true );
 		wp_script_add_data( 'app', 'module', true );
 
@@ -71,11 +72,16 @@ class Enqueue {
 	}
 
 	// Dequeue cf7/captcha scripts and styles, preventing them from loading everywhere
-	public function cf7_js_styles(): void {
-		if ( ! has_block( 'acf/fp-contact-form' ) ) {
-			wp_dequeue_script( 'contact-form-7' );
-			wp_dequeue_style( 'contact-form-7' );
-			remove_action( 'wp_enqueue_scripts', 'wpcf7_recaptcha_enqueue_scripts', 20 );
+	public function blocks_js_and_styles(): void {
+		wp_dequeue_script( 'contact-form-7' );
+		wp_dequeue_style( 'contact-form-7' );
+		remove_action( 'wp_enqueue_scripts', 'wpcf7_recaptcha_enqueue_scripts', 20 );
+
+		if ( has_block( 'acf/fp-contact-form' ) || has_block( 'acf/fp-contact-us' ) ) {
+			wp_enqueue_script( 'contact-form-7' );
+			wp_enqueue_script( 'wpcf7_recaptcha_enqueue_scripts' );
+			wp_enqueue_style( 'contact-form-7' );
 		}
+
 	}
 }

@@ -1,6 +1,6 @@
 <?php
 /**
- * Contact Form Block Template.
+ * Contact Us Block Template.
  *
  * @param array $block The block settings and attributes.
  * @param string $content The block inner HTML (empty).
@@ -22,7 +22,7 @@ if ( ! empty( $block['anchor'] ) ) {
 }
 
 // Create class attribute allowing for custom "className" and "align" values.
-$class_name = 'fp-block py-60 py-lg-100 bg-repeat-no-repeat bg-size-cover bg-position-center';
+$class_name = 'fp-block fp-contact-us-block position-relative py-120 py-lg-160';
 if ( ! empty( $block['className'] ) ) {
 	$class_name .= ' ' . $block['className'];
 }

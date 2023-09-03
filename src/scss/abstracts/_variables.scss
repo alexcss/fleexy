@@ -72,9 +72,6 @@ $position-values: (
 
 // spacers variations
 $spacers: (
-  n16: -16px,
-  n24: -24px,
-  n32: -32px,
   auto: auto,
   0: 0,
   4: 4px,
@@ -105,6 +102,16 @@ $spacers: (
   200: 200px,
   220: 220px,
   240: 240px,
+);
+
+$enable-negative-margins: true;
+
+// aspect-ratio variations
+$aspect-ratios: (
+  "1x1": 100%,
+  "4x3": calc(3 / 4 * 100%),
+  "16x9": calc(9 / 16 * 100%),
+  "21x9": calc(9 / 21 * 100%)
 );
 
 $gutters : $spacers;

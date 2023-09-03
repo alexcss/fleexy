@@ -5,7 +5,9 @@
 				<h3 class="font-family-body font-weight-600 text-center mb-24">{{ fields.title|e('wp_kses_post') }}</h3>
 				<p class="text-center text-gray-dark mb-40 mb-lg-52">{{ fields.description|e('wp_kses_post') }}</p>
 				{% if fields.form %}
-					{{ fields.form }}
+					<div class="fp-contact-form">
+						{{ fn('do_shortcode', fields.form) }}
+					</div>
 				{% endif %}
 			</div>
 		</div>

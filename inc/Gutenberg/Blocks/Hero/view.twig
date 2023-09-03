@@ -5,9 +5,11 @@
 				<div class="px-16 pb-68 w-100 px-md-32">
 					<div class="row align-items-end">
 						<div class="col-12 col-lg-8">
-							<h1 class="text-white text-uppercase mb-24 mb-lg-40">{{ fields.title | highlight_text | e('wp_kses_post') }}</h1>
+							{% if fields.title %}
+								<h1 class="{{ fields.title_size ?? 'h2' }} text-white text-uppercase mb-0">{{ fields.title | highlight_text | e('wp_kses_post') }}</h1>
+							{% endif %}
 							{% if fields.cta.url and fields.cta.title %}
-								<a class="fp-button mb-40 mb-lg-0" href="{{ fields.cta.url|e('esc_url') }}" target="{{ fields.cta.target|e('html_attr') ?: '_self' }}">
+								<a class="fp-button mt-24 mt-lg-40" href="{{ fields.cta.url|e('esc_url') }}" target="{{ fields.cta.target|e('html_attr') ?: '_self' }}">
 									{{ fields.cta.title|e('wp_kses_post') }}
 									<span class="icon-box">
 										<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -17,9 +19,11 @@
 								</a>
 							{% endif %}
 						</div>
-						<div class="col-12 col-lg-4">
-							<div class="fp-hero-block__content text-white">{{ fields.description | highlight_text | e('wp_kses_post') }}</div>
-						</div>
+						{% if fields.description %}
+							<div class="col-12 col-lg-4">
+								<div class="fp-hero-block__content mt-40 mt-lg-0 text-white">{{ fields.description | highlight_text | e('wp_kses_post') }}</div>
+							</div>
+						{% endif %}
 					</div>
 				</div>
 			</div>

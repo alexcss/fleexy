@@ -1,0 +1,33 @@
+.fp-breadcrumbs {
+  span {
+    display: flex;
+    gap: 20px;
+
+    span:not(:last-child) {
+      position: relative;
+
+      &:after {
+        content: '';
+        position: absolute;
+        top: 20%;
+        right: -10px;
+        width: 1px;
+        height: 60%;
+        background-color: $gray;
+      }
+    }
+  }
+
+  a {
+    color: $black;
+    @media (hover) {
+      &:hover {
+        color: $primary;
+      }
+    }
+  }
+
+  .breadcrumb_last {
+    color: $gray;
+  }
+}

@@ -5,6 +5,7 @@ namespace FP\Gutenberg;
 defined( 'ABSPATH' ) || exit;
 
 use FP\Plugins\Acf\Group;
+use FP\Utils\Assets;
 
 abstract class Gutenberg_Block extends Group {
 
@@ -67,6 +68,13 @@ abstract class Gutenberg_Block extends Group {
 
 	public static function enqueue_script(): void {
 		wp_enqueue_script( 'block-' . static::NAME );
+
+		if ( static::NAME == 'fp-google-maps' ) {
+
+			$google_maps_api_key = defined( 'GOOGLE_MAP_API_KEY' ) ? GOOGLE_MAP_API_KEY : false;
+			wp_enqueue_script( 'block-fp-google-maps-block', Assets::require_url( 'src/js/google-maps-block.js' ), [], null );
+			wp_enqueue_script( 'api-google-maps-block', "https://maps.googleapis.com/maps/api/js?key=$google_maps_api_key&callback=Function.prototype", [], null, true );
+		}
 	}
 
 	public static function enqueue_styles( $path ) {
