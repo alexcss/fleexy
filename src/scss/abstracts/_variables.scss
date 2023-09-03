@@ -124,6 +124,7 @@ $spacers: (
 );
 
 $enable-negative-margins: true;
+$negative-spacers: if($enable-negative-margins, negativify-map($spacers), null);
 
 // aspect-ratio variations
 $aspect-ratios: (
