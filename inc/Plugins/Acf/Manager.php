@@ -7,7 +7,7 @@ defined( 'ABSPATH' ) || exit;
 class Manager {
 
 	private array $option_pages = [
-		Options\Footer::class,
+		Options\Base::class,
 		Post_Types\Page::class,
 		Post_Types\Testimonial::class,
 	];

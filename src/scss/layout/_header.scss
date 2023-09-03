@@ -1,16 +1,21 @@
 .fp-header {
+  left: 0;
+  right: 0;
   max-width: 1424px;
   backdrop-filter: blur($blur);
-  border: 1px solid rgba(254, 251, 244, 0.24);
+  border: 1px solid rgba(5, 2, 1, 0.10);
   top: var(--wp-admin--admin-bar--height, 8px);
-  a {
-    color: $black;
+  color: $black;
+  @include media-breakpoint-up(xl) {
+    left: 8px;
+    right: 8px;
+  }
+  .navbar-nav a, .fp-logo {
+    color: inherit;
   }
 
   &.is-white {
-    a {
-      color: $white;
-    }
+    border-color: rgba(254, 251, 244, 0.24);
+    color: $white;
   }
-
 }

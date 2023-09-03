@@ -34,6 +34,7 @@ if ( file_exists( $composer_autoload ) ) {
 	new FP\Plugins\Acf\Manager();
 	new FP\Plugins\Cf7();
 	new FP\Plugins\Yoast();
+	new FP\Plugins\Wpml();
 
 } elseif ( ! is_admin() ) {
 	wp_die( 'Pls install composer dependency' );
