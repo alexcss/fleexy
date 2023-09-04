@@ -10,6 +10,7 @@ class Manager {
 		Options\Base::class,
 		Post_Types\Page::class,
 		Post_Types\Testimonial::class,
+		Menu::class,
 	];
 
 	public function __construct() {
