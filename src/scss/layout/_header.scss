@@ -3,13 +3,13 @@
   right: 2px;
   max-width: 1424px;
   backdrop-filter: blur(var(--fp-header-blur,#{$blur}));
-  //background-color: var(--fp-header-border-color, rgba(254, 251, 244, 0.005) );
+  background-color: var(--fp-header-bg-color, rgba(254, 251, 244, 0.4) );
   border: 1px solid var(--fp-header-border-color, rgba(5, 2, 1, 0.10));
   top: var(--wp-admin--admin-bar--height, 8px);
   color: var(--fp-header-color, #{$black});
   z-index: $zindex-offcanvas + 1;
   transition: 0.25s;
-  transition-property: backdrop-filter, background-color;
+  transition-property: backdrop-filter, background-color, border-color;
   @include media-breakpoint-up(xl) {
     left: 8px;
     right: 8px;
@@ -19,11 +19,13 @@
   }
 
   &.is-white {
+    --fp-header-bg-color: transparent;
     --fp-header-color: #{$white};
     --fp-header-border-color: rgba(254, 251, 244, 0.24);
   }
 
   .offcanvas-open &{
+    --fp-header-bg-color: transparent;
     --fp-header-color: #{$black};
     --fp-header-border-color: rgba(254, 251, 244, 0.10);
     --fp-header-blur: 0px;

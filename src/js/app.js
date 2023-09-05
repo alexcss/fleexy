@@ -9,8 +9,8 @@ import './vendors/_bootstrap';
 import Splide from '@splidejs/splide';
 import { AutoScroll } from '@splidejs/splide-extension-auto-scroll';
 
-import {Main} from "@/src/js/components/_main";
-new Main();
+import {HeaderBar} from "@/src/js/components/HeaderBar";
+new HeaderBar();
 
 let options = {
 	type: 'loop',
