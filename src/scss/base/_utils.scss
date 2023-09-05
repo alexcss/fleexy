@@ -74,6 +74,7 @@ $utilities: map-merge(
         property: font-weight,
         class: font-weight,
         values: (
+          400: $font-weight-normal,
           500: $font-weight-medium,
           600: $font-weight-semibold,
         )

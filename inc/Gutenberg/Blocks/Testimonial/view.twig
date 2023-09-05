@@ -19,18 +19,20 @@
 						{% for post in get_posts(fields.testimonials) %}
 							<div class="item col-10 col-md-8 col-lg-6 {{ loop.index == 3 or loop.index == 7 ? 'col-xl-5 offset-xl-1' : '' }} {{ loop.index == 2 or loop.index == 6 ? 'col-xl-5' : '' }}">
 								<div class="fp-testimonial rounded-24 p-24">
-									<p class="mb-24">{{ post.feedback|e('wp_kses_post') }}</p>
+									<p class="font-weight-400 mb-24">{{ post.feedback|e('wp_kses_post') }}</p>
 									<div class="d-flex align-items-center gap-16">
 										<img class="fp-testimonial__avatar rounded-circle object-fit-cover" src="{{ post.avatar.url | resize(240) }}" alt="{{ post.avatar.alt|e('html_attr') }}" width="120" height="120">
-										<p class="fp-testimonial__name mb-0">{{ post.meta.name|e('wp_kses_post') }}</p>
+										<p class="font-weight-600 mb-0">{{ post.meta.name|e('wp_kses_post') }}</p>
 									</div>
 								</div>
 							</div>
 						{% endfor %}
 					</div>
 				</div>
-				<div class="col-8 col-md-5 col-xl-3 order-2 order-xl-1">
-					<img src="{{ theme.link ~ '/src/images/testimonial-bg.png' }}" width="322" height="456" alt="{{ fields.title }}">
+				<div class="col-8 col-md-4 col-xl-3 order-2 order-xl-1">
+					<div class="decor-image position-relative">
+						<img class="position-relative z-1 w-100" src="{{ theme.link ~ '/src/images/testimonial-bg.png' }}" width="322" height="456" alt="{{ fields.title }}">
+					</div>
 				</div>
 			</div>
 		{% endif %}
