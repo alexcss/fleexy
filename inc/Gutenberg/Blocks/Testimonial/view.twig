@@ -13,20 +13,25 @@
 		{% endif %}
 
 		{% if fields.testimonials | length > 0 %}
-			<div class="row">
-				<div class="col-12 col-xl-10 offset-xl-2">
+			<div class="row row-gap-40 row-gap-md-60 justify-content-center align-items-xl-center">
+				<div class="col-12 col-xl-9 order-xl-2">
 					<div class="fp-testimonial-row fp-no-scroll mx-n16 mx-md-n24 mx-xl-0 overflow-x-auto row row-gap-24 flex-nowrap flex-xl-wrap">
 						{% for post in get_posts(fields.testimonials) %}
-							<div class="item col-10 col-md-8 col-lg-6 col-xl-5 {{ loop.index == 3 or loop.index == 7 ? 'offset-xl-1' }}">
+							<div class="item col-10 col-md-8 col-lg-6 {{ loop.index == 3 or loop.index == 7 ? 'col-xl-5 offset-xl-1' : '' }} {{ loop.index == 2 or loop.index == 6 ? 'col-xl-5' : '' }}">
 								<div class="fp-testimonial rounded-24 p-24">
-									<p class="mb-24">{{ post.feedback|e('wp_kses_post') }}</p>
+									<p class="font-weight-400 mb-24">{{ post.feedback|e('wp_kses_post') }}</p>
 									<div class="d-flex align-items-center gap-16">
 										<img class="fp-testimonial__avatar rounded-circle object-fit-cover" src="{{ post.avatar.url | resize(240) }}" alt="{{ post.avatar.alt|e('html_attr') }}" width="120" height="120">
-										<p class="fp-testimonial__name mb-0">{{ post.meta.name|e('wp_kses_post') }}</p>
+										<p class="font-weight-600 mb-0">{{ post.meta.name|e('wp_kses_post') }}</p>
 									</div>
 								</div>
 							</div>
 						{% endfor %}
+					</div>
+				</div>
+				<div class="col-8 col-md-4 col-xl-3 order-2 order-xl-1">
+					<div class="decor-image position-relative">
+						<img class="position-relative z-1 w-100" src="{{ theme.link ~ '/src/images/testimonial-bg.png' }}" width="322" height="456" alt="{{ fields.title }}">
 					</div>
 				</div>
 			</div>
