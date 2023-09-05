@@ -104,3 +104,38 @@
     }
   }
 }
+
+.footer-lang-switcher {
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    li {
+      display: flex;
+    }
+    ul {
+      flex-direction: row-reverse;
+    }
+    a {
+      margin-right: 16px;
+      font-size: 1.8rem;
+      font-weight: $font-weight-semibold;
+      letter-spacing: -0.36px;
+      text-transform: uppercase;
+      border-radius: 56px;
+      border: 1px solid $black;
+      padding: 7px 25px;
+      &:hover {
+        background-color: $black;
+        color: $white;
+      }
+    }
+  }
+  .wpml-ls-current-language {
+    & > a {
+      background-color: $black;
+      color: $white;
+    }
+  }
+}
