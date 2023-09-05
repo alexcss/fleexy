@@ -18,6 +18,7 @@ class Register {
 		Blocks\Google_Maps\Block::class,
 		Blocks\Contact_Us\Block::class,
 		Blocks\Service\Block::class,
+		Blocks\Services_List\Block::class,
 	];
 
 	const BLOCKS_DIR = 'Blocks';

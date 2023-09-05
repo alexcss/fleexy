@@ -22,7 +22,7 @@ if ( ! empty( $block['anchor'] ) ) {
 }
 
 // Create class attribute allowing for custom "className" and "align" values.
-$class_name = 'fp-block fp-service-block py-100';
+$class_name = 'fp-block fp-service-block pt-lg-40 pb-100 pb-lg-140';
 if ( ! empty( $block['className'] ) ) {
 	$class_name .= ' ' . $block['className'];
 }
@@ -42,13 +42,14 @@ global $wpdb;
 $service_query   = $wpdb->prepare( "SELECT * FROM {$wpdb->prefix}bookingpress_services WHERE bookingpress_service_id = %d", $service_id );
 $service_results = $wpdb->get_row( $service_query );
 
-//$get_locale = get_locale();
+$get_locale = get_locale();
 
-//$service_translation_query = $wpdb->prepare( "SELECT * FROM {$wpdb->prefix}bookingpress_ml_translation WHERE bookingpress_element_ref_id = %d AND WHERE bookingpress_language_code = $get_locale", $service_id );
-//$service_translation_results = $wpdb->get_results( $service_translation_query );
 
-$title = '';
-$description = '';
+$service_translation_query   = $wpdb->prepare( "SELECT * FROM {$wpdb->prefix}bookingpress_ml_translation WHERE bookingpress_element_ref_id = %d AND bookingpress_language_code = %s", $service_id, $get_locale );
+$service_translation_results = $wpdb->get_results( $service_translation_query );
+
+$title       = ! empty( $service_translation_results ) && $service_translation_results[0]?->bookingpress_translated_value ? $service_translation_results[0]->bookingpress_translated_value : $service_results->bookingpress_service_name;
+$description = ! empty( $service_translation_results ) && $service_translation_results[1]?->bookingpress_translated_value ? $service_translation_results[1]->bookingpress_translated_value : $service_results->bookingpress_service_description;
 
 $service_image_query   = $wpdb->prepare( "SELECT * FROM {$wpdb->prefix}bookingpress_servicesmeta WHERE bookingpress_service_id = %d AND bookingpress_servicemeta_name = 'service_image_details'", $service_id );
 $service_image_results = $wpdb->get_row( $service_image_query );
@@ -56,12 +57,13 @@ $service_image_results = $wpdb->get_row( $service_image_query );
 $service_image_results = $service_image_results ? maybe_unserialize( $service_image_results->bookingpress_servicemeta_value ) : [];
 
 $data = [
-	'title'         => $title,
-	'description'   => $description,
-	'anchor'        => $anchor,
-	'attribute'     => $wrapper_attributes,
-	'service'       => $service_results,
-	'service_image' => $service_image_results ? $service_image_results[0] : null,
+	'title'               => $title,
+	'description'         => $description,
+	'anchor'              => $anchor,
+	'attribute'           => $wrapper_attributes,
+	'service'             => $service_results,
+	'service_image'       => $service_image_results ? $service_image_results[0] : null,
+	'service_translation' => $service_translation_results,
 ];
 
 $context = array_merge( $context, $data );

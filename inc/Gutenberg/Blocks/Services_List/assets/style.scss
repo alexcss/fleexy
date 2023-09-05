@@ -1,0 +1,64 @@
+.fp-services-list-block {
+  overflow: hidden;
+  &__title {
+    font-size: 4rem;
+    @include media-breakpoint-up(md) {
+      font-size: 4.8rem;
+    }
+  }
+  .splide__track {
+    overflow: visible;
+  }
+}
+
+.fp-service-card {
+  max-width: 600px;
+  transition: 0.25s ease;
+  transition-property: background-color, border-color;
+  @include media-breakpoint-up(lg) {
+    max-width: 900px;
+  }
+  @media (hover) {
+    &:hover {
+      background-color: $bg-light-orange !important;
+      border-color: $primary !important;
+    }
+  }
+  .fp-button {
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+  }
+}
+
+.fp-services-slider {
+  .splide__arrows {
+    top: -178px;
+    @include media-breakpoint-up(lg) {
+      top: -200px;
+    }
+  }
+}
+
+.fp-services-nav {
+  div {
+    transition: 0.25s ease;
+    transition-property: background-color, color;
+  }
+  &.is-active div {
+    background-color: $black !important;
+    color: $white;
+  }
+  &:not(.is-active) div {
+    @media (hover) {
+      &:hover {
+        background-color: $primary !important;
+      }
+    }
+  }
+}

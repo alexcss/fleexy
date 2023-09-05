@@ -30,6 +30,7 @@ class Core {
 		'acf/fp-google-maps',
 		'acf/fp-contact-us',
 		'acf/fp-service',
+		'acf/fp-services-list',
 	];
 
 

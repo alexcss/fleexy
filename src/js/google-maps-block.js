@@ -1,4 +1,3 @@
-
 const initializeBlock = function (block) {
   let maps = block.querySelectorAll('[data-google-maps]');
 
