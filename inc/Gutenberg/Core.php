@@ -13,7 +13,9 @@ class Core {
 		'core/list-item',
 		'core/quote',
 		'core/table',
-		'core/shortcode'
+		'core/shortcode',
+		'core/block',
+		'core/template'
 	];
 
 	// TODO: Refactor to use the main block array from Register.php
@@ -93,7 +95,7 @@ class Core {
 
 	}
 
-	public function allowed_blocks( $allowed_blocks ): array {
+	public function allowed_blocks( $allowed_blocks, $post ): array {
 
 		return array_merge( static::DEFAULT_BLOCKS, static::CUSTOM_BLOCKS );
 	}
