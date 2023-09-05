@@ -5,6 +5,8 @@
 @import '~bootstrap/helpers/ratio';
 @import '~bootstrap/helpers/visually-hidden';
 
+/*! purgecss start ignore */
+
 @import
   //'base/main',
   'base/gutenberg';
@@ -15,7 +17,6 @@
   'components/breadcrumbs',
   'components/buttons';
 
-/*! purgecss start ignore */
 
 @import url('https://fonts.googleapis.com/css2?family=Brygada+1918:ital,wght@0,500;1,500&family=Manrope:wght@500;600&display=swap');
 
