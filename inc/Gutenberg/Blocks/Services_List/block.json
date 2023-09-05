@@ -1,9 +1,9 @@
 {
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 2,
-  "name": "fp-service",
-  "title": "Service",
-  "description": "Service Block",
+  "name": "fp-services-list",
+  "title": "Services List",
+  "description": "Services List Block",
   "category": "custom-blocks",
   "icon": "block-default",
   "keywords": [
