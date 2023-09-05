@@ -6,21 +6,21 @@
 @import 'vendors/splide';
 
 @import 'base/main',
-    'base/typography',
-    'base/content',
-    'base/wp-admin',
-    'base/gutenberg';
+        'base/typography',
+        'base/content',
+        'base/wp-admin',
+        'base/gutenberg';
 
 @import 'layout/header',
-    'layout/navigation',
-    'layout/offcanvas',
-    'layout/footer',
-    'layout/forms';
+        'layout/navigation',
+        'layout/offcanvas',
+        'layout/footer',
+        'layout/forms';
 
 @import 'components/breadcrumbs',
-    'components/buttons',
-    'components/bookingpress',
-    'components/lang-switcher';
+        'components/buttons',
+        'components/bookingpress',
+        'components/lang-switcher';
 
 @import 'pages/front';
 /*! purgecss end ignore */
