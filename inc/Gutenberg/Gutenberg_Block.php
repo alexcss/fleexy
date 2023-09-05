@@ -66,9 +66,10 @@ abstract class Gutenberg_Block extends Group {
 		wp_register_script( 'block-' . static::NAME, $file_js, [], THEME_VERSION, true );
 	}
 
-	public static function enqueue_script(): void {
-		wp_enqueue_script( 'block-' . static::NAME );
-
+	public static function enqueue_script( $path = '' ): void {
+		if ( $path ) {
+			wp_enqueue_script( 'block-' . static::NAME, Assets::require_url( $path ), [], null, true );
+		}
 		if ( static::NAME == 'fp-google-maps' ) {
 
 			$google_maps_api_key = defined( 'GOOGLE_MAP_API_KEY' ) ? GOOGLE_MAP_API_KEY : false;

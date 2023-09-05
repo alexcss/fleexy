@@ -1,30 +1,55 @@
 @import 'abstracts/abstracts';
-@import 'vendors/bootstrap';
+
+@import '~bootstrap/containers';
+@import '~bootstrap/grid';
+@import '~bootstrap/helpers/ratio';
+@import '~bootstrap/helpers/visually-hidden';
+
 
 @import
-  'base/fonts',
-  'base/main',
-  'base/content',
-  'base/wp-admin',
+  //'base/main',
   'base/gutenberg';
 
-@import
-  'layout/header',
-  'layout/navigation',
-  'layout/footer',
-  'layout/forms';
+@import 'layout/forms';
 
 @import
   'components/breadcrumbs',
   'components/buttons';
-
-@import 'pages/front';
 
 @import 'base/_utils'; //must be last in this file
 
 /*! purgecss start ignore */
 
 @import url('https://fonts.googleapis.com/css2?family=Brygada+1918:ital,wght@0,500;1,500&family=Manrope:wght@500;600&display=swap');
+
+
+a, button {
+  transition-duration: 0.2s;
+  transition-property: color, background-color, opacity, border-color;
+}
+
+img, svg {
+  max-width: 100%;
+  height: auto;
+}
+
+picture {
+  display: inline-block;
+}
+
+.container {
+  @each $size, $value in $container-padding {
+    @include media-breakpoint-up($size) {
+      padding-left: $value;
+      padding-right: $value;
+    }
+  }
+}
+
+.fp-highlight {
+  color: $primary;
+  font-style: italic;
+}
 
 :root {
   font-size: 62.5%;
@@ -36,9 +61,19 @@
   box-sizing: border-box;
 }
 
+input[type=checkbox], input[type=radio] {
+  width: 1.6rem;
+  height: 1.6rem;
+  &:checked::before {
+    width: 2rem;
+    height: 2rem;
+  }
+}
+
 .editor-styles-wrapper {
   font-family: $font-family-base !important;
-
+  font-size: 1.6rem !important;
+  line-height: 1.5 !important;
   @import 'base/typography';
 
   h1,
@@ -61,6 +96,9 @@
     @include media-breakpoint-up(lg) {
       font-size: 6rem;
     }
+  }
+  input[type=date], input[type=datetime-local], input[type=datetime], input[type=email], input[type=month], input[type=number], input[type=password], input[type=search], input[type=tel], input[type=text], input[type=time], input[type=url], input[type=week] {
+    line-height: 1.5;
   }
 }
 
@@ -111,6 +149,12 @@ button[aria-label="Heading 1"] {
 
 // Blocks
 
+.fp-block {
+  p {
+    margin-top: 0;
+  }
+}
+
 .fp-button {
   text-decoration: none !important;
 }
@@ -147,8 +191,23 @@ button[aria-label="Heading 1"] {
   overflow-y: auto;
 }
 
-.splide__slide {
-  flex: 0 0 320px;
+.fp-hero-block {
+  margin: 0;
+}
+
+.fp-services-list-block {
+  .splide__list {
+    &::-webkit-scrollbar {
+      display: none;
+      scrollbar-width: none;
+    }
+  }
+
+  .fp-services-slider {
+    .fp-service-card {
+      flex: 0 0 900px;
+    }
+  }
 }
 
 b,
