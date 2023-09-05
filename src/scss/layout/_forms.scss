@@ -1,6 +1,6 @@
 .fp-contact-form {
   --bs-border-color: rgba(254, 251, 244, 0.24);
-
+  position: relative;
   .row {
     row-gap: 24px;
   }
@@ -12,7 +12,11 @@
     font-weight: $font-weight-semibold;
     cursor: pointer;
   }
-
+  .wpcf7-spinner{
+    position: absolute;
+    right: 0;
+    bottom: 8px;
+  }
   .wpcf7-response-output {
     display: none;
   }
