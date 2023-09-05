@@ -44,8 +44,8 @@ $modal-backdrop-opacity: .5;
 // Offcanvas
 
 // scss-docs-start offcanvas-variables
-$offcanvas-padding-y:               $modal-inner-padding;
-$offcanvas-padding-x:               $modal-inner-padding;
+$offcanvas-padding-y:               24px;
+$offcanvas-padding-x:               16px;
 $offcanvas-horizontal-width:        400px;
 $offcanvas-vertical-height:         100vh;
 $offcanvas-transition-duration:     .3s;
@@ -61,7 +61,7 @@ $offcanvas-backdrop-opacity:        $modal-backdrop-opacity;
 
 $link-decoration: none;
 
-$blur: 20px;
+$blur: 10px;
 
 // fonts settings
 $font-weight-lighter: lighter;
@@ -95,6 +95,7 @@ $spacers: (
   4: 4px,
   6: 6px,
   8: 8px,
+  10: 10px,
   12: 12px,
   14: 14px,
   16: 16px,
@@ -110,6 +111,7 @@ $spacers: (
   56: 56px,
   60: 60px,
   64: 64px,
+  66: 66px,
   68: 68px,
   72: 72px,
   76: 76px,
@@ -177,6 +179,7 @@ $rounded: (
   0: 0,
   circle: 50%,
   8: 8px,
+  12: 12px,
   16: 16px,
   24: 24px,
   32: 32px,
@@ -211,4 +214,22 @@ $headings-styles: (
   ),
 );
 
+
+// Navs
+
+// scss-docs-start nav-variables
+$nav-link-padding-y:                0;
+$nav-link-padding-x:                0;
+$nav-link-font-size:                null;
+$nav-link-font-weight:              null;
+$nav-link-color:                    $black;
+$nav-link-hover-color:              $primary;
+$nav-link-transition:               color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;
+$nav-link-disabled-color:           $gray-600;
+
+// Navbar
+
+// scss-docs-start navbar-variables
+$navbar-padding-y:                  null;
+$navbar-padding-x:                  null;
 $navbar-nav-link-padding-x:         0;

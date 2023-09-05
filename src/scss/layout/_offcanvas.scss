@@ -1,0 +1,44 @@
+.offcanvas-booking{
+  z-index: $zindex-offcanvas + 2;
+}
+
+.d-offcanvas-block{
+  display: none;
+}
+.offcanvas-open{
+  .d-offcanvas-none{
+    display: none;
+  }
+  .d-offcanvas-block{
+    display: block;
+  }
+}
+.offcanvas-nav{
+  --bs-nav-link-color: #{$black};
+  --bs-nav-link-hover-color: #{$black};
+
+  .nav-link{
+    font: 600 2.8rem/1.14 $font-family-base;
+    letter-spacing: -0.04em;
+  }
+  .nav-sub-link{
+    font: 400 1.6rem/1.5 $font-family-base;
+    letter-spacing: -0.02em;
+  }
+}
+.btn-toggle{
+  position: relative;
+  transition: 0.15s ease-in-out;
+  transition-property: rotate;
+  &[aria-expanded="true"]{
+    rotate:180deg;
+  }
+  &:after{
+    content: '';
+    position: absolute;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    top: -10px;
+  }
+}

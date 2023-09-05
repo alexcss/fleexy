@@ -1,8 +1,16 @@
 // Make sure that the WP admin-bar does not overlap Foundation components
+#wpadminbar{
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+}
 body.admin-bar {
 
   // Offset mobile off-canvas menu
   .offcanvas {
     top: var(--wp-admin--admin-bar--height);
+    height: calc(100vh - var(--wp-admin--admin-bar--height));
   }
 }
+
