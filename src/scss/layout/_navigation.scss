@@ -5,6 +5,8 @@
     flex-shrink: 0;
   }
   .nav-link{
+    --bs-nav-link-color : var(--fp-header-color);
+    --bs-navbar-active-color: var(--bs-nav-link-color, #{black});
     font: 600 1.6rem/1.3 $font-family-base;
     letter-spacing: -0.02em;
     padding: 0;
@@ -14,7 +16,6 @@
       }
     }
     &.active{
-      --bs-navbar-active-color: #{$primary};
       &:before{
         content: '';
         display: block;
@@ -29,7 +30,6 @@
   }
   .nav-item:hover > {
     .nav-link .nav-link-toggle{
-      transition: 0.15s ease-in-out;
       rotate: 180deg;
     }
     .dropdown-nav {

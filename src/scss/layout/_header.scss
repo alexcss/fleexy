@@ -3,7 +3,7 @@
   right: 2px;
   max-width: 1424px;
   backdrop-filter: blur(var(--fp-header-blur,#{$blur}));
-  background-color: var(--fp-header-bg-color, rgba(254, 251, 244, 0.4) );
+  background-color: var(--fp-header-bg-color, rgba(254, 251, 244, 0.5) );
   border: 1px solid var(--fp-header-border-color, rgba(5, 2, 1, 0.10));
   top: var(--wp-admin--admin-bar--height, 8px);
   color: var(--fp-header-color, #{$black});
