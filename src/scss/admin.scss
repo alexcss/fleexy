@@ -16,8 +16,6 @@
   'components/breadcrumbs',
   'components/buttons';
 
-@import 'base/_utils'; //must be last in this file
-
 /*! purgecss start ignore */
 
 @import url('https://fonts.googleapis.com/css2?family=Brygada+1918:ital,wght@0,500;1,500&family=Manrope:wght@500;600&display=swap');
@@ -57,24 +55,57 @@ picture {
   //--wp-admin-theme-color-darker-10: #{$primary};
 }
 
-* {
-  box-sizing: border-box;
-}
+.edit-post-visual-editor{
 
-input[type=checkbox], input[type=radio] {
-  width: 1.6rem;
-  height: 1.6rem;
-  &:checked::before {
-    width: 2rem;
-    height: 2rem;
+  * {
+    box-sizing: border-box;
+  }
+
+  input[type=checkbox], input[type=radio] {
+    width: 1.6rem;
+    height: 1.6rem;
+    &:checked::before {
+      width: 2rem;
+      height: 2rem;
+    }
   }
 }
 
 .editor-styles-wrapper {
+
   font-family: $font-family-base !important;
   font-size: 1.6rem !important;
   line-height: 1.5 !important;
-  @import 'base/typography';
+  .fp-body-sm {
+    font-size: 1.4rem;
+    font-weight: $font-weight-medium;
+    line-height: 1.4285;
+    letter-spacing: 0.04em;
+  }
+  @each $size, $headers in $headings-styles {
+    @include media-breakpoint-up($size) {
+      @each $header, $header-defs in $headers {
+        #{$header}, .#{$header} {
+
+          @if map-has-key($header-defs, font-size) {
+            font-size: map-get($header-defs, font-size);
+          }
+          @if map-has-key($header-defs, letter-spacing) {
+            letter-spacing: map-get($header-defs, letter-spacing);
+          }
+          @if map-has-key($header-defs, line-height) {
+            line-height: map-get($header-defs, line-height);
+          }
+          @if map-has-key($header-defs, margin-top) {
+            margin-top: map-get($header-defs, margin-top);
+          }
+          @if map-has-key($header-defs, margin-bottom) {
+            margin-bottom: map-get($header-defs, margin-bottom);
+          }
+        }
+      }
+    }
+  }
 
   h1,
   h2,
@@ -217,5 +248,5 @@ strong {
 
 /*! purgecss end ignore */
 
-
+@import 'base/_utils'; //must be last in this file
 

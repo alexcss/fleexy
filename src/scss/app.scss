@@ -1,25 +1,22 @@
 @import 'abstracts/abstracts';
-@import
-  'vendors/bootstrap',
-  'vendors/splide';
 
-@import
-  'base/fonts',
-  'base/main',
-  'base/typography',
-  'base/content',
-  'base/wp-admin',
-  'base/gutenberg';
-
-@import
-  'layout/header',
-  'layout/navigation',
-  'layout/offcanvas',
-  'layout/footer',
-  'layout/forms';
-
+@import 'vendors/bootstrap';
 
 /*! purgecss start ignore */
+@import 'vendors/splide';
+
+@import 'base/fonts';
+@import 'base/main';
+@import 'base/typography';
+@import 'base/content';
+@import 'base/wp-admin';
+@import 'base/gutenberg';
+
+@import 'layout/header';
+@import 'layout/navigation';
+@import 'layout/offcanvas';
+@import 'layout/footer';
+@import 'layout/forms';
 
 @import 'components/breadcrumbs';
 @import 'components/buttons';

@@ -6,7 +6,11 @@
 @import '~bootstrap/type';
 //@import '~bootstrap/images';
 @import '~bootstrap/containers';
+
+/*! purgecss start ignore */
 @import '~bootstrap/transitions';
+/*! purgecss end ignore */
+
 @import '~bootstrap/grid';
 
 // HELPERS
