@@ -1,13 +1,13 @@
 {% if items %}
-	<ul class="{{ class }} navbar-nav gap-24 align-items-center position-relative">
+	<ul class="{{ class }} desktop-nav navbar-nav gap-24 align-items-center position-relative">
 		{% for item in items %}
 			{% set opt = item.meta('dropdown_options') ?: {} %}
 			<li class="nav-item" >
 				<a class="text-nowrap nav-link d-flex align-items-center {{ item.current ? 'active' }}" href="{{ item.link }}" {% if item.target  %} target="{{ item.target }}" {% endif %}>
 					{{ item.title }}
 					{% if item.children %}
-						<svg class="nav-link-toggle ms-8" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-							<path d="M7 10L12.0008 14.58L17 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+						<svg class="nav-link-toggle ms-8" width="24" height="24">
+							<use xlink:href="#icon-toggle" />
 						</svg>
 					{% endif %}
 				</a>

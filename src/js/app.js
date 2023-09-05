@@ -9,6 +9,9 @@ import './vendors/_bootstrap';
 import Splide from '@splidejs/splide';
 import { AutoScroll } from '@splidejs/splide-extension-auto-scroll';
 
+import {Main} from "@/src/js/components/_main";
+new Main();
+
 let options = {
 	type: 'loop',
 	autoWidth: true,

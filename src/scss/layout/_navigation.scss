@@ -1,4 +1,4 @@
-.navbar-nav{
+.desktop-nav{
   .nav-link-toggle{
     transition: 0.15s ease-in-out;
     transition-property: rotate;
@@ -40,13 +40,16 @@
   }
   .dropdown-nav{
     margin-top: 32px;
-    width: 800px;
+    width: 750px;
     opacity: 0;
     visibility: hidden;
     transform: translateY(-5px);
     transition: 0.25s ease-in-out;
     transition-property: opacity, visibility, transform;
     transition-delay: 0.1s;
+    @include media-breakpoint-up(xl) {
+      width: 800px;
+    }
     &:before{
       position: absolute;
       content: '';
@@ -77,4 +80,3 @@
     break-inside: avoid;
   }
 }
-
