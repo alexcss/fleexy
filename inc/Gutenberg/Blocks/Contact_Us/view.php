@@ -22,7 +22,7 @@ if ( ! empty( $block['anchor'] ) ) {
 }
 
 // Create class attribute allowing for custom "className" and "align" values.
-$class_name = 'fp-block fp-contact-us-block position-relative py-120 py-lg-160';
+$class_name = 'fp-block fp-contact-us-block position-relative pt-20 pt-lg-60 pb-100 pb-lg-120';
 if ( ! empty( $block['className'] ) ) {
 	$class_name .= ' ' . $block['className'];
 }
