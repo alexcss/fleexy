@@ -17,10 +17,17 @@ class Support {
 		if ( ! class_exists( 'ACF' ) && ! is_admin() ) {
 			wp_die( 'Pls activate ACF Plugin' );
 		}
+
+		add_action( 'admin_menu', [ $this, 'reusable_blocks_link_wp_admin' ] );
+	}
+
+	public function reusable_blocks_link_wp_admin() {
+		add_menu_page( 'linked_url', 'Reusable Blocks', 'read', 'edit.php?post_type=wp_block', '', 'dashicons-editor-table', 22 );
 	}
 
 	public function setup_google_api_key( $api ) {
-		$api['key'] = defined(GOOGLE_MAP_API_KEY) ? GOOGLE_MAP_API_KEY : false;
+		$api['key'] = defined( GOOGLE_MAP_API_KEY ) ? GOOGLE_MAP_API_KEY : false;
+
 		return $api;
 	}
 
