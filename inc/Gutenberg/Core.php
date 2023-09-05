@@ -95,7 +95,7 @@ class Core {
 
 	}
 
-	public function allowed_blocks( $allowed_blocks, $post ): array {
+	public function allowed_blocks( $allowed_blocks ): array {
 
 		return array_merge( static::DEFAULT_BLOCKS, static::CUSTOM_BLOCKS );
 	}
