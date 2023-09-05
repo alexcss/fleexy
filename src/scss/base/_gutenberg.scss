@@ -1,7 +1,5 @@
 @import '../inc/Gutenberg/Blocks/**/assets/style.scss';
 
-/*! purgecss start ignore */
-
 @mixin cs-white {
   --background-color: #{$white};
   --highlight: #{$primary};
@@ -88,5 +86,3 @@
     scrollbar-width: none;
   }
 }
-
-/*! purgecss end ignore */

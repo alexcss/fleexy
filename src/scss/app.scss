@@ -5,23 +5,22 @@
 /*! purgecss start ignore */
 @import 'vendors/splide';
 
-@import 'base/fonts';
-@import 'base/main';
-@import 'base/typography';
-@import 'base/content';
-@import 'base/wp-admin';
-@import 'base/gutenberg';
+@import 'base/main',
+    'base/typography',
+    'base/content',
+    'base/wp-admin',
+    'base/gutenberg';
 
-@import 'layout/header';
-@import 'layout/navigation';
-@import 'layout/offcanvas';
-@import 'layout/footer';
-@import 'layout/forms';
+@import 'layout/header',
+    'layout/navigation',
+    'layout/offcanvas',
+    'layout/footer',
+    'layout/forms';
 
-@import 'components/breadcrumbs';
-@import 'components/buttons';
-@import 'components/bookingpress';
-@import 'components/lang-switcher';
+@import 'components/breadcrumbs',
+    'components/buttons',
+    'components/bookingpress',
+    'components/lang-switcher';
 
 @import 'pages/front';
 /*! purgecss end ignore */
