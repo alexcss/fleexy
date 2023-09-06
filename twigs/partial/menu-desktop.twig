@@ -16,8 +16,8 @@
 					<div class="dropdown-nav p-24 d-flex align-items-start rounded-8 position-absolute t-100 start-0" style="background-color: {{ opt.bg_color ?: '#d5f6e6' }}">
 						{% if opt.image and opt.image.url %}
 							<img class="rounded-8 flex-shrink-0 me-40"
-								 srcset="{{ opt.image.url|resize(580, 352, 'center') }} 1.5x"
-								 src="{{ opt.image.url|resize(240, 176, 'center') }}" width="240" height="176" alt="{{ item.title|e('html_attr') }}">
+								 srcset="{{ opt.image.url|resize(580, 352, 'center')|tojpg }} 1.5x"
+								 src="{{ opt.image.url|resize(240, 176, 'center')|tojpg }}" width="240" height="176" alt="{{ item.title|e('html_attr') }}">
 						{% endif %}
 						<div class="">
 							<p class="fp-body-sm font-weight-600 text-gray text-uppercase mb-8">{{ item.title }}</p>
