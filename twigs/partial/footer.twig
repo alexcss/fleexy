@@ -54,8 +54,8 @@
 		</div>
 		<div class="row align-items-lg-center justify-content-lg-between mb-40">
 			<div class="col-12 col-md-6 mb-40 mb-md-0">
-				<div class="d-flex justify-content-center justify-content-sm-start footer-lang-switcher">
-					{{ fn('do_action', 'wpml_add_language_selector') }}
+				<div class="line-lang-switcher">
+					{{ fn('do_action', 'wpml_language_switcher', {'type' : 'footer', 'flags' : 0}) }}
 				</div>
 			</div>
 			<div class="col-12 col-md-6 d-flex justify-content-center justify-content-sm-start justify-content-md-end">
