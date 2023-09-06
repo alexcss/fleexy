@@ -3,98 +3,100 @@
 		{% if title %}
 			<h2 class="fp-services-list-block__title font-family-body mb-40">{{ title }}</h2>
 		{% endif %}
-		<div class="splide mb-40 mb-lg-56" data-services-nav>
-			<div class="splide__track">
-				<div class="splide__list">
-					{% for service in services %}
-						<div class="fp-services-nav splide__slide">
-							<div class="bg-white rounded-56 border border-1 border-black py-12 px-16 p-lg-16 font-weight-600">{{ service.bookingpress_service_name }}</div>
-						</div>
-					{% endfor %}
+		{% if services | length > 0 %}
+			<div class="splide mb-40 mb-lg-56" data-services-nav>
+				<div class="splide__track">
+					<div class="splide__list">
+						{% for service in services %}
+							<div class="fp-services-nav splide__slide">
+								<div class="bg-white rounded-56 border border-1 border-black py-12 px-16 p-lg-16 font-weight-600">{{ service.bookingpress_service_name }}</div>
+							</div>
+						{% endfor %}
+					</div>
 				</div>
 			</div>
-		</div>
-		<div class="splide fp-services-slider" data-services-list>
+			<div class="splide fp-services-slider" data-services-list>
 
-			<div class="splide__track">
-				<div class="position-absolute end-0 d-none d-md-flex gap-16 top-n200 splide__arrows splide__arrows--ltr">
-					<button
-						class="splide__arrow splide__arrow--prev"
-						type="button"
-						aria-label="Previous slide"
-						aria-controls="splide01-track"
-					>
-						<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-							<path fill-rule="evenodd" clip-rule="evenodd" d="M7.76559 2.63434C7.45317 2.32192 6.94664 2.32192 6.63422 2.63434L1.83422 7.43434C1.5218 7.74676 1.5218 8.25329 1.83422 8.56571L6.63422 13.3657C6.94664 13.6781 7.45317 13.6781 7.76559 13.3657C8.07801 13.0533 8.07801 12.5468 7.76559 12.2343L4.33127 8.80002L13.5999 8.80003C14.0417 8.80002 14.3999 8.44185 14.3999 8.00002C14.3999 7.5582 14.0417 7.20002 13.5999 7.20002H4.33127L7.76559 3.76571C8.07801 3.45329 8.07801 2.94676 7.76559 2.63434Z" fill="#050201"/>
-						</svg>
-					</button>
-					<button
-						class="splide__arrow splide__arrow--next"
-						type="button"
-						aria-label="Next slide"
-						aria-controls="splide01-track"
-					>
-						<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-							<path fill-rule="evenodd" clip-rule="evenodd" d="M8.23441 2.63434C8.54683 2.32192 9.05336 2.32192 9.36578 2.63434L14.1658 7.43434C14.4782 7.74676 14.4782 8.25329 14.1658 8.56571L9.36578 13.3657C9.05336 13.6781 8.54683 13.6781 8.23441 13.3657C7.92199 13.0533 7.92199 12.5468 8.23441 12.2343L11.6687 8.80002L2.4001 8.80003C1.95827 8.80002 1.6001 8.44185 1.6001 8.00002C1.6001 7.5582 1.95827 7.20002 2.4001 7.20002H11.6687L8.23441 3.76571C7.92199 3.45329 7.92199 2.94676 8.23441 2.63434Z" fill="#050201"/>
-						</svg>
-					</button>
-				</div>
-				<div class="splide__list">
-					{% for service in services %}
-						<div class="fp-service-card rounded-16 bg-white border border-1 position-relative h-100 splide__slide">
-							<div class="d-flex flex-column flex-md-row p-16 p-lg-0">
-								<div class="flex-shrink-0 mb-24 mb-md-0 p-lg-8">
-									<picture class="w-100">
-										<source media="(max-width: 680px)"
-												srcset="{{ service.image[0].url|resize(400, 235, 'center')|towebp }} 1x, {{ service.image[0].url|resize(600, 353, 'center')|towebp }} 1.5x"
-												type="image/webp" width="400" height="235"/>
-										<source media="(max-width: 680px)"
-												srcset="{{ service.image[0].url|resize(400, 235, 'center')|tojpg }} 1x, {{ service.image[0].url|resize(600, 353, 'center')|tojpg }} 1.5x"
-												width="400" height="235"/>
+				<div class="splide__track">
+					<div class="position-absolute end-0 d-none d-md-flex gap-16 top-n200 splide__arrows splide__arrows--ltr">
+						<button
+							class="splide__arrow splide__arrow--prev"
+							type="button"
+							aria-label="Previous slide"
+							aria-controls="splide01-track"
+						>
+							<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path fill-rule="evenodd" clip-rule="evenodd" d="M7.76559 2.63434C7.45317 2.32192 6.94664 2.32192 6.63422 2.63434L1.83422 7.43434C1.5218 7.74676 1.5218 8.25329 1.83422 8.56571L6.63422 13.3657C6.94664 13.6781 7.45317 13.6781 7.76559 13.3657C8.07801 13.0533 8.07801 12.5468 7.76559 12.2343L4.33127 8.80002L13.5999 8.80003C14.0417 8.80002 14.3999 8.44185 14.3999 8.00002C14.3999 7.5582 14.0417 7.20002 13.5999 7.20002H4.33127L7.76559 3.76571C8.07801 3.45329 8.07801 2.94676 7.76559 2.63434Z" fill="#050201"/>
+							</svg>
+						</button>
+						<button
+							class="splide__arrow splide__arrow--next"
+							type="button"
+							aria-label="Next slide"
+							aria-controls="splide01-track"
+						>
+							<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path fill-rule="evenodd" clip-rule="evenodd" d="M8.23441 2.63434C8.54683 2.32192 9.05336 2.32192 9.36578 2.63434L14.1658 7.43434C14.4782 7.74676 14.4782 8.25329 14.1658 8.56571L9.36578 13.3657C9.05336 13.6781 8.54683 13.6781 8.23441 13.3657C7.92199 13.0533 7.92199 12.5468 8.23441 12.2343L11.6687 8.80002L2.4001 8.80003C1.95827 8.80002 1.6001 8.44185 1.6001 8.00002C1.6001 7.5582 1.95827 7.20002 2.4001 7.20002H11.6687L8.23441 3.76571C7.92199 3.45329 7.92199 2.94676 8.23441 2.63434Z" fill="#050201"/>
+							</svg>
+						</button>
+					</div>
+					<div class="splide__list">
+						{% for service in services %}
+							<div class="fp-service-card rounded-16 bg-white border border-1 position-relative h-100 splide__slide">
+								<div class="d-flex flex-column flex-md-row p-16 p-lg-0">
+									<div class="flex-shrink-0 mb-24 mb-md-0 p-lg-8">
+										<picture class="w-100">
+											<source media="(max-width: 680px)"
+													srcset="{{ service.image[0].url|resize(400, 235, 'center')|towebp }} 1x, {{ service.image[0].url|resize(600, 353, 'center')|towebp }} 1.5x"
+													type="image/webp" width="400" height="235"/>
+											<source media="(max-width: 680px)"
+													srcset="{{ service.image[0].url|resize(400, 235, 'center')|tojpg }} 1x, {{ service.image[0].url|resize(600, 353, 'center')|tojpg }} 1.5x"
+													width="400" height="235"/>
 
-										<source media="(max-width: 991px)"
-												srcset="{{ service.image[0].url|resize(240, 400, 'center')|towebp }} 1x, {{ service.image[0].url|resize(360, 600, 'center')|towebp }} 1.5x"
-												type="image/webp" width="240" height="400"/>
-										<source media="(max-width: 991px)"
-												srcset="{{ service.image[0].url|resize(240, 400, 'center')|tojpg }} 1x, {{ service.image[0].url|resize(360, 600, 'center')|tojpg }} 1.5x"
-												width="400" height="400"/>
+											<source media="(max-width: 991px)"
+													srcset="{{ service.image[0].url|resize(240, 400, 'center')|towebp }} 1x, {{ service.image[0].url|resize(360, 600, 'center')|towebp }} 1.5x"
+													type="image/webp" width="240" height="400"/>
+											<source media="(max-width: 991px)"
+													srcset="{{ service.image[0].url|resize(240, 400, 'center')|tojpg }} 1x, {{ service.image[0].url|resize(360, 600, 'center')|tojpg }} 1.5x"
+													width="400" height="400"/>
 
-										<source srcset="{{ service.image[0].url|resize(360, 448, 'center')|towebp }} 1x, {{ service.image[0].url|resize(540, 672, 'center')|towebp }} 1.5x"
-												type="image/webp" width="240" height="448"/>
-										<img class="object-fit-cover rounded-8 w-100" src="{{ service.image[0].url|resize(360, 448, 'center') }}" srcset="{{ service.image[0].url|resize(540, 672, 'center') }}" alt="{{ service.image[0].alt }}" width="360" height="448">
-									</picture>
-								</div>
-								<div class="d-flex flex-column ps-md-16 pt-lg-40 pe-lg-48 pb-lg-24 ps-lg-80">
-									<h3 class="font-family-body mb-24">{{ service.bookingpress_service_name }}</h3>
-									<div class="d-flex gap-48 mb-40">
-										<div class="d-flex flex-column">
-											<div class="mb-16">{{ service.bookingpress_service_duration_val ~ ' ' ~ service.bookingpress_service_duration_unit }} </div>
-											<p class="h3 mb-0">{{ service.bookingpress_service_price }}</p>
-										</div>
-										<div class="d-flex flex-column">
-											<div class="mb-16">{{ service.bookingpress_service_duration_val ~ ' ' ~ service.bookingpress_service_duration_unit }} </div>
-											<p class="h3 mb-0">{{ service.bookingpress_service_price }}</p>
-										</div>
+											<source srcset="{{ service.image[0].url|resize(360, 448, 'center')|towebp }} 1x, {{ service.image[0].url|resize(540, 672, 'center')|towebp }} 1.5x"
+													type="image/webp" width="240" height="448"/>
+											<img class="object-fit-cover rounded-8 w-100" src="{{ service.image[0].url|resize(360, 448, 'center') }}" srcset="{{ service.image[0].url|resize(540, 672, 'center') }}" alt="{{ service.image[0].alt }}" width="360" height="448">
+										</picture>
 									</div>
-									<div class="d-flex flex-grow-1 flex-column">
-										<p class="mb-auto">{{ service.bookingpress_service_description }}</p>
-										<div class="text-center text-md-start">
-											<a class="fp-button fp-button--sm fp-button--black justify-content-between" href="">
-												{{ _e('Make an appointment', 'fp') }}
-												<span class="icon-box">
+									<div class="d-flex flex-column ps-md-16 pt-lg-40 pe-lg-48 pb-lg-24 ps-lg-80">
+										<h3 class="font-family-body mb-24">{{ service.bookingpress_service_name }}</h3>
+										<div class="d-flex gap-48 mb-40">
+											<div class="d-flex flex-column">
+												<div class="mb-16">{{ service.bookingpress_service_duration_val ~ ' ' ~ service.bookingpress_service_duration_unit }} </div>
+												<p class="h3 mb-0">{{ service.bookingpress_service_price }}</p>
+											</div>
+											<div class="d-flex flex-column">
+												<div class="mb-16">{{ service.bookingpress_service_duration_val ~ ' ' ~ service.bookingpress_service_duration_unit }} </div>
+												<p class="h3 mb-0">{{ service.bookingpress_service_price }}</p>
+											</div>
+										</div>
+										<div class="d-flex flex-grow-1 flex-column">
+											<p class="mb-auto">{{ service.bookingpress_service_description }}</p>
+											<div class="text-center text-md-start">
+												<a class="fp-button fp-button--sm fp-button--black justify-content-between" href="#offcanvas-booking" data-bs-toggle="offcanvas">
+													{{ _e('Make an appointment', 'fp') }}
+													<span class="icon-box">
 												<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
 													<path fill-rule="evenodd" clip-rule="evenodd" d="M8.23429 2.63431C8.54671 2.32189 9.05324 2.32189 9.36566 2.63431L14.1657 7.43431C14.4781 7.74673 14.4781 8.25326 14.1657 8.56568L9.36566 13.3657C9.05324 13.6781 8.54671 13.6781 8.23429 13.3657C7.92187 13.0533 7.92187 12.5467 8.23429 12.2343L11.6686 8.79999L2.39998 8.8C1.95815 8.79999 1.59998 8.44182 1.59998 7.99999C1.59998 7.55817 1.95815 7.19999 2.39998 7.19999H11.6686L8.23429 3.76568C7.92187 3.45326 7.92187 2.94673 8.23429 2.63431Z" fill="currentColor"/>
 												</svg>
 											</span>
-											</a>
+												</a>
+											</div>
 										</div>
 									</div>
 								</div>
 							</div>
-						</div>
-					{% endfor %}
+						{% endfor %}
+					</div>
 				</div>
 			</div>
-		</div>
+		{% endif %}
 	</div>
 </section>
