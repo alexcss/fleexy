@@ -22,10 +22,10 @@ class Block extends Gutenberg_Block {
 		] );
 
 		$this->add_field( [
-			'name'  => 'title_size',
-			'label' => __( 'Title Size', 'fp' ),
-			'type'  => 'button_group',
-			'choices' => [
+			'name'          => 'title_size',
+			'label'         => __( 'Title Size', 'fp' ),
+			'type'          => 'button_group',
+			'choices'       => [
 				'h1' => 'H1',
 				'h2' => 'H2',
 			],

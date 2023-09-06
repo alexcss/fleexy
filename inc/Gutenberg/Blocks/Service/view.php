@@ -45,7 +45,7 @@ $service_results = $wpdb->get_row( $service_query );
 $get_locale = get_locale();
 
 
-$service_translation_query   = $wpdb->prepare( "SELECT * FROM {$wpdb->prefix}bookingpress_ml_translation WHERE bookingpress_element_ref_id = %d AND bookingpress_language_code = %s", $service_id, $get_locale );
+$service_translation_query   = $wpdb->prepare( "SELECT * FROM {$wpdb->prefix}bookingpress_ml_translation WHERE bookingpress_element_ref_id = %d AND bookingpress_language_code = %s AND bookingpress_element_type = %s", $service_id, $get_locale, 'service' );
 $service_translation_results = $wpdb->get_results( $service_translation_query );
 
 $title       = ! empty( $service_translation_results ) && $service_translation_results[0]?->bookingpress_translated_value ? $service_translation_results[0]->bookingpress_translated_value : $service_results->bookingpress_service_name;
