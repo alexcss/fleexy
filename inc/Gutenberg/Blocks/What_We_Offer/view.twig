@@ -50,7 +50,7 @@
 				<div class="text-center">
 					<h2 class="text-uppercase mb-24 mb-lg-40">{{ fields.second_title | highlight_text }}</h2>
 					<p class="mb-40 mb-lg-24">{{ fields.description }}</p>
-					<a href="{{ fields.link.url }}" class="fp-button fp-button--black" target="{{ fields.link.target ?: '_self' }}">
+					<a href="{{ fields.link.url|e('esc_url') }}" class="fp-button fp-button--black" target="{{ fields.link.target ?: '_self' }}">
 						{{ fields.link.title }}
 						<span class="icon-box">
 							<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -69,13 +69,17 @@
 					<source media="(max-width: 680px)"
 							srcset="{{ fields.image.url|resize(375, 265, 'center')|tojpg }} 1x, {{ fields.image.url|resize(564, 398, 'center')|tojpg }} 1.5x"
 							width="375" height="265">
+
 					<source media="(max-width: 992px)"
 							srcset="{{ fields.image.url|resize(600, 422, 'center')|towebp }} 1x, {{ fields.image.url|resize(900, 633, 'center')|towebp }} 1.5x"
 							type="image/webp" width="600" height="422">
 					<source media="(max-width: 992px)"
 							srcset="{{ fields.image.url|resize(600, 422, 'center')|tojpg }} 1x, {{ fields.image.url|resize(900, 633, 'center')|tojpg }} 1.5x"
 							width="600" height="422">
-					<img class="rounded-16" src="{{ fields.image.url|resize (438, 600, 'center') }}" srcset="{{ fields.image.url|resize (657, 900, 'center') }}" alt="{{ fields.image.alt }}" width="438" height="600">
+
+					<source srcset="{{ fields.image.url|resize(438, 600, 'center')|towebp }} 1x, {{ fields.image.url|resize(657, 900, 'center')|towebp }} 1.5x"
+							type="image/webp" width="438" height="600">
+					<img class="rounded-16" src="{{ fields.image.url|resize (438, 600, 'center') }}" srcset="{{ fields.image.url|resize (657, 900, 'center') }}" alt="{{ fields.image.alt|e('html_attr') }}" width="438" height="600">
 				</picture>
 			</div>
 		</div>

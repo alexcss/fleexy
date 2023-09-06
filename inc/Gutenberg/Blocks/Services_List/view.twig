@@ -62,23 +62,23 @@
 
 											<source srcset="{{ service.image[0].url|resize(360, 448, 'center')|towebp }} 1x, {{ service.image[0].url|resize(540, 672, 'center')|towebp }} 1.5x"
 													type="image/webp" width="240" height="448"/>
-											<img class="object-fit-cover rounded-8 w-100" src="{{ service.image[0].url|resize(360, 448, 'center') }}" srcset="{{ service.image[0].url|resize(540, 672, 'center') }}" alt="{{ service.image[0].alt }}" width="360" height="448">
+											<img class="object-fit-cover rounded-8 w-100" src="{{ service.image[0].url|resize(360, 448, 'center') }}" srcset="{{ service.image[0].url|resize(540, 672, 'center') }}" alt="{{ service.image[0].alt|e('html_attr') }}" width="360" height="448">
 										</picture>
 									</div>
 									<div class="d-flex flex-column ps-md-16 pt-lg-40 pe-lg-48 pb-lg-24 ps-lg-80">
-										<h3 class="font-family-body mb-24">{{ service.bookingpress_service_name }}</h3>
+										<h3 class="font-family-body mb-24">{{ service.bookingpress_service_name | e('wp_kses_post') }}</h3>
 										<div class="d-flex gap-48 mb-40">
 											<div class="d-flex flex-column">
-												<div class="mb-16">{{ service.bookingpress_service_duration_val ~ ' ' ~ service.bookingpress_service_duration_unit }} </div>
-												<p class="h3 mb-0">{{ service.bookingpress_service_price }}</p>
+												<div class="mb-16">{{ service.bookingpress_service_duration_val | e('wp_kses_post') ~ ' ' ~ service.bookingpress_service_duration_unit | e('wp_kses_post') }} </div>
+												<p class="h3 mb-0">{{ service.bookingpress_service_price | e('wp_kses_post') }}</p>
 											</div>
 											<div class="d-flex flex-column">
-												<div class="mb-16">{{ service.bookingpress_service_duration_val ~ ' ' ~ service.bookingpress_service_duration_unit }} </div>
-												<p class="h3 mb-0">{{ service.bookingpress_service_price }}</p>
+												<div class="mb-16">{{ service.bookingpress_service_duration_val | e('wp_kses_post') ~ ' ' ~ service.bookingpress_service_duration_unit | e('wp_kses_post') }} </div>
+												<p class="h3 mb-0">{{ service.bookingpress_service_price | e('wp_kses_post') }}</p>
 											</div>
 										</div>
 										<div class="d-flex flex-grow-1 flex-column">
-											<p class="mb-auto">{{ service.bookingpress_service_description }}</p>
+											<p class="mb-auto">{{ service.bookingpress_service_description | e('wp_kses_post') }}</p>
 											<div class="text-center text-md-start">
 												<a class="fp-button fp-button--sm fp-button--black justify-content-between" href="#offcanvas-booking" data-bs-toggle="offcanvas">
 													{{ _e('Make an appointment', 'fp') }}
