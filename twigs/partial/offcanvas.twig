@@ -6,7 +6,7 @@
     </div>
 	<div class="offcanvas-footer bg-primary">
 		{% if header.cta_button.url and header.cta_button.title %}
-			<a class="fp-button w-100 d-flex" href="{{ header.cta_button.url|e('esc_url') }}" data-bs-toggle="offcanvas" target="{{ header.cta_button.target|e('html_attr') ?: '_self' }}">
+			<a class="fp-button w-100 d-flex mb-40" href="{{ header.cta_button.url|e('esc_url') }}" data-bs-toggle="offcanvas" target="{{ header.cta_button.target|e('html_attr') ?: '_self' }}">
 				<span class="flex-grow-1 text-center">{{ header.cta_button.title|e('wp_kses_post') }}</span>
 				<span class="icon-box">
 					<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -15,5 +15,8 @@
 				</span>
 			</a>
 		{% endif %}
+		<div class="line-lang-switcher">
+			{{ fn('do_action', 'wpml_language_switcher', {'type' : 'footer', 'flags' : 0}) }}
+		</div>
 	</div>
 </div>

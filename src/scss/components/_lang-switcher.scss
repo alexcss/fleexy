@@ -105,20 +105,21 @@
   }
 }
 
-.footer-lang-switcher {
+.line-lang-switcher {
   ul {
     margin: 0;
     padding: 0;
     list-style: none;
     display: flex;
+    gap: 16px;
+    justify-content: space-between;
+    @include media-breakpoint-up(md) {
+      justify-content: start;
+    }
     li {
       display: flex;
     }
-    ul {
-      flex-direction: row-reverse;
-    }
     a {
-      margin-right: 16px;
       font-size: 1.8rem;
       font-weight: $font-weight-semibold;
       letter-spacing: -0.36px;
@@ -126,6 +127,7 @@
       border-radius: 56px;
       border: 1px solid $black;
       padding: 7px 25px;
+      color: $black;
       &:hover {
         background-color: $black;
         color: $white;
