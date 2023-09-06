@@ -7,4 +7,32 @@
         }
       }
   }
+  &__shape-arrow{
+    right: 40px;
+    top: -90px;
+    @include media-breakpoint-up(md) {
+      right: 15%;
+      top: 0;
+    }
+    @include media-breakpoint-up(lg) {
+      top: 0;
+      right: 24%;
+    }
+  }
+  &__smile{
+    left: 0;
+    top: -21px;
+    @include media-breakpoint-up(lg) {
+      left: -42px;
+      top: -21px;
+    }
+  }
+  &__heart{
+    right: 36px;
+    bottom: -30px;
+    @include media-breakpoint-up(lg) {
+      bottom: -110px;
+      right: 15%;
+    }
+  }
 }
