@@ -39,6 +39,11 @@ const initializeBlock = function (block) {
 	}
 };
 document.addEventListener('DOMContentLoaded', function () {
+
+  let bookingLinks = [...document.querySelectorAll("a[href*='#offcanvas-booking']")];
+  if (!bookingLinks) return;
+  bookingLinks.forEach(item => item.setAttribute('data-bs-toggle', 'offcanvas'));
+
 	let blocks = document.querySelectorAll('[data-slider-block]');
 	blocks.forEach((block) => {
 		initializeBlock(block);
