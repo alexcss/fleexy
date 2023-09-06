@@ -10,23 +10,23 @@
 					<h1 class="h2 font-family-body mb-24">{{ title }}</h1>
 					<div class="fp-price-wrap d-flex gap-24 mb-40">
 						<div class="d-flex flex-column">
-							<div class="fp-body-sm mb-16">{{ service.bookingpress_service_duration_val ~ ' ' ~ service.bookingpress_service_duration_unit }} </div>
+							<div class="fp-body-sm mb-16">{{ service.bookingpress_service_duration_val | e('wp_kses_post') ~ ' ' ~ service.bookingpress_service_duration_unit | e('wp_kses_post') }} </div>
 							<p class="fp-service-price font-family-heading mb-0">
 								<span class="fp-body-sm me-n12">zł</span>
-								{{ service.bookingpress_service_price }}
+								{{ service.bookingpress_service_price | e('wp_kses_post') }}
 							</p>
 						</div>
 						<div class="border-end border-gray border-1"></div>
 						<div class="d-flex flex-column">
-							<div class="fp-body-sm mb-16">{{ service.bookingpress_service_duration_val ~ ' ' ~ service.bookingpress_service_duration_unit }} </div>
+							<div class="fp-body-sm mb-16">{{ service.bookingpress_service_duration_val | e('wp_kses_post') ~ ' ' ~ service.bookingpress_service_duration_unit | e('wp_kses_post') }} </div>
 							<p class="fp-service-price font-family-heading mb-0">
 								<span class="fp-body-sm me-n12">zł</span>
-								{{ service.bookingpress_service_price }}
+								{{ service.bookingpress_service_price | e('wp_kses_post') }}
 							</p>
 						</div>
 					</div>
 					{% if description %}
-						<p class="fp-service-block__description fp-body-sm text-gray-dark mb-40">{{ description }}</p>
+						<p class="fp-service-block__description fp-body-sm text-gray-dark mb-40">{{ description | e('wp_kses_post') }}</p>
 					{% endif %}
 					<a class="fp-button fp-button--black justify-content-between w-100 w-sm-auto" href="#offcanvas-booking" data-bs-toggle="offcanvas">
 						{{ _e('Make an appointment', 'fp') }}
@@ -57,7 +57,7 @@
 									srcset="{{ service_image.url|resize(400, 235, 'center')|tojpg }} 1x, {{ service_image.url|resize(600, 353, 'center')|tojpg }} 1.5x"
 									width="400" height="235">
 
-							<img class="object-fit-cover rounded-8 w-100" src="{{ service_image.url|resize(438, 528, 'center') }}" srcset="{{ service_image.url|resize(657, 792, 'center') }}" alt="{{ service_image.alt }}" width="438" height="528">
+							<img class="object-fit-cover rounded-8 w-100" src="{{ service_image.url|resize(438, 528, 'center') }}" srcset="{{ service_image.url|resize(657, 792, 'center') }}" alt="{{ service_image.alt|e('html_attr') }}" width="438" height="528">
 						</picture>
 					{% endif %}
 				</div>

@@ -1,6 +1,6 @@
 <section {{ anchor }} {{ attribute }} data-section-hero>
 	<div class="container">
-		<div class="fp-hero-block__inner mx-n16 mx-md-n24 mx-xl-n32 overflow-hidden position-relative bg-size-cover bg-repeat-no-repeat d-flex align-items-end rounded-top-0 rounded-top-xl-16 rounded-16" style="background-image: url({{ fields.image.url | resize(1920) }})">
+		<div class="fp-hero-block__inner mx-n16 mx-md-n24 mx-xl-n32 overflow-hidden position-relative bg-size-cover bg-repeat-no-repeat d-flex align-items-end rounded-top-0 rounded-top-xl-16 rounded-16" style="background-image: url({{ fields.image.url | resize(1920) | tojpg }})">
 			<div class="position-relative z-1">
 				<div class="px-16 pb-68 w-100 px-md-32">
 					<div class="row align-items-end">

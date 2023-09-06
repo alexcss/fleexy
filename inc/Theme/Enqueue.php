@@ -17,7 +17,7 @@ class Enqueue {
 		} );
 
 		add_action( 'wp_enqueue_scripts', [ $this, 'global_assets' ], 99 );
-		add_action( 'wp_enqueue_scripts', [ $this, 'blocks_js_and_styles' ] );
+		//add_action( 'wp_enqueue_scripts', [ $this, 'blocks_js_and_styles' ] );
 		add_action( 'login_enqueue_scripts', [ $this, 'login_stylesheet' ], 20 );
 		add_action( 'enqueue_block_editor_assets', [ $this, 'admin_styles_and_scripts' ], 999, 2 );
 		//add_action( 'init', [ $this, 'admin_editor_style' ] );
