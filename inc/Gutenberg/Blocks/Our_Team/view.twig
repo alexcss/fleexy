@@ -7,6 +7,62 @@
 			<h2 class="text-uppercase text-center mb-56">{{ fields.title | highlight_text | e('wp_kses_post') }}</h2>
 		{% endif %}
 
+		{% if our_team | length > 0 %}
+			<div class="row mb-80 fp-no-scroll mx-n16 mx-md-n24 overflow-x-auto flex-nowrap flex-xl-wrap g-16 g-lg-24">
+				{% for team_member in our_team %}
+					<div class="col-11 col-sm-10 col-md-8 col-lg-7 col-xl-6">
+						<div class="bg-white rounded-16 border border-1 border-gray p-16 p-lg-24">
+							<div class="d-flex flex-column flex-sm-row gap-16 gap-lg-24">
+								<div class="d-flex align-items-center flex-shrink-0 gap-8">
+									<picture class="flex-shrink-0">
+										<source media="(max-width: 480px)"
+												srcset="{{ team_member.image[0].url|resize(112, 112, 'center')|towebp }} 1x, {{ team_member.image[0].url|resize(168, 168, 'center')|towebp }} 1.5x"
+												width="112" height="112"/>
+										<source media="(max-width: 480px)"
+												srcset="{{ team_member.image[0].url|resize(112, 112, 'center')|towebp }} 1x, {{ team_member.image[0].url|resize(168, 168, 'center')|towebp }} 1.5x"
+												type="image/webp" width="112" height="112"/>
+
+										<source media="(max-width: 576px)"
+												srcset="{{ team_member.image[0].url|resize(148, 148, 'center')|towebp }} 1x, {{ team_member.image[0].url|resize(222, 222, 'center')|towebp }} 1.5x"
+												width="148" height="148"/>
+										<source media="(max-width: 576px)"
+												srcset="{{ team_member.image[0].url|resize(148, 148, 'center')|towebp }} 1x, {{ team_member.image[0].url|resize(222, 222, 'center')|towebp }} 1.5x"
+												type="image/webp" width="148" height="148"/>
+
+										<source media="(max-width: 991px)"
+												srcset="{{ team_member.image[0].url|resize(200, 282, 'center')|towebp }} 1x, {{ team_member.image[0].url|resize(300, 423, 'center')|towebp }} 1.5x"
+												width="200" height="282"/>
+										<source media="(max-width: 991px)"
+												srcset="{{ team_member.image[0].url|resize(200, 282, 'center')|towebp }} 1x, {{ team_member.image[0].url|resize(300, 423, 'center')|towebp }} 1.5x"
+												type="image/webp" width="200" height="282"/>
+
+										<source srcset="{{ team_member.image[0].url|resize(272, 384, 'center')|towebp }} 1x, {{ team_member.image[0].url|resize(408, 576, 'center')|towebp }} 1.5x"
+												type="image/webp" width="272" height="384"/>
+										<img class="object-fit-cover rounded-16" src="{{ team_member.image[0].url|resize(272, 384, 'center') }}" srcset="{{ team_member.image[0].url|resize(408, 576, 'center') }}" alt="{{ team_member.image[0].alt|e('html_attr') }}" width="272" height="348">
+									</picture>
+									<h3 class="font-family-body mb-0 d-sm-none">{{ team_member.bookingpress_staffmember_firstname ~ ' ' ~ team_member.bookingpress_staffmember_lastname }}</h3>
+								</div>
+								<div class="d-flex flex-column align-items-start">
+									<h3 class="font-family-body d-none d-sm-block mb-24 mb-lg-32">{{ team_member.bookingpress_staffmember_firstname ~ ' ' ~ team_member.bookingpress_staffmember_lastname }}</h3>
+									<p class="mb-auto">Having a higher degree as a physiotherapist, Marta works with all ages — from kids to elderly. She has developed her own method of therapeutic children's massage for children with disabilities.</p>
+									<div class="text-center text-sm-start w-100">
+										<a class="fp-button fp-button--sm fp-button--black mt-24" href="#offcanvas-booking">
+											{{ _e('Book a specialist', 'fp') }}
+											<span class="icon-box">
+												<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+													<path fill-rule="evenodd" clip-rule="evenodd" d="M8.23429 2.63431C8.54671 2.32189 9.05324 2.32189 9.36566 2.63431L14.1657 7.43431C14.4781 7.74673 14.4781 8.25326 14.1657 8.56568L9.36566 13.3657C9.05324 13.6781 8.54671 13.6781 8.23429 13.3657C7.92187 13.0533 7.92187 12.5467 8.23429 12.2343L11.6686 8.79999L2.39998 8.8C1.95815 8.79999 1.59998 8.44182 1.59998 7.99999C1.59998 7.55817 1.95815 7.19999 2.39998 7.19999H11.6686L8.23429 3.76568C7.92187 3.45326 7.92187 2.94673 8.23429 2.63431Z" fill="currentColor"/>
+												</svg>
+											</span>
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+		{% endif %}
+
 		{% if fields.description %}
 			<div class="row">
 				<div class="col-12 col-lg-6 offset-lg-3">

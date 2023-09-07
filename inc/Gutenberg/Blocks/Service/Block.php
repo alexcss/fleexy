@@ -25,10 +25,11 @@ class Block extends Gutenberg_Block {
 
 		$data = [];
 
-		if ( $results ) {
+		if ( ! empty( $results ) ) {
 			foreach ( $results as $result ) {
-				$category_index = array_search( $result['bookingpress_category_id'], array_column( $results_categories, 'bookingpress_category_id' ));
-				$data[ $result['bookingpress_service_id'] ] = $results_categories[$category_index]['bookingpress_category_name'] . ' - ' . $result['bookingpress_service_name'];
+				$category_index = array_search( $result['bookingpress_category_id'], array_column( $results_categories, 'bookingpress_category_id' ) );
+
+				$data[ $result['bookingpress_service_id'] ] = $results_categories[ $category_index ]['bookingpress_category_name'] . ' - ' . $result['bookingpress_service_name'];
 			}
 		}
 
