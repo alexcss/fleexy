@@ -333,7 +333,10 @@
     .bpa-front-module-heading{
       font-size: 18px !important;
       margin-bottom: 12px;
-      text-align: left;
+
+      @include media-breakpoint-up(lg) {
+        text-align: left;
+      }
     }
   }
   .bpa-front--dt__calendar {
@@ -447,7 +450,7 @@
   //end
 }
 .el-select-dropdown.el-popper.bpa-custom-dropdown.bpa-custom-duration-dropdown{
-  margin-top: 52px !important;
+  //margin-top: 52px !important;
 }
 
 .bpa-front-tabs--panel-body {
