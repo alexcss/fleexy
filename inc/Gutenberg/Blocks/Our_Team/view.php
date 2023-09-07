@@ -37,9 +37,12 @@ $context = Timber::context();
 
 $team_id = get_field( 'team' );
 
-$team_id = implode( ',', $team_id );
 
 global $wpdb;
+
+if ( is_array( $team_id ) && ! empty( $team_id ) ) {
+	$team_id = implode( ',', $team_id );
+}
 
 $team_query        = "SELECT * FROM {$wpdb->prefix}bookingpress_staffmembers WHERE bookingpress_staffmember_id IN ($team_id)";
 $team_data_results = $wpdb->get_results( $team_query );
