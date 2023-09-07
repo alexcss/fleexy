@@ -42,8 +42,13 @@ class Enqueue {
 
 		wp_enqueue_script( 'app', Assets::require_url( 'src/js/app.js' ), [], null );
 
+
 		wp_script_add_data( 'app', 'defer', true );
 		wp_script_add_data( 'app', 'module', true );
+
+		wp_enqueue_script( 'anime', Assets::require_url( 'src/js/animation.js' ), [], null );
+		wp_script_add_data( 'anime', 'async', true );
+		wp_script_add_data( 'anime', 'module', true );
 
 		wp_enqueue_style( 'app', Assets::require_url( 'src/scss/app.scss' ), [], null );
 
