@@ -17,7 +17,7 @@
 
 		{% if fields.cta.url and fields.cta.title %}
 			<div class="text-center">
-				<a class="fp-button fp-button--sm" href="{{ fields.cta.url|e('esc_url') }}" target="{{ fields.cta.target|e('html_attr') ?: '_self' }}">
+				<a class="fp-button fp-button--hollow fp-button--sm" href="{{ fields.cta.url|e('esc_url') }}" target="{{ fields.cta.target|e('html_attr') ?: '_self' }}">
 					{{ fields.cta.title|e('wp_kses_post') }}
 					<span class="icon-box">
 						<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">

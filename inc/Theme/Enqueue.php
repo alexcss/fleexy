@@ -17,8 +17,8 @@ class Enqueue {
 		} );
 
 		add_action( 'wp_enqueue_scripts', [ $this, 'global_assets' ], 99 );
+		//add_action( 'wp_enqueue_scripts', [ $this, 'blocks_js_and_styles' ] );
 		add_action( 'wp_enqueue_scripts', [ $this, 'deque_assets' ], 9999 );
-		add_action( 'wp_enqueue_scripts', [ $this, 'blocks_js_and_styles' ] );
 		add_action( 'login_enqueue_scripts', [ $this, 'login_stylesheet' ], 20 );
 		add_action( 'enqueue_block_editor_assets', [ $this, 'admin_styles_and_scripts' ], 999, 2 );
 		//add_action( 'init', [ $this, 'admin_editor_style' ] );
@@ -61,8 +61,13 @@ class Enqueue {
 
 		wp_enqueue_script( 'app', Assets::require_url( 'src/js/app.js' ), [], null );
 
+
 		wp_script_add_data( 'app', 'defer', true );
 		wp_script_add_data( 'app', 'module', true );
+
+		wp_enqueue_script( 'anime', Assets::require_url( 'src/js/animation.js' ), [], null );
+		wp_script_add_data( 'anime', 'async', true );
+		wp_script_add_data( 'anime', 'module', true );
 
 		wp_enqueue_style( 'bookingpress_front_css', Assets::require_url( 'src/scss/bookingpress_front.scss' ), [], null );
 

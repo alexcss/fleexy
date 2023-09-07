@@ -21,7 +21,7 @@
 								<div class="fp-testimonial rounded-24 p-24">
 									<p class="font-weight-400 mb-24">{{ post.feedback|e('wp_kses_post') }}</p>
 									<div class="d-flex align-items-center gap-16">
-										<img class="fp-testimonial__avatar rounded-circle object-fit-cover" src="{{ post.avatar.url | resize(240) }}" alt="{{ post.avatar.alt|e('html_attr') }}" width="120" height="120">
+										<img class="fp-testimonial__avatar rounded-circle object-fit-cover" src="{{ post.avatar.url | resize(240) | tojpg }}" alt="{{ post.avatar.alt|e('html_attr') }}" width="120" height="120">
 										<p class="font-weight-600 mb-0">{{ post.meta.name|e('wp_kses_post') }}</p>
 									</div>
 								</div>
@@ -31,7 +31,7 @@
 				</div>
 				<div class="col-8 col-md-4 col-xl-3 order-2 order-xl-1">
 					<div class="decor-image position-relative">
-						<img class="position-relative z-1 w-100" src="{{ theme.link ~ '/src/images/testimonial-bg.png' }}" width="322" height="456" alt="{{ fields.title }}">
+						<img class="position-relative z-1 w-100" src="{{ theme.link ~ '/inc/Gutenberg/Blocks/Testimonial/assets/testimonial-bg.png' }}" width="322" height="456" alt="{{ fields.title }}">
 					</div>
 				</div>
 			</div>

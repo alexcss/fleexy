@@ -8,11 +8,10 @@ class Support {
 	public function __construct() {
 		add_action( 'after_setup_theme', [ $this, 'theme_support' ] );
 		// need to add padding top to body --wp-admin--admin-bar--height
-//		add_theme_support( 'admin-bar', [ 'callback' => '__return_false' ] );
+		//add_theme_support( 'admin-bar', [ 'callback' => '__return_false' ] );
 
-//		add_filter( 'big_image_size_threshold', '__return_false' );
 		add_filter( 'big_image_size_threshold', [ $this, 'big_image_size' ] );
-		add_action( 'acf/fields/google_map/api', [ $this, 'setup_google_api_key' ] );
+		add_action( 'acf/init', [ $this, 'setup_google_api_key' ] );
 
 		if ( ! class_exists( 'ACF' ) && ! is_admin() ) {
 			wp_die( 'Pls activate ACF Plugin' );
@@ -25,10 +24,10 @@ class Support {
 		add_menu_page( 'linked_url', 'Reusable Blocks', 'read', 'edit.php?post_type=wp_block', '', 'dashicons-editor-table', 22 );
 	}
 
-	public function setup_google_api_key( $api ) {
-		$api['key'] = defined( GOOGLE_MAP_API_KEY ) ? GOOGLE_MAP_API_KEY : false;
-
-		return $api;
+	public function setup_google_api_key() {
+		if ( defined( 'GOOGLE_MAP_API_KEY' ) ) {
+			acf_update_setting( 'google_api_key', GOOGLE_MAP_API_KEY );
+		}
 	}
 
 	public function big_image_size(): int {
@@ -53,6 +52,9 @@ class Support {
 		add_theme_support( 'html5', [ 'script', 'style' ] );
 
 		add_filter( 'acf/fields/wysiwyg/toolbars', [ $this, 'custom_header_toolbar' ] );
+
+		load_theme_textdomain( 'fp', get_template_directory() . '/languages' );
+
 	}
 
 	public function custom_header_toolbar( $toolbars ): array {

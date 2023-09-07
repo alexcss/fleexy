@@ -1,9 +1,9 @@
 {% if items %}
-	<ul class="{{ class }}">
+	<ul class="{{ class|e('html_attr') }}">
 		{% for item in items %}
-			<li class="nav-item {{ item.classes | join(' ') }}" {{ offcanvas is defined ? "data-bs-dismiss='offcanvas'" : '' }}>
-				<a class="nav-link" href="{{ item.link }}" {% if item.target  %} target="{{ item.target }}" {% endif %}>
-					{{ item.title }}
+			<li class="nav-item {{ item.classes | join(' ') | e('html_attr') }}" {{ offcanvas is defined ? "data-bs-dismiss='offcanvas'" : '' }}>
+				<a class="nav-link" href="{{ item.link|e('esc_url') }}" {% if item.target  %} target="{{ item.target|e('html_attr') }}" {% endif %}>
+					{{ item.title|e('wp_kses_post') }}
 				</a>
 				{% include "partial/menu.twig" with {'items': item.children, 'class': 'menu vertical d-flex flex-column d-none'} %}
 			</li>

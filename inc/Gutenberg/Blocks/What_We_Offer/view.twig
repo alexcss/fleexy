@@ -1,57 +1,60 @@
 <section {{ anchor }} {{ attribute }}>
-	<svg class="position-absolute start-0 end-o bottom-100 w-100" xmlns="http://www.w3.org/2000/svg" width="1440" height="32" viewBox="0 0 1440 32" fill="none">
+	<svg class="position-absolute z-1 start-0 end-o bottom-100 w-100" xmlns="http://www.w3.org/2000/svg" width="1440" height="32" viewBox="0 0 1440 32" fill="none">
 		<path d="M1440 32C1440 32 1001.46 32 720 32C438.545 32 0 32 0 32C0 32 438.545 0 720 0C1001.46 0 1440 32 1440 32Z" fill="var(--background-color)"/>
 	</svg>
-	<svg class="position-absolute start-0 end-o top-100 w-100" xmlns="http://www.w3.org/2000/svg" width="1440" height="32" viewBox="0 0 1440 32" fill="none">
+	<svg class="position-absolute z-1 start-0 end-o top-100 w-100" xmlns="http://www.w3.org/2000/svg" width="1440" height="32" viewBox="0 0 1440 32" fill="none">
 		<path d="M0 0C0 0 438.545 0 720 0C1001.46 0 1440 0 1440 0C1440 0 1001.46 32 720 32C438.545 32 0 0 0 0Z" fill="var(--background-color)"/>
 	</svg>
 
-	{% if fields.title %}
-		<div class="container">
-			<div class="row">
-				<div class="col-12 col-lg-10 offset-lg-1">
-					<h2 class="fp-what-we-offer-block__title text-uppercase mb-56">{{ fields.title | highlight_text | e('wp_kses_post') }}</h2>
-				</div>
-			</div>
-		</div>
-	{% endif %}
-
-	{% if fields.offers | length > 0 %}
-		<div class="container">
-			<div class="row flex-nowrap fp-no-scroll overflow-x-auto flex-xl-wrap mx-n16 mx-md-n24 g-0 g-16 g-xl-8">
-				{% for offer in fields.offers %}
-					<div class="col-11 col-sm-7 col-md-5 col-lg-4 col-xl-3">
-						<article class="bg-position-center bg-size-cover bg-repeat-no-repeat d-flex align-items-end rounded-16 p-8 pt-180 h-100" style="background-image: url({{ offer.image.url }});">
-							<div class="fp-blur text-white text-center rounded-8 px-8 py-24">
-								<h3 class="font-family-body font-weight-600 mb-16">{{ offer.title | e('wp_kses_post') }}</h3>
-								<p class="mb-24">{{ offer.description | e('wp_kses_post') }}</p>
-								<a href="{{ offer.link.url|e('esc_url') }}" class="fp-button fp-button--sm" target="{{ offer.link.target|e('html_attr') ?: '_self' }}">
-									{{ offer.link.title|e('wp_kses_post') }}
-									<span class="icon-box">
-										<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-											<path fill-rule="evenodd" clip-rule="evenodd" d="M8.23429 2.63431C8.54671 2.32189 9.05324 2.32189 9.36566 2.63431L14.1657 7.43431C14.4781 7.74673 14.4781 8.25326 14.1657 8.56568L9.36566 13.3657C9.05324 13.6781 8.54671 13.6781 8.23429 13.3657C7.92187 13.0533 7.92187 12.5467 8.23429 12.2343L11.6686 8.79999L2.39998 8.8C1.95815 8.79999 1.59998 8.44182 1.59998 7.99999C1.59998 7.55817 1.95815 7.19999 2.39998 7.19999H11.6686L8.23429 3.76568C7.92187 3.45326 7.92187 2.94673 8.23429 2.63431Z" fill="currentColor"/>
-										</svg>
-									</span>
-								</a>
-							</div>
-						</article>
+	{% if fields.offers | length > 0 or fields.title %}
+		<div class="container position-relative z-1">
+			{% if fields.title %}
+				<div class="row">
+					<div class="col-12 col-lg-10 offset-lg-1">
+						<h2 class="fp-what-we-offer-block__title text-uppercase mb-56">{{ fields.title | highlight_text | e('wp_kses_post') }}</h2>
 					</div>
-				{% endfor %}
-			</div>
-			<div class="pt-60 pb-60">
-				<div class="border-bottom h-1 w-100"></div>
-			</div>
+				</div>
+			{% endif %}
+			{% if fields.offers | length > 0 %}
+				<div class="row flex-nowrap fp-no-scroll overflow-x-auto flex-xl-wrap mx-n16 mx-md-n24 g-0 g-16 g-xl-8">
+					{% for offer in fields.offers %}
+						<div class="col-11 col-sm-7 col-md-5 col-lg-4 col-xl-3">
+							<article class="bg-position-center bg-size-cover bg-repeat-no-repeat d-flex align-items-end rounded-16 p-8 pt-180 h-100" style="background-image: url({{ offer.image.url }});">
+								<div class="fp-blur text-white text-center rounded-8 px-8 py-24">
+									<h3 class="font-family-body font-weight-600 mb-16">{{ offer.title | e('wp_kses_post') }}</h3>
+									<p class="mb-24">{{ offer.description | e('wp_kses_post') }}</p>
+									<a href="{{ offer.link.url|e('esc_url') }}" class="fp-button fp-button--sm" target="{{ offer.link.target|e('html_attr') ?: '_self' }}">
+										{{ offer.link.title|e('wp_kses_post') }}
+										<span class="icon-box">
+											<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+												<path fill-rule="evenodd" clip-rule="evenodd" d="M8.23429 2.63431C8.54671 2.32189 9.05324 2.32189 9.36566 2.63431L14.1657 7.43431C14.4781 7.74673 14.4781 8.25326 14.1657 8.56568L9.36566 13.3657C9.05324 13.6781 8.54671 13.6781 8.23429 13.3657C7.92187 13.0533 7.92187 12.5467 8.23429 12.2343L11.6686 8.79999L2.39998 8.8C1.95815 8.79999 1.59998 8.44182 1.59998 7.99999C1.59998 7.55817 1.95815 7.19999 2.39998 7.19999H11.6686L8.23429 3.76568C7.92187 3.45326 7.92187 2.94673 8.23429 2.63431Z" fill="currentColor"/>
+											</svg>
+										</span>
+									</a>
+								</div>
+							</article>
+						</div>
+					{% endfor %}
+				</div>
+				<div class="pt-60 pb-60">
+					<div class="border-bottom h-1 w-100"></div>
+				</div>
+				<svg class="fp-what-we-offer-block__shape-arrow position-absolute z-1" width="137" height="116" viewBox="0 0 137 116" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M84.3311 8.46383C93.3718 10.6492 101.797 15.4744 108.278 22.2765C111.522 25.6765 115.079 29.8942 115.499 34.7886C115.879 39.2594 113.012 42.7384 109.516 44.9943C105.364 47.6733 100.335 48.9295 95.5581 49.9261C89.9603 51.0909 84.261 51.6949 78.6117 52.6028C75.9074 53.0374 73.1566 53.47 70.5349 54.2689C68.4228 54.9045 66.3882 55.9913 65.5532 58.1901C64.0349 62.1632 67.1915 66.5514 69.8674 69.1766C73.635 72.8829 78.1798 75.6651 82.8312 78.0515C87.4825 80.4378 92.2154 82.3424 97.1471 83.8011C106.587 86.6006 118.317 88.7441 127.024 82.9119C128.845 81.693 130.581 79.9164 130.892 77.621C131.203 75.3257 130.19 73.3596 128.725 71.781C125.427 68.2182 120.398 66.741 115.833 65.836C110.792 64.8437 105.634 64.7086 100.527 64.908C95.42 65.1074 90.3985 65.6547 85.4009 66.5212C65.1651 70.0351 45.9939 78.9319 30.0963 91.9889C28.1126 93.62 26.1778 95.3145 24.2878 97.0582C23.7818 97.5233 22.8448 97.5542 22.2193 97.3706C21.7596 97.2321 21.1422 96.8132 21.6491 96.3247C29.3388 88.9551 38.1106 82.7393 47.4724 77.7423C56.8341 72.7454 67.0208 68.8837 77.4394 66.4534C87.858 64.023 98.6383 62.7612 109.309 63.4103C114.637 63.7369 119.955 64.711 124.939 66.7212C128.852 68.2967 133.629 71.563 133.995 76.2476C134.402 81.3865 129.043 84.5084 125.026 86.1C119.967 88.0949 114.367 88.3829 108.996 87.8823C98.3344 86.8967 87.6512 83.0988 78.2733 77.882C73.7336 75.3546 69.1994 72.3985 65.755 68.4121C63.2084 65.4699 60.857 60.8328 62.9775 57.0422C64.1798 54.9 66.4699 53.7469 68.7053 53.0367C71.3609 52.1969 74.1638 51.7337 76.9062 51.2726C82.7203 50.3013 88.6072 49.7128 94.3863 48.5421C99.1925 47.568 104.478 46.2997 108.439 43.2257C110.071 41.9606 111.463 40.3689 112.168 38.3787C113.029 35.9549 112.591 33.31 111.553 30.9941C109.503 26.4248 105.68 22.525 101.917 19.3609C98.1538 16.1967 94.049 13.7218 89.5998 11.8747C87.4313 10.9737 85.191 10.2722 82.9176 9.71995C82.4409 9.60192 81.9719 9.19438 82.3802 8.73436C82.7885 8.27434 83.7765 8.31402 84.3248 8.44234L84.3311 8.46383Z" fill="#050201"/>
+					<path d="M41.0534 91.3899C34.6243 94.1079 28.1882 96.828 21.5665 99.066C21.0238 99.2467 18.3628 99.0941 19.3552 97.9911C21.99 95.0531 24.4896 91.9913 26.831 88.8045C29.1723 85.6177 31.1835 82.2393 33.4316 78.9941C33.9473 78.2467 36.8794 78.2819 36.3433 79.3535C34.5414 82.9275 32.1045 86.2584 29.7371 89.4605C27.3697 92.6627 24.8121 95.7879 22.1364 98.7688L19.9252 97.6939C26.3328 95.5334 32.5724 92.9247 38.7987 90.2966C39.4726 90.0158 40.3524 89.8927 41.0318 90.2626C41.5471 90.5402 41.7012 91.1245 41.0626 91.3951L41.0534 91.3899Z" fill="#050201"/>
+				</svg>
+			{% endif %}
 		</div>
 	{% endif %}
 
-	<div class="container">
+	<div class="container position-relative z-1">
 		<div class="row align-items-lg-center">
-			<div class="col 12 col-lg-7 order-lg-2 mb-40">
+			<div class="col 12 col-lg-7 order-lg-2 mb-40 mb-lg-0 mt-lg-40 position-relative">
 				<div class="text-center">
-					<h2 class="text-uppercase mb-24 mb-lg-40">{{ fields.second_title | highlight_text }}</h2>
-					<p class="mb-40 mb-lg-24">{{ fields.description }}</p>
-					<a href="{{ fields.link.url }}" class="fp-button fp-button--black" target="{{ fields.link.target ?: '_self' }}">
-						{{ fields.link.title }}
+					<h2 class="text-uppercase mb-24 mb-lg-40">{{ fields.second_title | highlight_text  | e('wp_kses_post') }}</h2>
+					<p class="mb-40 mb-lg-24">{{ fields.description|e('wp_kses_post') }}</p>
+					<a href="{{ fields.link.url|e('esc_url') }}" class="fp-button fp-button--black" target="{{ fields.link.target|e('html_attr') ?: '_self' }}">
+						{{ fields.link.title|e('wp_kses_post') }}
 						<span class="icon-box">
 							<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
 								<path fill-rule="evenodd" clip-rule="evenodd" d="M8.23429 2.63431C8.54671 2.32189 9.05324 2.32189 9.36566 2.63431L14.1657 7.43431C14.4781 7.74673 14.4781 8.25326 14.1657 8.56568L9.36566 13.3657C9.05324 13.6781 8.54671 13.6781 8.23429 13.3657C7.92187 13.0533 7.92187 12.5467 8.23429 12.2343L11.6686 8.79999L2.39998 8.8C1.95815 8.79999 1.59998 8.44182 1.59998 7.99999C1.59998 7.55817 1.95815 7.19999 2.39998 7.19999H11.6686L8.23429 3.76568C7.92187 3.45326 7.92187 2.94673 8.23429 2.63431Z" fill="currentColor"/>
@@ -59,24 +62,41 @@
 						</span>
 					</a>
 				</div>
+				<svg class="fp-what-we-offer-block__heart position-absolute z-1 d-lg-block d-none" width="57" height="59" viewBox="0 0 57 59" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M26.3316 57.6964C20.7025 53.7043 15.7093 48.8295 11.5729 43.2621C9.45782 40.4174 7.55693 37.4029 5.95054 34.239C4.34415 31.0751 3.04566 27.5379 2.73776 23.8784C2.17553 17.089 4.78591 10.1502 9.99328 5.7778C12.3292 3.81566 15.1672 2.38309 18.1591 1.82636C21.151 1.26963 24.8457 1.48689 27.369 3.5984C29.8924 5.7099 30.8094 9.26755 30.6354 12.5401C30.5484 14.2578 30.2137 15.9687 29.6648 17.5914C29.1695 19.0511 28.3663 20.8231 26.8871 21.4885L28.788 21.6854C28.0852 18.9153 28.8014 16.0366 30.3476 13.6875C31.8937 11.3383 34.3702 9.58666 36.9873 8.45283C39.7315 7.25789 42.8975 6.23948 45.896 6.15121C48.647 6.06974 51.679 7.12889 53.0646 9.71566C53.8075 11.1007 54.0083 12.7369 54.0953 14.2849C54.1823 15.8329 54.1489 17.442 54.0083 19.0172C53.7272 22.1063 53.0378 25.148 52.0338 28.081C49.9923 34.0014 46.6122 39.3582 42.5092 44.0226C37.911 49.264 32.4158 53.5481 26.7466 57.5199C26.3651 57.7915 25.9701 58.2532 26.5123 58.5858C27.021 58.8982 27.9714 58.6266 28.4266 58.3279C39.6044 50.9681 50.066 41.1235 54.6977 28.1285C55.8356 24.9375 56.5852 21.6039 56.8463 18.2228C57.0939 15.0182 57.2813 11.1075 55.4808 8.30346C53.8008 5.68953 50.5345 4.61681 47.6028 4.54891C44.0822 4.46744 40.4745 5.53338 37.1948 6.77584C33.9151 8.0183 30.6554 9.91255 28.4333 12.7641C26.3383 15.4595 25.2205 19.0239 26.0639 22.4119C26.2379 23.1044 27.5899 22.7785 27.9647 22.6088C31.1909 21.1694 32.5162 17.7 33.0851 14.3868C33.6206 11.2704 33.48 7.84178 31.9138 5.03775C28.1923 -1.59551 18.8016 -0.672146 12.945 2.09115C6.36552 5.18712 1.59991 11.2636 0.341569 18.5419C-0.314373 22.3168 -0.0265619 26.2207 1.14476 29.8598C2.31609 33.499 4.30399 37.0906 6.39899 40.3834C10.9772 47.5802 16.9409 53.84 23.8484 58.7556C24.3638 59.1222 25.0666 59.0204 25.6154 58.7827C25.8497 58.6809 26.8336 58.0563 26.3316 57.6964Z" fill="#050201"/>
+				</svg>
 			</div>
 
 			<div class="col-12 col-lg-4 offset-lg-1 order-lg-1 text-center position-relative">
-				<picture>
-					<source media="(max-width: 680px)"
-							srcset="{{ fields.image.url|resize(375, 265, 'center')|towebp }} 1x, {{ fields.image.url|resize(564, 398, 'center')|towebp }} 1.5x"
-							type="image/webp" width="375" height="265">
-					<source media="(max-width: 680px)"
-							srcset="{{ fields.image.url|resize(375, 265, 'center')|tojpg }} 1x, {{ fields.image.url|resize(564, 398, 'center')|tojpg }} 1.5x"
-							width="375" height="265">
-					<source media="(max-width: 992px)"
-							srcset="{{ fields.image.url|resize(600, 422, 'center')|towebp }} 1x, {{ fields.image.url|resize(900, 633, 'center')|towebp }} 1.5x"
-							type="image/webp" width="600" height="422">
-					<source media="(max-width: 992px)"
-							srcset="{{ fields.image.url|resize(600, 422, 'center')|tojpg }} 1x, {{ fields.image.url|resize(900, 633, 'center')|tojpg }} 1.5x"
-							width="600" height="422">
-					<img class="rounded-16" src="{{ fields.image.url|resize (438, 600, 'center') }}" srcset="{{ fields.image.url|resize (657, 900, 'center') }}" alt="{{ fields.image.alt }}" width="438" height="600">
-				</picture>
+				{% if  fields.image.url %}
+					<picture class="d-block w-100">
+						<source media="(max-width: 680px)"
+								srcset="{{ fields.image.url|resize(375, 265, 'center')|towebp }} 1x, {{ fields.image.url|resize(564, 398, 'center')|towebp }} 1.5x"
+								type="image/webp" width="375" height="265">
+						<source media="(max-width: 680px)"
+								srcset="{{ fields.image.url|resize(375, 265, 'center')|tojpg }} 1x, {{ fields.image.url|resize(564, 398, 'center')|tojpg }} 1.5x"
+								width="375" height="265">
+
+						<source media="(max-width: 992px)"
+								srcset="{{ fields.image.url|resize(600, 422, 'center')|towebp }} 1x, {{ fields.image.url|resize(900, 633, 'center')|towebp }} 1.5x"
+								type="image/webp" width="600" height="422">
+						<source media="(max-width: 992px)"
+								srcset="{{ fields.image.url|resize(600, 422, 'center')|tojpg }} 1x, {{ fields.image.url|resize(900, 633, 'center')|tojpg }} 1.5x"
+								width="600" height="422">
+
+						<source srcset="{{ fields.image.url|resize(438, 600, 'center')|towebp }} 1x, {{ fields.image.url|resize(657, 900, 'center')|towebp }} 1.5x"
+								type="image/webp" width="438" height="600">
+						<img class="rounded-16 d-block w-100" src="{{ fields.image.url|resize (438, 600, 'center') }}" srcset="{{ fields.image.url|resize (657, 900, 'center') }}" alt="{{ fields.image.alt|e('html_attr') }}" width="438" height="600">
+					</picture>
+				{% endif %}
+				<svg data-draw-line class="fp-what-we-offer-block__smile position-absolute z-1" width="94" height="72" viewBox="0 0 94 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M35.6657 9.20953C34.7501 12.9135 33.7627 16.5983 32.7037 20.2639C32.5731 20.7514 32.6004 21.0507 32.9978 21.4031C33.4305 21.7956 34.2008 22.0174 34.7687 22.0774C35.5125 22.1691 36.3262 22.172 37.0541 21.9214C37.4922 21.7775 38.2814 21.528 38.4158 21.0261C39.5583 17.1063 40.6187 13.1491 41.5891 9.18315C41.7044 8.75302 40.9888 8.2693 40.7174 8.13512C40.1106 7.81886 39.2847 7.68974 38.6221 7.6966C37.5234 7.72492 35.9608 7.93628 35.6591 9.17701L35.6657 9.20953Z" fill="#050201"/>
+					<path d="M52.2248 12.4478L49.1627 23.2449C49.0321 23.7324 49.0595 24.0317 49.4568 24.384C49.8895 24.7765 50.6599 24.9983 51.2278 25.0583C51.9715 25.15 52.7852 25.1529 53.5132 24.9023C53.9369 24.7546 54.7404 24.5089 54.8749 24.0071L57.937 13.21C58.0676 12.7225 58.0402 12.4232 57.6429 12.0708C57.2102 11.6783 56.4398 11.4565 55.8719 11.3965C55.1281 11.3048 54.3145 11.3019 53.5865 11.5525C53.1628 11.7002 52.3593 11.946 52.2248 12.4478Z" fill="#050201"/>
+					<path d="M4.22651 35.4691C9.47256 46.1719 19.1463 53.9427 30.1955 58.0712C41.2447 62.1998 54.7179 62.214 66.4846 58.7897C73.2365 56.8186 79.5785 53.7387 85.4301 49.8513C86.7047 48.9942 85.0672 47.8793 84.2576 47.6316C82.8001 47.1642 81.0864 47.3658 79.8156 48.2086C71.0033 54.0842 60.4973 57.9077 49.8435 58.0957C39.1898 58.2838 29.4143 54.85 21.3827 48.349C16.747 44.602 12.9939 39.9697 10.3546 34.6216C9.4179 32.7264 3.15722 33.3232 4.21217 35.4653L4.22651 35.4691Z" fill="#050201"/>
+				</svg>
+				<svg data-draw-line class="fp-what-we-offer-block__heart position-absolute z-1 d-lg-none" width="57" height="59" viewBox="0 0 57 59" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M26.3316 57.6964C20.7025 53.7043 15.7093 48.8295 11.5729 43.2621C9.45782 40.4174 7.55693 37.4029 5.95054 34.239C4.34415 31.0751 3.04566 27.5379 2.73776 23.8784C2.17553 17.089 4.78591 10.1502 9.99328 5.7778C12.3292 3.81566 15.1672 2.38309 18.1591 1.82636C21.151 1.26963 24.8457 1.48689 27.369 3.5984C29.8924 5.7099 30.8094 9.26755 30.6354 12.5401C30.5484 14.2578 30.2137 15.9687 29.6648 17.5914C29.1695 19.0511 28.3663 20.8231 26.8871 21.4885L28.788 21.6854C28.0852 18.9153 28.8014 16.0366 30.3476 13.6875C31.8937 11.3383 34.3702 9.58666 36.9873 8.45283C39.7315 7.25789 42.8975 6.23948 45.896 6.15121C48.647 6.06974 51.679 7.12889 53.0646 9.71566C53.8075 11.1007 54.0083 12.7369 54.0953 14.2849C54.1823 15.8329 54.1489 17.442 54.0083 19.0172C53.7272 22.1063 53.0378 25.148 52.0338 28.081C49.9923 34.0014 46.6122 39.3582 42.5092 44.0226C37.911 49.264 32.4158 53.5481 26.7466 57.5199C26.3651 57.7915 25.9701 58.2532 26.5123 58.5858C27.021 58.8982 27.9714 58.6266 28.4266 58.3279C39.6044 50.9681 50.066 41.1235 54.6977 28.1285C55.8356 24.9375 56.5852 21.6039 56.8463 18.2228C57.0939 15.0182 57.2813 11.1075 55.4808 8.30346C53.8008 5.68953 50.5345 4.61681 47.6028 4.54891C44.0822 4.46744 40.4745 5.53338 37.1948 6.77584C33.9151 8.0183 30.6554 9.91255 28.4333 12.7641C26.3383 15.4595 25.2205 19.0239 26.0639 22.4119C26.2379 23.1044 27.5899 22.7785 27.9647 22.6088C31.1909 21.1694 32.5162 17.7 33.0851 14.3868C33.6206 11.2704 33.48 7.84178 31.9138 5.03775C28.1923 -1.59551 18.8016 -0.672146 12.945 2.09115C6.36552 5.18712 1.59991 11.2636 0.341569 18.5419C-0.314373 22.3168 -0.0265619 26.2207 1.14476 29.8598C2.31609 33.499 4.30399 37.0906 6.39899 40.3834C10.9772 47.5802 16.9409 53.84 23.8484 58.7556C24.3638 59.1222 25.0666 59.0204 25.6154 58.7827C25.8497 58.6809 26.8336 58.0563 26.3316 57.6964Z" fill="#050201"/>
+				</svg>
 			</div>
 		</div>
 	</div>

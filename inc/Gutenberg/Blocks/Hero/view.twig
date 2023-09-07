@@ -1,6 +1,6 @@
 <section {{ anchor }} {{ attribute }} data-section-hero>
 	<div class="container">
-		<div class="fp-hero-block__inner mx-n16 mx-md-n24 mx-xl-n32 overflow-hidden position-relative bg-size-cover bg-repeat-no-repeat d-flex align-items-end rounded-top-0 rounded-top-xl-16 rounded-16" style="background-image: url({{ fields.image.url | resize(1920) }})">
+		<div class="fp-hero-block__inner mx-n16 mx-md-n24 mx-xl-n32 overflow-hidden position-relative bg-size-cover bg-repeat-no-repeat d-flex align-items-end rounded-top-0 rounded-top-xl-16 rounded-16" style="background-image: url({{ fields.image.url | resize(1920) | tojpg }})">
 			<div class="position-relative z-1">
 				<div class="px-16 pb-68 w-100 px-md-32">
 					<div class="row align-items-end">
@@ -9,7 +9,7 @@
 								<h1 class="{{ fields.title_size ?? 'h2' }} text-white text-uppercase mb-0">{{ fields.title | highlight_text | e('wp_kses_post') }}</h1>
 							{% endif %}
 							{% if fields.cta.url and fields.cta.title %}
-								<a class="fp-button mt-24 mt-lg-40" href="{{ fields.cta.url|e('esc_url') }}" data-bs-toggle="offcanvas" target="{{ fields.cta.target|e('html_attr') ?: '_self' }}">
+								<a class="fp-button mt-24 mt-lg-40" href="{{ fields.cta.url|e('esc_url') }}" target="{{ fields.cta.target|e('html_attr') ?: '_self' }}">
 									{{ fields.cta.title|e('wp_kses_post') }}
 									<span class="icon-box">
 										<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">

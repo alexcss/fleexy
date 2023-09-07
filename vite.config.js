@@ -14,6 +14,7 @@ const entries = [
 	'./src/scss/admin.scss',
 	'./src/scss/bookingpress_front.scss',
 	'./src/js/app.js',
+	'./src/js/animation.js',
 	'./src/js/google-maps-block.js',
 	// './src/js/blocks/services-list.js',
 	// './assets/admin.scss',
