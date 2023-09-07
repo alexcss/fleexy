@@ -9,8 +9,8 @@ body.admin-bar {
 
   // Offset mobile off-canvas menu
   .offcanvas {
-    top: var(--wp-admin--admin-bar--height);
-    height: calc(100vh - var(--wp-admin--admin-bar--height));
+    top: var(--wp-admin--admin-bar--height, 0px);
+    height: calc(100vh - var(--wp-admin--admin-bar--height, 0px));
   }
 }
 

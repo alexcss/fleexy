@@ -13,6 +13,7 @@
   overflow: initial;
   padding: 0;
   min-height: initial;
+  min-height: 70vh;
   @include media-breakpoint-up(md) {
     padding-left: 24px;
     padding-right: 24px;
@@ -26,7 +27,7 @@
 
   #bpa-front-tabs.bpa-front-tabs {
     padding: 0 16px 24px;
-    height: calc(100vh - var(--fp-offcanvas--booking-header, 48px) - var(--wp-admin--admin-bar--height));
+    height: calc(100vh - var(--fp-offcanvas--booking-header, 48px) - var(--wp-admin--admin-bar--height, 0px));
     @include media-breakpoint-up(lg) {
       --fp-offcanvas--booking-header: 88px
     }
