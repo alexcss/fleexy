@@ -13,7 +13,6 @@
   overflow: initial;
   padding: 0;
   min-height: initial;
-  padding: 0 16px 24px;
   @include media-breakpoint-up(md) {
     padding-left: 24px;
     padding-right: 24px;
@@ -22,14 +21,16 @@
 
 .offcanvas {
   .el-main {
+
+  }
+
+  #bpa-front-tabs.bpa-front-tabs {
+    padding: 0 16px 24px;
     height: calc(100vh - var(--fp-offcanvas--booking-header, 48px) - var(--wp-admin--admin-bar--height));
     @include media-breakpoint-up(lg) {
       --fp-offcanvas--booking-header: 88px
     }
-  }
-
-  #bpa-front-tabs.bpa-front-tabs {
-    height: 100%;
+    //height: 100%;
   }
 }
 
@@ -447,7 +448,11 @@
 
 .bpa-front-tabs--panel-body {
   flex-grow: 1;
-  overflow-y: auto;
+  height: calc(100% - 90px);
+  //overflow-y: auto;
+  @include media-breakpoint-up(lg) {
+    height: calc(100% - 67px);
+  }
 }
 
 .bpa-front-tabs.--bpa-top .bpa-front-tabs--panel-body .bpa-front-dc--body {
