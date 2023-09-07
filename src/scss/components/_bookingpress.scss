@@ -372,26 +372,60 @@
         display: block;
         width: 100%;
         border-radius: 12px !important;
-        border: 1px solid $gray !important;
+        border: 1px solid $gray-light !important;
         font: 500 1.6rem/1 $font-family-base !important;
         background-color: $light-beige !important;
         letter-spacing: -0.02em;
 
         &:focus {
           outline: none;
-          border-color: $black;
+          border-color: $black !important;
+          box-shadow: none !important;
         }
 
         &::placeholder {
-          color: $gray;
+          color: $gray !important;
         }
       }
 
     }
   }
+  //basic deatils
+  .bpa-front-form-control.--bpa-country-dropdown.vue-tel-input:focus-within{
+    box-shadow: none !important;
+    background: none !important;
+    .vti__dropdown, input{
+      border-color: $black !important;
+    }
+
+  }
+
+  .bpa-front-form-control.--bpa-country-dropdown{
+    border: none !important;
+    .vti__dropdown-list{
+      top: 50px;
+      border-radius: 12px;
+    }
+    .vti__flag, svg{
+      flex-shrink: 0;
+    }
+    .vti__dropdown, input{
+      transition: border-color 0.15s;
+    }
+    .vti__dropdown{
+      border: 1px solid $gray-light !important;
+      background: $light-beige !important;
+      border-radius: 12px 0 0 12px!important;
+      border-right: none !important;
+      padding-left: 10px;
+      padding-right: 20px;
+
+      & ~ input{
+        border-radius: 0 12px 12px 0 !important;
+      }
+    }
+  }
   //summary
-
-
   .bpa-front-module--booking-summary {
     max-width: 800px;
     margin-left: auto;
