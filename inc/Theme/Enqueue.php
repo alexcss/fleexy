@@ -18,6 +18,7 @@ class Enqueue {
 
 		add_action( 'wp_enqueue_scripts', [ $this, 'global_assets' ], 99 );
 		//add_action( 'wp_enqueue_scripts', [ $this, 'blocks_js_and_styles' ] );
+		add_action( 'wp_enqueue_scripts', [ $this, 'deque_assets' ], 9999 );
 		add_action( 'login_enqueue_scripts', [ $this, 'login_stylesheet' ], 20 );
 		add_action( 'enqueue_block_editor_assets', [ $this, 'admin_styles_and_scripts' ], 999, 2 );
 		//add_action( 'init', [ $this, 'admin_editor_style' ] );
@@ -37,8 +38,25 @@ class Enqueue {
 		], THEME_VERSION, false );
 	}
 
-	public function global_assets(): void {
+	public function deque_assets(): void {
+		wp_dequeue_style( 'bodhi-svgs-attachment' );
+		wp_dequeue_style( 'wp-block-library' );
+		wp_dequeue_style( 'wp-block-library-theme' );
+		wp_dequeue_style( 'wc-block-style' );
+		wp_dequeue_style( 'global-styles' );
 
+		wp_dequeue_style( 'bookingpress_fonts_css' );
+
+		wp_deregister_script( 'wp-embed' );
+
+		if ( ! is_user_logged_in() ) {
+			// Deregister the jquery version bundled with WordPress.
+			wp_deregister_script( 'jquery' );
+			// Deregister the jquery-migrate version bundled with WordPress.
+			wp_deregister_script( 'jquery-migrate' );
+		}
+	}
+	public function global_assets(): void {
 
 		wp_enqueue_script( 'app', Assets::require_url( 'src/js/app.js' ), [], null );
 
@@ -50,6 +68,8 @@ class Enqueue {
 		wp_script_add_data( 'anime', 'async', true );
 		wp_script_add_data( 'anime', 'module', true );
 
+		wp_enqueue_style( 'bookingpress_front_css', Assets::require_url( 'src/scss/bookingpress_front.scss' ), [], null );
+
 		wp_enqueue_style( 'app', Assets::require_url( 'src/scss/app.scss' ), [], null );
 
 		wp_localize_script( 'app', 'fpData', [
@@ -57,19 +77,6 @@ class Enqueue {
 			'nonce'   => wp_create_nonce( 'wp_rest' ),
 		] );
 
-		if ( ! is_user_logged_in() ) {
-			// Deregister the jquery version bundled with WordPress.
-			wp_deregister_script( 'jquery' );
-			// Deregister the jquery-migrate version bundled with WordPress.
-			wp_deregister_script( 'jquery-migrate' );
-		}
-
-		wp_dequeue_style( 'bodhi-svgs-attachment' );
-		wp_dequeue_style( 'wp-block-library' );
-		wp_dequeue_style( 'wp-block-library-theme' );
-		wp_dequeue_style( 'wc-block-style' );
-		wp_dequeue_style( 'global-styles' );
-		wp_deregister_script( 'wp-embed' );
 	}
 
 	public function login_stylesheet(): void {

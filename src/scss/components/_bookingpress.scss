@@ -1,6 +1,432 @@
-.bpa-front-tabs.--bpa-top{
-  .bpa-front-default-card, .bpa-front-tab-menu, .bpa-fm--service__advance-options{
+.bpa-front-tabs.--bpa-top {
+  .bpa-front-default-card, .bpa-front-tab-menu, .bpa-fm--service__advance-options {
     box-shadow: none !important;
-    border: none !important;
+    //border: none !important;
   }
+  .bpa-front-module--staff .bpa-front-sm--col.__bpa-is-selected .bpa-front-sm-card,
+  .bpa-front-module--service-item.__bpa-is-selected .bpa-front-si-card{
+    box-shadow: none !important;
+  }
+}
+
+.el-main.bpa-frontend-main-container {
+  overflow: initial;
+  padding: 0;
+  min-height: initial;
+  padding: 0 16px 24px;
+  @include media-breakpoint-up(md) {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+
+.offcanvas {
+  .el-main {
+    height: calc(100vh - var(--fp-offcanvas--booking-header, 48px) - var(--wp-admin--admin-bar--height));
+    @include media-breakpoint-up(lg) {
+      --fp-offcanvas--booking-header: 88px
+    }
+  }
+
+  #bpa-front-tabs.bpa-front-tabs {
+    height: 100%;
+  }
+}
+
+#bpa-front-tabs.bpa-front-tabs {
+  flex-direction: column;
+  height: 80vh;
+  .bpa-front-tab-menu .bpa-front-tab-menu--item.__bpa-is-active span,
+  .bpa-front-tab-menu .bpa-front-tab-menu--item.__bpa-is-active .bpa-front-tm--item-icon,
+  .bpa-front-tabs--foot .bpa-front-btn--primary:focus{
+    box-shadow: none !important;
+  }
+  .bpa-front-tab-menu {
+    flex-shrink: 0;
+    border-width: 0 0 1px 0;
+    border-radius: 16px 16px 0 0;
+    margin-bottom: 0;
+    @include media-breakpoint-down(md) {
+      border:none;
+      border-radius: 0;
+      background: transparent !important;
+      margin-left: -16px;
+      margin-right: -16px;
+      width: auto;
+      margin-bottom: 24px;
+      padding: 0;
+    }
+    .bpa-front-tab-menu--item {
+      white-space: nowrap !important;
+      @include media-breakpoint-down(md) {
+        font-size: 12px !important;
+        font-weight: 600 !important;
+        text-transform: uppercase;
+        display: flex;
+        gap: 16px;
+        margin: 0;
+        padding: 20px 16px;
+        color: $gray !important;
+        &:before{
+          color: currentColor !important;
+          position: static;
+          width: 24px;
+          height: 24px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: $white;
+          font-size: 12px;
+        }
+        &:after{
+          bottom: 0;
+        }
+        &.__bpa-is-active{
+          color: $black !important;
+          &:before{
+            background: $primary;
+          }
+          &:after{
+            height: 1px;
+
+          }
+        }
+        .bpa-front-tm--item-icon{
+          display: none;
+        }
+      }
+    }
+  }
+
+  //Tabs
+  .bpa-front-tabs--panel-body.__bpa-is-active {
+    display: flex;
+
+  }
+
+  .bpa-front-tabs--foot, .bpa-front-default-card {
+    background: none !important;
+    border: none !important;
+    border-radius: 0;
+  }
+
+  .bpa-front-default-card {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .bpa-front-tabs--foot {
+    display: flex;
+    justify-content: space-between;
+    padding: 24px 0 0 0;
+
+    button:only-child {
+      margin-left: auto !important;
+    }
+  }
+
+  .bpa-front-dc--body {
+    background: $white;
+    border-radius: 0 0 16px 16px;
+    flex-grow: 1;
+    @include media-breakpoint-down(md) {
+      border-radius: 16px;
+    }
+  }
+
+  //button
+  .el-button.bpa-front-btn__medium.el-button--default {
+    padding: 3px 23px 3px 23px;
+    background-color: $white !important;
+    color: $black;
+    border: 1px solid $black !important;
+    border-radius: 32px !important;
+    font-weight: $font-weight-semibold !important;
+    display: inline-flex;
+    gap: 8px;
+    align-items: center;
+    height: 56px;
+    font-size: 16px !important;
+    @include media-breakpoint-down(md) {
+      strong{
+        display: none;
+      }
+    }
+    svg {
+      width: 48px;
+      height: 48px;
+      padding: 15px;
+      border-radius: 50%;
+      background-color: $primary;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: $black;
+    }
+
+    span {
+      display: flex;
+      gap: 8px;
+
+      svg {
+        margin: 0 0 0 -20px;
+      }
+
+      strong + svg {
+        margin: 0 -20px 0 0;
+      }
+    }
+
+    @media (hover) {
+      &:hover {
+        background-color: $primary !important;
+        color: $black !important;
+      }
+    }
+
+  }
+  .bpa-front-module--category{
+    .bpa-front-cat-items{
+      @include media-breakpoint-up(md) {
+        justify-content: center;
+        margin-right: -12px;
+      }
+    }
+  }
+  .bpa-front-module-heading{
+    font: 600 24px/1.2 $font-family-base !important;
+    text-align: center;
+    margin-bottom: 24px;
+    padding: 0;
+    @include media-breakpoint-up(md) {
+      font-size: 28px !important;
+    }
+    @include media-breakpoint-up(xl) {
+      font-size: 32px !important;
+      margin-bottom: 40px;
+    }
+  }
+  //card
+  .bpa-front-sm-card{
+    .bpa-front-sm-card__body{
+      text-align: left;
+    }
+  }
+  //staff
+  .bpa-front-module--staff{
+    .bpa-front-module--staff-item-row{
+      @include media-breakpoint-up(md) {
+        grid-template-columns: repeat(2,1fr);
+      }
+      @include media-breakpoint-up(lg) {
+        grid-template-columns: repeat(3,1fr);
+      }
+    }
+    .bpa-front-sm--col{
+      &.__bpa-is-selected .bpa-front-sm-card{
+        background-color: $light-orange;
+      }
+      .bpa-front-sm-card{
+        border: 1px solid $gray;
+        border-radius: 16px;
+        padding: 16px;
+        align-items: start;
+
+        @include media-breakpoint-up(md) {
+          height: calc(100% - 24px);
+          margin-bottom: 24px;
+        }
+        .bpa-front-sm-card__left{
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          .bpa-front-cb__title{
+            font:600 20px/1.3 $font-family-base !important;
+          }
+          .bpa-front-sm__avatar{
+            width: 100px;
+            height: 100px;
+            border-radius: 8px;
+          }
+        }
+        .--bpa-is-desc{
+          padding: 0;
+          font:500 14px/1.4 $font-family-base !important;
+        }
+        @include media-breakpoint-down(md) {
+          margin: 0 8px 16px;
+        }
+      }
+    }
+  }
+  // service-card
+  .bpa-front-module--service-item{
+    @include media-breakpoint-up(md) {
+      height: 100%;
+    }
+    .bpa-front-si-card{
+      text-align: left;
+      @include media-breakpoint-up(md) {
+        height: calc(100% - 24px);
+      }
+      .bpa-front-si__card-body--heading{
+        font:600 20px/1.3 $font-family-base !important;
+      }
+      .bpa-front-si-card__left img{
+        width: 80px;
+        height: 80px;
+        border-radius: 8px;
+      }
+      .bpa-front-si__card-body--heading{
+        margin-left: 0;
+      }
+      .--bpa-is-desc{
+        padding: 0;
+        font:500 14px/1.4 $font-family-base !important;
+        margin-bottom: 24px !important;
+      }
+      .bpa-front-si-cb__specs{
+        justify-content: start;
+      }
+    }
+    &.__bpa-is-selected .bpa-front-si-card{
+      border-color: $primary !important;
+      background-color: $light-orange
+    }
+    @include media-breakpoint-down(md) {
+      margin: 0 8px 16px;
+      padding: 0;
+      border: none;
+      .bpa-front-si-card{
+        border: 1px solid $gray;
+        border-radius: 16px;
+      }
+      .bpa-front-si-card__row{
+        padding: 16px;
+      }
+    }
+  }
+  .bpa-front--dt__custom-duration-card, .bpa-front--dt__time-slots {
+    border-radius: 8px;
+
+  }
+  .bpa-front--dt__time-slots.bpa-front--dt__custom-duration-is-active{
+    @include media-breakpoint-up(lg) {
+      height: 376px;
+    }
+  }
+  .bpa-front--dt__custom-duration-card{
+    .bpa-front-cdc__left{
+      border-radius: 8px 0 0 8px;
+    }
+  }
+
+  .bpa-front--dt__time-slots{
+    .bpa-front-module-heading{
+      font-size: 18px !important;
+      margin-bottom: 12px;
+      text-align: left;
+    }
+  }
+  .bpa-front--dt__calendar {
+    @include media-breakpoint-down(md) {
+      margin: 0 8px;
+    }
+    .vc-container {
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .vc-day {
+      .vc-day-content {
+        font-weight: 600 !important;
+
+        &.is-disabled {
+          background-color: $bg-light-beige !important;
+          color: $gray !important;
+        }
+      }
+    }
+  }
+
+  .bpa-front-module--basic-details {
+    max-width: 580px;
+    margin: 0 auto;
+
+    .el-form-item__label {
+      display: block;
+      float: none;
+      text-align: left;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .bpa-front-form-control {
+      input {
+        padding: 12px 16px !important;
+        display: block;
+        width: 100%;
+        border-radius: 12px !important;
+        border: 1px solid $gray !important;
+        font: 500 1.6rem/1 $font-family-base !important;
+        background-color: $light-beige !important;
+        letter-spacing: -0.02em;
+
+        &:focus {
+          outline: none;
+          border-color: $black;
+        }
+
+        &::placeholder {
+          color: $gray;
+        }
+      }
+
+    }
+  }
+  //summary
+
+
+  .bpa-front-module--booking-summary {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    .bpa-front-module--bs-head .bpa-head__vector{
+      display: none;
+    }
+    .bpa-front-module--bs-summary-content .bpa-front-module--bs-summary-content-item span{
+      font: 600 1.2rem/1.3 $font-family-base !important;
+      color: $gray !important;
+      text-transform: uppercase;
+    }
+  }
+  //end
+}
+.el-select-dropdown.el-popper.bpa-custom-dropdown.bpa-custom-duration-dropdown{
+  margin-top: 52px !important;
+}
+
+.bpa-front-tabs--panel-body {
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+.bpa-front-tabs.--bpa-top .bpa-front-tabs--panel-body .bpa-front-dc--body {
+  min-height: initial;
+  max-height: initial;
+}
+
+.bpa-front-tabs.--bpa-top .bpa-front-toast-notification {
+  width: auto;
+  position: absolute;
+  right: 20px;
+  z-index: 2;
+  left: auto;
+  box-shadow: none;
+  border: 1px solid $gray-light;
 }

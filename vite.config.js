@@ -12,6 +12,7 @@ const dest = './dist';
 const entries = [
 	'./src/scss/app.scss',
 	'./src/scss/admin.scss',
+	'./src/scss/bookingpress_front.scss',
 	'./src/js/app.js',
 	'./src/js/animation.js',
 	'./src/js/google-maps-block.js',
