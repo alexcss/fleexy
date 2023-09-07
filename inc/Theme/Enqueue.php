@@ -58,7 +58,6 @@ class Enqueue {
 	}
 	public function global_assets(): void {
 
-
 		wp_enqueue_script( 'app', Assets::require_url( 'src/js/app.js' ), [], null );
 
 

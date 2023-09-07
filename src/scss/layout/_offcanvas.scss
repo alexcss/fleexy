@@ -42,3 +42,8 @@
     top: -10px;
   }
 }
+.btn-close{
+  &:hover{
+    opacity: 0.6;
+  }
+}
