@@ -52,6 +52,9 @@ class Support {
 		add_theme_support( 'html5', [ 'script', 'style' ] );
 
 		add_filter( 'acf/fields/wysiwyg/toolbars', [ $this, 'custom_header_toolbar' ] );
+
+		load_theme_textdomain( 'fp', get_template_directory() . '/languages' );
+
 	}
 
 	public function custom_header_toolbar( $toolbars ): array {
