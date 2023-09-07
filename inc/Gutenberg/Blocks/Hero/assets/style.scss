@@ -14,7 +14,7 @@
   }
 
   &__inner {
-
+    background-position: 50% 50%;
     min-height: 812px;
     @include media-breakpoint-up(lg) {
       aspect-ratio: 1424/712;
@@ -28,7 +28,10 @@
       top: 0;
       right: 0;
       bottom: 0;
-      background: linear-gradient(17deg, rgba(16, 7, 2, 0.69) 0%, rgba(16, 7, 2, 0.00) 100%);
+      background: linear-gradient(13deg, rgba(16, 7, 2, 0.49) 56.9%, rgba(16, 7, 2, 0.00) 105.7%);
+      @include media-breakpoint-up(lg) {
+        background: linear-gradient(17deg, rgba(16, 7, 2, 0.69) 0%, rgba(16, 7, 2, 0.00) 100%);
+      }
     }
   }
 }
