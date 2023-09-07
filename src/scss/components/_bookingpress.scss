@@ -13,31 +13,34 @@
   overflow: initial;
   padding: 0;
   min-height: initial;
-  min-height: 70vh;
+  padding: 0 16px 24px;
+  //height: calc(100% - var(--fp-offcanvas--booking-header, 48px) - var(--wp-admin--admin-bar--height, 0px));
+  height: 100%;
   @include media-breakpoint-up(md) {
     padding-left: 24px;
     padding-right: 24px;
+  }
+  @include media-breakpoint-up(lg) {
+    --fp-offcanvas--booking-header: 88px
   }
 }
 
 .offcanvas {
   .el-main {
-
   }
 
   #bpa-front-tabs.bpa-front-tabs {
-    padding: 0 16px 24px;
-    height: calc(100vh - var(--fp-offcanvas--booking-header, 48px) - var(--wp-admin--admin-bar--height, 0px));
-    @include media-breakpoint-up(lg) {
-      --fp-offcanvas--booking-header: 88px
-    }
-    //height: 100%;
+    //padding: 0 16px 24px;
+    //height: calc(100vh - var(--fp-offcanvas--booking-header, 48px) - var(--wp-admin--admin-bar--height, 0px));
+    //@include media-breakpoint-up(lg) {
+    //  --fp-offcanvas--booking-header: 88px
+    //}
+    height: 100%;
   }
 }
 
 #bpa-front-tabs.bpa-front-tabs {
   flex-direction: column;
-  height: 80vh;
   .bpa-front-tab-menu .bpa-front-tab-menu--item.__bpa-is-active span,
   .bpa-front-tab-menu .bpa-front-tab-menu--item.__bpa-is-active .bpa-front-tm--item-icon,
   .bpa-front-tabs--foot .bpa-front-btn--primary:focus{
