@@ -18,6 +18,7 @@
 		</div>
 		<div class="col-lg-1 col-xl-3 col-md-4 d-none d-lg-flex justify-content-end align-items-center header-lang-switcher">
 			{{ fn('do_action', 'wpml_add_language_selector') }}
+{#			<script type="text/javascript" src="https://booksy.com/widget/code.js?id=206908&country=pl&lang=uk"></script>#}
 			{% if header.cta_button.url and header.cta_button.title %}
 				<a class="fp-button fp-button--sm ms-24 d-none d-xl-flex" href="{{ header.cta_button.url|e('esc_url') }}" target="{{ header.cta_button.target|e('html_attr') ?: '_self' }}">
 					{{ header.cta_button.title|e('wp_kses_post') }}
