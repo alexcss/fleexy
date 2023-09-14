@@ -11,6 +11,7 @@ class Manager {
 		Post_Types\Page::class,
 		Post_Types\Testimonial::class,
 		Post_Types\Service::class,
+		Post_Types\Team_Member::class,
 		Menu::class,
 	];
 

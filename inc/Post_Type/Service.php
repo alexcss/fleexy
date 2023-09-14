@@ -46,7 +46,7 @@ class Service extends Post_Type {
 				'slug' => self::SLUG,
 			],
 			'has_archive'        => false,
-			'menu_icon'          => 'dashicons-book',
+			'menu_icon'          => 'dashicons-hammer',
 			'template'           => [],
 			'taxonomies'         => [],
 		];

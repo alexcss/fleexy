@@ -33,6 +33,7 @@ class Core {
 		'acf/fp-contact-us',
 		'acf/fp-service',
 		'acf/fp-services-list',
+		'acf/fp-team-member-list',
 	];
 
 

@@ -8,6 +8,7 @@ class Manager {
 	private array $post_types = [
 		Testimonial::class,
 		Service::class,
+		Team_Member::class,
 	];
 
 	public function __construct() {

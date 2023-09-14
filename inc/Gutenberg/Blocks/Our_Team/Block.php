@@ -13,21 +13,6 @@ class Block extends Gutenberg_Block {
 
 	public function init_fields(): void {
 
-		global $wpdb;
-
-		$query = "SELECT * FROM {$wpdb->prefix}bookingpress_staffmembers";
-
-		$results = $wpdb->get_results( $query, ARRAY_A );
-
-		$data = [];
-
-		if ( ! empty( $results ) ) {
-			foreach ( $results as $result ) {
-				$data[ $result['bookingpress_staffmember_id'] ] = $result['bookingpress_staffmember_firstname'] . ' ' . $result['bookingpress_staffmember_lastname'];
-			}
-		}
-
-
 		$this->add_field( [
 			'name'          => 'title',
 			'label'         => __( 'Title', 'fp' ),
@@ -37,13 +22,23 @@ class Block extends Gutenberg_Block {
 		] );
 
 		$this->add_field( [
-			'name'     => 'team',
-			'label'    => __( 'Team', 'fp' ),
-			'type'     => 'select',
-			'choices'  => $data,
-			'multiple' => 1,
-			'ui'       => 1,
-			'ajax'     => 1,
+			'name'          => 'team_members',
+			'label'         => __( 'Team Members', 'fp' ),
+			'type'          => 'relationship',
+			'post_type'     => [
+				0 => 'team_member',
+			],
+			'post_status'   => [
+				0 => 'publish',
+			],
+			'taxonomy'      => '',
+			'filters'       => [
+				0 => 'search',
+			],
+			'elements'      => [
+				0 => 'featured_image',
+			],
+			'return_format' => 'id',
 		] );
 
 		$this->add_field( [

@@ -35,38 +35,15 @@ $wrapper_attributes = get_block_wrapper_attributes(
 
 $context = Timber::context();
 
-$team_id = get_field( 'team' );
-
-
-global $wpdb;
-
-if ( is_array( $team_id ) && ! empty( $team_id ) ) {
-	$team_id = implode( ',', $team_id );
-}
-
-$team_query        = "SELECT * FROM {$wpdb->prefix}bookingpress_staffmembers WHERE bookingpress_staffmember_id IN ($team_id)";
-$team_data_results = $wpdb->get_results( $team_query );
-
-if ( ! empty( $team_id ) ) {
-	$team_meta_query   = "SELECT * FROM {$wpdb->prefix}bookingpress_staffmembers_meta WHERE bookingpress_staffmember_id IN ($team_id) AND bookingpress_staffmembermeta_key = 'staffmember_avatar_details'";
-	$team_meta_results = $wpdb->get_results( $team_meta_query, ARRAY_A );
-//	echo '<pre>';
-//	var_dump($team_image_results);
-//	echo '</pre>';
-
-	foreach ( $team_data_results as $index => &$user ) {
-		$user_id       = $user->bookingpress_staffmember_id;
-		$user_image_id = array_search( $user_id, array_column( $team_meta_results, 'bookingpress_staffmember_id' ) );
-
-		$team_data_results[ $index ]->image = maybe_unserialize( $team_meta_results[ $user_image_id ]['bookingpress_staffmembermeta_value'] );
-	}
-}
-
 $data = [
-	'anchor'    => $anchor,
-	'attribute' => $wrapper_attributes,
-	'fields'    => get_fields(),
-	'our_team'  => $team_data_results,
+	'anchor'       => $anchor,
+	'attribute'    => $wrapper_attributes,
+	'fields'       => get_fields(),
+	'team_members' => Timber::get_posts( [
+		'post_type' => 'team_member',
+		'post__in'  => get_field( 'team_members' ),
+		'orderby'   => 'post__in'
+	] )
 ];
 
 $context = array_merge( $context, $data );
