@@ -13,20 +13,6 @@ class Block extends Gutenberg_Block {
 
 	public function init_fields(): void {
 
-		global $wpdb;
-
-		$query = "SELECT * FROM {$wpdb->prefix}bookingpress_categories";
-
-		$results = $wpdb->get_results( $query, ARRAY_A );
-
-		$data = [];
-
-		if ( $results ) {
-			foreach ( $results as $result ) {
-				$data[ $result['bookingpress_category_id'] ] = $result['bookingpress_category_name'];
-			}
-		}
-
 		$this->add_field( [
 			'name'          => 'title',
 			'label'         => __( 'Title', 'fp' ),
@@ -35,14 +21,16 @@ class Block extends Gutenberg_Block {
 		] );
 
 		$this->add_field( [
-			'name'     => 'service_category',
-			'label'    => __( 'Service Category', 'fp' ),
-			'type'     => 'select',
-			'choices'  => $data,
-			'multiple' => 0,
-			'ui'       => 1,
-			'ajax'     => 1,
-			'required' => 1,
+			'name'          => 'service_category',
+			'label'         => __( 'Service Category', 'fp' ),
+			'type'          => 'taxonomy',
+			'taxonomy'      => 'service_category',
+			'multiple'      => 0,
+			'add_term'      => 0,
+			'save_terms'    => 0,
+			'load_terms'    => 0,
+			'return_format' => 'id',
+			'field_type'    => 'select',
 		] );
 
 	}

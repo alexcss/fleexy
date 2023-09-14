@@ -19,7 +19,6 @@ abstract class Post_Type {
 	 * Register post type
 	 */
 	public function register() : void {
-		$args = apply_filters( sprintf( 'fp_core/post_type/%s/args', static::NAME ), $this->config() );
 
 		register_post_type( static::NAME, $this->config() );
 
@@ -42,30 +41,6 @@ abstract class Post_Type {
 
 	public function column( $column, $post_id ) : void {
 
-	}
-
-	/**
-	 * Proxy props and meta to current post
-	 *
-	 * @param string $prop
-	 * @return mixed
-	 */
-	public function __get( $prop ) {
-		if ( get_post_type() === static::NAME && is_null( $this->post ) ) {
-			$this->post = get_post();
-		}
-
-		if ( $this->post ) {
-			return $this->post->$prop;
-		}
-
-		return null;
-	}
-
-	public function set_post( \WP_Post $post ) {
-		if ( $post->post_type === static::NAME ) {
-			$this->post = $post;
-		}
 	}
 
 }

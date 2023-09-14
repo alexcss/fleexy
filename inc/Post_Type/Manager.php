@@ -6,7 +6,8 @@ defined( 'ABSPATH' ) || exit;
 
 class Manager {
 	private array $post_types = [
-		Testimonial\Testimonial::class,
+		Testimonial::class,
+		Service::class,
 	];
 
 	public function __construct() {

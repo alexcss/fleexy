@@ -7,32 +7,33 @@
 					<div class="fp-breadcrumbs mb-28 d-none d-md-block">
 						{{ fn('do_shortcode', '[wpseo_breadcrumb]') }}
 					</div>
-					<h1 class="h2 font-family-body mb-24">{{ title }}</h1>
+					<h1 class="h2 font-family-body mb-24">{{ service.post_title }}</h1>
 					<div class="fp-price-wrap d-flex gap-24 mb-40">
-						<div class="d-flex flex-column">
-							<div class="fp-body-sm mb-16">{{ service.bookingpress_service_duration_val | e('wp_kses_post') ~ ' ' ~ service.bookingpress_service_duration_unit | e('wp_kses_post') }} </div>
-							<p class="fp-service-price font-family-heading mb-0">
-								<span class="fp-body-sm me-n12">zł</span>
-								{{ service.bookingpress_service_price | e('wp_kses_post') }}
-							</p>
-						</div>
-						<div class="border-end border-gray border-1"></div>
-						<div class="d-flex flex-column">
-							<div class="fp-body-sm mb-16">{{ service.bookingpress_service_duration_val | e('wp_kses_post') ~ ' ' ~ service.bookingpress_service_duration_unit | e('wp_kses_post') }} </div>
-							<p class="fp-service-price font-family-heading mb-0">
-								<span class="fp-body-sm me-n12">zł</span>
-								{{ service.bookingpress_service_price | e('wp_kses_post') }}
-							</p>
-						</div>
+						{% for item in service.price %}
+							<div class="d-flex flex-column">
+								<div class="fp-body-sm mb-16">{{ item.time | e('wp_kses_post') }} </div>
+								<p class="fp-service-price font-family-heading mb-0">
+									<span class="fp-body-sm me-n12">{{ item.currency }}</span>
+									{{ item.price | e('wp_kses_post') }}
+								</p>
+							</div>
+							{% if not loop.last %}
+								<div class="border-end border-gray border-1"></div>
+							{% endif %}
+						{% endfor %}
 					</div>
-					{% if description %}
-						<p class="fp-service-block__description fp-body-sm text-gray-dark mb-40">{{ description | e('wp_kses_post') }}</p>
-					{% endif %}
-					<a class="fp-button fp-button--black justify-content-between w-100 w-sm-auto" href="#offcanvas-booking">
+					<div class="fp-service-block__description fp-body-sm text-gray-dark mb-40">
+						{{ service.description | e('wp_kses_post') }}
+					</div>
+					<a class="fp-button fp-button--black justify-content-between w-100 w-sm-auto"
+					   href="#offcanvas-booking">
 						{{ _e('Make an appointment', 'fp') }}
 						<span class="icon-box">
-							<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-								<path fill-rule="evenodd" clip-rule="evenodd" d="M8.23429 2.63431C8.54671 2.32189 9.05324 2.32189 9.36566 2.63431L14.1657 7.43431C14.4781 7.74673 14.4781 8.25326 14.1657 8.56568L9.36566 13.3657C9.05324 13.6781 8.54671 13.6781 8.23429 13.3657C7.92187 13.0533 7.92187 12.5467 8.23429 12.2343L11.6686 8.79999L2.39998 8.8C1.95815 8.79999 1.59998 8.44182 1.59998 7.99999C1.59998 7.55817 1.95815 7.19999 2.39998 7.19999H11.6686L8.23429 3.76568C7.92187 3.45326 7.92187 2.94673 8.23429 2.63431Z" fill="currentColor"/>
+							<svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+								 xmlns="http://www.w3.org/2000/svg">
+								<path fill-rule="evenodd" clip-rule="evenodd"
+									  d="M8.23429 2.63431C8.54671 2.32189 9.05324 2.32189 9.36566 2.63431L14.1657 7.43431C14.4781 7.74673 14.4781 8.25326 14.1657 8.56568L9.36566 13.3657C9.05324 13.6781 8.54671 13.6781 8.23429 13.3657C7.92187 13.0533 7.92187 12.5467 8.23429 12.2343L11.6686 8.79999L2.39998 8.8C1.95815 8.79999 1.59998 8.44182 1.59998 7.99999C1.59998 7.55817 1.95815 7.19999 2.39998 7.19999H11.6686L8.23429 3.76568C7.92187 3.45326 7.92187 2.94673 8.23429 2.63431Z"
+									  fill="currentColor"/>
 							</svg>
 						</span>
 					</a>
@@ -41,23 +42,26 @@
 					<div class="fp-breadcrumbs mb-28 d-md-none">
 						{{ fn('do_shortcode', '[wpseo_breadcrumb]') }}
 					</div>
-					{% if service_image.url %}
+					{% if service.thumbnail.src %}
 						<picture class="w-100">
 							<source media="(max-width: 680px)"
-									srcset="{{ service_image.url|resize(400, 235, 'center')|towebp }} 1x, {{ service_image.url|resize(600, 353, 'center')|towebp }} 1.5x"
+									srcset="{{ service.thumbnail.src|resize(400, 235, 'center')|towebp }} 1x, {{ service.thumbnail.src|resize(600, 353, 'center')|towebp }} 1.5x"
 									type="image/webp" width="400" height="235">
 							<source media="(max-width: 680px)"
-									srcset="{{ service_image.url|resize(400, 235, 'center')|tojpg }} 1x, {{ service_image.url|resize(600, 353, 'center')|tojpg }} 1.5x"
+									srcset="{{ service.thumbnail.src|resize(400, 235, 'center')|tojpg }} 1x, {{ service.thumbnail.src|resize(600, 353, 'center')|tojpg }} 1.5x"
 									width="400" height="235">
 
 							<source media="(max-width: 991px)"
-									srcset="{{ service_image.url|resize(400, 235, 'center')|towebp }} 1x, {{ service_image.url|resize(600, 353, 'center')|towebp }} 1.5x"
+									srcset="{{ service.thumbnail.src|resize(400, 235, 'center')|towebp }} 1x, {{ service.thumbnail.src|resize(600, 353, 'center')|towebp }} 1.5x"
 									type="image/webp" width="400" height="235">
 							<source media="(max-width: 991px)"
-									srcset="{{ service_image.url|resize(400, 235, 'center')|tojpg }} 1x, {{ service_image.url|resize(600, 353, 'center')|tojpg }} 1.5x"
+									srcset="{{ service_image.service|resize(400, 235, 'center')|tojpg }} 1x, {{ service.thumbnail.src|resize(600, 353, 'center')|tojpg }} 1.5x"
 									width="400" height="235">
 
-							<img class="object-fit-cover rounded-8 w-100" src="{{ service_image.url|resize(438, 528, 'center') }}" srcset="{{ service_image.url|resize(657, 792, 'center') }}" alt="{{ service_image.alt|e('html_attr') }}" width="438" height="528">
+							<img class="object-fit-cover rounded-8 w-100"
+								 src="{{ service.thumbnail.src|resize(438, 528, 'center') }}"
+								 srcset="{{ service.thumbnail.src|resize(657, 792, 'center') }}"
+								 alt="{{ service.thumbnail.alt|e('html_attr') }}" width="438" height="528">
 						</picture>
 					{% endif %}
 				</div>
