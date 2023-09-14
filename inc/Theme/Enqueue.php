@@ -68,7 +68,7 @@ class Enqueue {
 		wp_script_add_data( 'anime', 'async', true );
 		wp_script_add_data( 'anime', 'module', true );
 
-		wp_enqueue_style( 'bookingpress_front_css', Assets::require_url( 'src/scss/bookingpress_front.scss' ), [], null );
+//		wp_enqueue_style( 'bookingpress_front_css', Assets::require_url( 'src/scss/bookingpress_front.scss' ), [], null );
 
 		wp_enqueue_style( 'app', Assets::require_url( 'src/scss/app.scss' ), [], null );
 

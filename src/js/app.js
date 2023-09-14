@@ -10,7 +10,9 @@ import Splide from '@splidejs/splide';
 import { AutoScroll } from '@splidejs/splide-extension-auto-scroll';
 
 import {HeaderBar} from "@/src/js/components/HeaderBar";
+import {Main} from "@/src/js/components/Main";
 new HeaderBar();
+new Main();
 
 let options = {
 	type: 'loop',
@@ -39,10 +41,6 @@ const initializeBlock = function (block) {
 	}
 };
 document.addEventListener('DOMContentLoaded', function () {
-
-  let bookingLinks = [...document.querySelectorAll("a[href*='#offcanvas-booking']")];
-  if (!bookingLinks) return;
-  bookingLinks.forEach(item => item.setAttribute('data-bs-toggle', 'offcanvas'));
 
 	let blocks = document.querySelectorAll('[data-slider-block]');
 	blocks.forEach((block) => {
