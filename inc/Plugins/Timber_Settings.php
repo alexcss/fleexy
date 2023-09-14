@@ -44,7 +44,7 @@ class Timber_Settings {
 		$context['header_style'] = get_field( 'header_style' ) ?: 'is-black';
 		$context['footer']       = get_field( 'footer', 'options' );
 		$context['header']       = get_field( 'header', 'options' );
-
+		$context['lang'] = defined("ICL_LANGUAGE_CODE") ? ICL_LANGUAGE_CODE : 'en';
 		return $context;
 	}
 
