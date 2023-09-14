@@ -44,8 +44,10 @@ class Enqueue {
 		wp_dequeue_style( 'wp-block-library-theme' );
 		wp_dequeue_style( 'wc-block-style' );
 		wp_dequeue_style( 'global-styles' );
+		wp_dequeue_style( 'wpml-blocks' );
 
 		wp_dequeue_style( 'bookingpress_fonts_css' );
+		wp_dequeue_script( 'wpml-legacy-dropdown-0' );
 
 		wp_deregister_script( 'wp-embed' );
 
