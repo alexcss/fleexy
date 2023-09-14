@@ -39,49 +39,22 @@ $context = Timber::context();
 
 $service_category_id = get_field( 'service_category' );
 
-global $wpdb;
-
-$services_query   = $wpdb->prepare( "SELECT * FROM {$wpdb->prefix}bookingpress_services WHERE bookingpress_category_id = %d", $service_category_id );
-$services_results = $wpdb->get_results( $services_query );
-
-$get_locale = get_locale();
-
-$services_id = [];
-
-if ( is_array( $services_id ) ) {
-	foreach ( $services_results as $service ) {
-		$services_id[] = $service->bookingpress_service_id;
-	}
-	$services_id = implode( ',', $services_id );
-}
-
-
-//$services_translation_query   = $wpdb->prepare( "SELECT * FROM {$wpdb->prefix}bookingpress_ml_translation WHERE bookingpress_element_ref_id IN ($services_id) AND bookingpress_language_code = %s", $get_locale );
-//$services_translation_results = $wpdb->get_results( $services_translation_query );
-//
-//foreach ( $services_translation_results as $item ) {
-//	$s_id = array_search( $item->bookingpress_element_ref_id, array_column( $services_results, 'bookingpress_service_id' ) );
-//	$t_id = array_search( $item->bookingpress_element_ref_id, array_column( $services_translation_results, 'bookingpress_element_ref_id' ) );
-//	if ( $item->bookingpress_translated_value ) {
-//		$services_results[ $s_id ]->bookingpress_service_name = $item->bookingpress_translated_value;
-//	}
-//}
-
-if ( ! empty( $services_id ) ) {
-	$service_image_query   = $wpdb->prepare( "SELECT * FROM {$wpdb->prefix}bookingpress_servicesmeta WHERE bookingpress_service_id IN ($services_id) AND bookingpress_servicemeta_name = %s", 'service_image_details' );
-	$service_image_results = $wpdb->get_results( $service_image_query, ARRAY_A );
-
-	foreach ( $services_results as $index => &$service ) {
-		$s_id                              = $service->bookingpress_service_id;
-		$s_image_id                        = array_search( $s_id, array_column( $service_image_results, 'bookingpress_service_id' ) );
-		$services_results[ $index ]->image = maybe_unserialize( $service_image_results[ $s_image_id ]['bookingpress_servicemeta_value'] );
-	}
-}
-
 $data = [
 	'anchor'    => $anchor,
 	'attribute' => $wrapper_attributes,
-	'services'  => $services_results,
+	'services'  => Timber::get_posts(
+		[
+			'post_type'      => 'service',
+			'posts_per_page' => -1,
+			'tax_query'      => [
+				[
+					'taxonomy' => 'service_category',
+					'field'    => 'term_id',
+					'terms'    => $service_category_id,
+				],
+			],
+		]
+	),
 	'title'     => get_field( 'title' ),
 ];
 

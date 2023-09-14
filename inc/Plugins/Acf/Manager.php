@@ -10,6 +10,7 @@ class Manager {
 		Options\Base::class,
 		Post_Types\Page::class,
 		Post_Types\Testimonial::class,
+		Post_Types\Service::class,
 		Menu::class,
 	];
 

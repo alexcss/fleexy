@@ -24,6 +24,9 @@ if ( file_exists( $composer_autoload ) ) {
 	/* Post_Type */
 	new FP\Post_Type\Manager();
 
+	/* Taxonomy */
+	new FP\Taxonomy\Manager();
+
 	/* Gutenberg */
 	new FP\Gutenberg\Core();
 	new FP\Gutenberg\Categories();

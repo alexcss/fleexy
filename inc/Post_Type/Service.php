@@ -1,20 +1,18 @@
 <?php
 
-namespace FP\Post_Type\Testimonial;
-
-use FP\Post_Type\Post_Type;
+namespace FP\Post_Type;
 
 defined( 'ABSPATH' ) || exit;
 
-class Testimonial extends Post_Type {
+class Service extends Post_Type {
 
-	const NAME = 'testimonial';
+	const NAME = 'service';
 	// eng: explore
-	const SLUG = 'testimonials';
+	const SLUG = 'services';
 
 	public function config(): array {
-		$singular = __( 'Testimonial', 'fp' );
-		$plural   = __( 'Testimonials', 'fp' );
+		$singular = __( 'Service', 'fp' );
+		$plural   = __( 'Services', 'fp' );
 
 		$labels = [
 			'name'               => $plural,
@@ -35,21 +33,22 @@ class Testimonial extends Post_Type {
 		];
 
 		$args = [
-			'labels'       => $labels,
-			'public'       => true,
-			'show_ui'      => true,
-			'supports'     => [ 'title', 'custom-fields', 'revisions', 'author' ],
+			'labels'             => $labels,
+			'public'             => true,
+			'show_ui'            => true,
+			'supports'           => [ 'title', 'custom-fields', 'thumbnail', 'revisions', 'author' ],
 			//  custom-fields is requred for post_meta to work
-			'map_meta_cap' => true,
-			'show_in_rest' => true,
-			'show_in_menu' => true,
-			'rewrite'      => [
+			'map_meta_cap'       => true,
+			'show_in_rest'       => true,
+			'show_in_menu'       => true,
+			'publicly_queryable' => false,
+			'rewrite'            => [
 				'slug' => self::SLUG,
 			],
-			'has_archive'  => false,
-			'menu_icon'    => 'dashicons-book',
-			'template'     => [],
-			'taxonomies'   => [],
+			'has_archive'        => false,
+			'menu_icon'          => 'dashicons-book',
+			'template'           => [],
+			'taxonomies'         => [],
 		];
 
 		return $args;

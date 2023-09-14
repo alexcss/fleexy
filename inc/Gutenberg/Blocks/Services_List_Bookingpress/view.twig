@@ -9,7 +9,7 @@
 					<div class="splide__list">
 						{% for service in services %}
 							<div class="fp-services-nav splide__slide">
-								<div class="bg-white rounded-56 border border-1 border-black py-12 px-16 p-lg-16 font-weight-600">{{ service.post_title }}</div>
+								<div class="bg-white rounded-56 border border-1 border-black py-12 px-16 p-lg-16 font-weight-600">{{ service.bookingpress_service_name }}</div>
 							</div>
 						{% endfor %}
 					</div>
@@ -45,46 +45,40 @@
 							<div class="fp-service-card rounded-16 bg-white border border-1 position-relative h-100 splide__slide">
 								<div class="d-flex flex-column flex-md-row p-16 p-lg-0">
 									<div class="flex-shrink-0 mb-24 mb-md-0 p-lg-8">
-										{% if service.thumbnail.src %}
-											<picture class="w-100">
-												<source media="(max-width: 680px)"
-														srcset="{{ service.thumbnail.src|resize(400, 235, 'center')|towebp }} 1x, {{ service.thumbnail.src|resize(600, 353, 'center')|towebp }} 1.5x"
-														type="image/webp" width="400" height="235"/>
-												<source media="(max-width: 680px)"
-														srcset="{{ service.thumbnail.src|resize(400, 235, 'center')|tojpg }} 1x, {{ service.thumbnail.src|resize(600, 353, 'center')|tojpg }} 1.5x"
-														width="400" height="235"/>
+										<picture class="w-100">
+											<source media="(max-width: 680px)"
+													srcset="{{ service.image[0].url|resize(400, 235, 'center')|towebp }} 1x, {{ service.image[0].url|resize(600, 353, 'center')|towebp }} 1.5x"
+													type="image/webp" width="400" height="235"/>
+											<source media="(max-width: 680px)"
+													srcset="{{ service.image[0].url|resize(400, 235, 'center')|tojpg }} 1x, {{ service.image[0].url|resize(600, 353, 'center')|tojpg }} 1.5x"
+													width="400" height="235"/>
 
-												<source media="(max-width: 991px)"
-														srcset="{{ service.thumbnail.src|resize(240, 400, 'center')|towebp }} 1x, {{ service.thumbnail.src|resize(360, 600, 'center')|towebp }} 1.5x"
-														type="image/webp" width="240" height="400"/>
-												<source media="(max-width: 991px)"
-														srcset="{{ service.thumbnail.src|resize(240, 400, 'center')|tojpg }} 1x, {{ service.thumbnail.src|resize(360, 600, 'center')|tojpg }} 1.5x"
-														width="400" height="400"/>
+											<source media="(max-width: 991px)"
+													srcset="{{ service.image[0].url|resize(240, 400, 'center')|towebp }} 1x, {{ service.image[0].url|resize(360, 600, 'center')|towebp }} 1.5x"
+													type="image/webp" width="240" height="400"/>
+											<source media="(max-width: 991px)"
+													srcset="{{ service.image[0].url|resize(240, 400, 'center')|tojpg }} 1x, {{ service.image[0].url|resize(360, 600, 'center')|tojpg }} 1.5x"
+													width="400" height="400"/>
 
-												<source srcset="{{ service.thumbnail.src|resize(360, 448, 'center')|towebp }} 1x, {{ service.thumbnail.src|resize(540, 672, 'center')|towebp }} 1.5x"
-														type="image/webp" width="240" height="448"/>
-												<img class="object-fit-cover rounded-8 w-100" src="{{ service.thumbnail.src|resize(360, 448, 'center') }}" srcset="{{ service.thumbnail.src|resize(540, 672, 'center') }}" alt="{{ service.thumbnail.alt|e('html_attr') }}" width="360" height="448">
-											</picture>
-										{% endif %}
+											<source srcset="{{ service.image[0].url|resize(360, 448, 'center')|towebp }} 1x, {{ service.image[0].url|resize(540, 672, 'center')|towebp }} 1.5x"
+													type="image/webp" width="240" height="448"/>
+											<img class="object-fit-cover rounded-8 w-100" src="{{ service.image[0].url|resize(360, 448, 'center') }}" srcset="{{ service.image[0].url|resize(540, 672, 'center') }}" alt="{{ service.image[0].alt|e('html_attr') }}" width="360" height="448">
+										</picture>
 									</div>
 									<div class="d-flex flex-column ps-md-16 pt-lg-40 pe-lg-48 pb-lg-24 ps-lg-80">
-										<h3 class="font-family-body mb-24">{{ service.post_title | e('wp_kses_post') }}</h3>
-										<div class="fp-price-wrap d-flex gap-24 mb-40">
-											{% for item in service.price %}
-												<div class="d-flex flex-column">
-													<div class="fp-body-sm mb-16">{{ item.time | e('wp_kses_post') }} </div>
-													<p class="fp-service-price font-family-heading mb-0">
-														<span class="fp-body-sm me-n12">{{ item.currency }}</span>
-														{{ item.price | e('wp_kses_post') }}
-													</p>
-												</div>
-												{% if not loop.last %}
-													<div class="border-end border-gray border-1"></div>
-												{% endif %}
-											{% endfor %}
+										<h3 class="font-family-body mb-24">{{ service.bookingpress_service_name | e('wp_kses_post') }}</h3>
+										<div class="d-flex gap-48 mb-40">
+											<div class="d-flex flex-column">
+												<div class="mb-16">{{ service.bookingpress_service_duration_val | e('wp_kses_post') ~ ' ' ~ service.bookingpress_service_duration_unit | e('wp_kses_post') }} </div>
+												<p class="h3 mb-0">{{ service.bookingpress_service_price | e('wp_kses_post') }}</p>
+											</div>
+											<div class="d-flex flex-column">
+												<div class="mb-16">{{ service.bookingpress_service_duration_val | e('wp_kses_post') ~ ' ' ~ service.bookingpress_service_duration_unit | e('wp_kses_post') }} </div>
+												<p class="h3 mb-0">{{ service.bookingpress_service_price | e('wp_kses_post') }}</p>
+											</div>
 										</div>
 										<div class="d-flex flex-grow-1 flex-column">
-											<div class="mb-auto">{{ service.description | e('wp_kses_post') }}</div>
+											<p class="mb-auto">{{ service.bookingpress_service_description | e('wp_kses_post') }}</p>
 											<div class="text-center text-md-start">
 												<a class="fp-button fp-button--sm fp-button--black justify-content-between" href="#offcanvas-booking">
 													{{ _e('Make an appointment', 'fp') }}
