@@ -6,7 +6,9 @@ defined( 'ABSPATH' ) || exit;
 
 class Manager {
 	private array $taxonomies = [
-		Service::class,
+		Service_Category::class,
+		Team_Member_Category::class,
+		Team_Member_Tag::class,
 	];
 
 	public function __construct() {

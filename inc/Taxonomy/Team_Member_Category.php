@@ -4,9 +4,9 @@ namespace FP\Taxonomy;
 
 defined( 'ABSPATH' ) || exit;
 
-class Service extends Taxonomy {
-	const NAME = 'service_category';
-	const POST_TYPE = 'service';
+class Team_Member_Category extends Taxonomy {
+	const NAME = 'team_member_category';
+	const POST_TYPE = 'team_member';
 
 	public function config(): array {
 		$singular = __( 'Category', 'fp' );

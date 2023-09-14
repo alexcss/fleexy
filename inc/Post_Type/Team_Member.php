@@ -4,15 +4,15 @@ namespace FP\Post_Type;
 
 defined( 'ABSPATH' ) || exit;
 
-class Testimonial extends Post_Type {
+class Team_Member extends Post_Type {
 
-	const NAME = 'testimonial';
+	const NAME = 'team_member';
 	// eng: explore
-	const SLUG = 'testimonials';
+	const SLUG = 'team_members';
 
 	public function config(): array {
-		$singular = __( 'Testimonial', 'fp' );
-		$plural   = __( 'Testimonials', 'fp' );
+		$singular = __( 'Team Member', 'fp' );
+		$plural   = __( 'Team Members', 'fp' );
 
 		$labels = [
 			'name'               => $plural,
@@ -33,21 +33,22 @@ class Testimonial extends Post_Type {
 		];
 
 		$args = [
-			'labels'       => $labels,
-			'public'       => true,
-			'show_ui'      => true,
-			'supports'     => [ 'title', 'custom-fields', 'revisions', 'author' ],
+			'labels'             => $labels,
+			'public'             => true,
+			'show_ui'            => true,
+			'supports'           => [ 'title', 'custom-fields', 'thumbnail', 'revisions', 'author' ],
 			//  custom-fields is requred for post_meta to work
-			'map_meta_cap' => true,
-			'show_in_rest' => true,
-			'show_in_menu' => true,
-			'rewrite'      => [
+			'map_meta_cap'       => true,
+			'show_in_rest'       => true,
+			'show_in_menu'       => true,
+			'publicly_queryable' => false,
+			'rewrite'            => [
 				'slug' => self::SLUG,
 			],
-			'has_archive'  => false,
-			'menu_icon'    => 'dashicons-testimonial',
-			'template'     => [],
-			'taxonomies'   => [],
+			'has_archive'        => false,
+			'menu_icon'          => 'dashicons-buddicons-buddypress-logo',
+			'template'           => [],
+			'taxonomies'         => [],
 		];
 
 		return $args;
