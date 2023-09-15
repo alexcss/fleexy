@@ -35,6 +35,9 @@ $utilities: map-merge(
       'border-color': (
         property: border-color,
         class: border,
+        local-vars: (
+          'border-opacity': 1
+        ),
         values: $theme-colors
       ),
       'background-color': (
@@ -88,6 +91,18 @@ $utilities: map-merge(
         responsive: true,
         property: width,
         class: w,
+        values: (
+          25: 25%,
+          50: 50%,
+          75: 75%,
+          100: 100%,
+          auto: auto
+        )
+      ),
+      'height': (
+        responsive: true,
+        property: height,
+        class: h,
         values: (
           25: 25%,
           50: 50%,

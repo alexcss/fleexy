@@ -1,8 +1,6 @@
 <?php
 
-namespace FP\Post_Type\Testimonial;
-
-use FP\Post_Type\Post_Type;
+namespace FP\Post_Type;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -47,7 +45,7 @@ class Testimonial extends Post_Type {
 				'slug' => self::SLUG,
 			],
 			'has_archive'  => false,
-			'menu_icon'    => 'dashicons-book',
+			'menu_icon'    => 'dashicons-testimonial',
 			'template'     => [],
 			'taxonomies'   => [],
 		];
