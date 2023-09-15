@@ -19,12 +19,12 @@ export class DrawLines {
 
       const path = line.querySelectorAll('path');
       const duration = line.dataset?.duration || 0.8;
-      const tl = gsap.from(path, {delay: 0.2, duration: duration,stagger: 0.1, drawSVG: 0});
+      const tl = gsap.from(path, {duration: duration,stagger: 0.1, drawSVG: 0});
       gsap.set(line, {autoAlpha:1});
 
       ScrollTrigger.create({
         trigger: line,
-        start: "top 85%",
+        start: "top 60%",
         // markers: true,
         animation : tl,
       });

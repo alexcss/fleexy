@@ -8,10 +8,10 @@
 		{% endif %}
 
 		{% if fields.advantages | length > 0 %}
-			<div class="row flex-nowrap fp-no-scroll overflow-x-auto flex-xl-wrap mx-n16 mx-md-n24 g-0 g-16 g-xl-24 mb-56 mb-lg-80">
+			<div class="row flex-nowrap fp-no-scroll overflow-x-auto overflow-x-xl-visible flex-xl-wrap mx-n16 mx-md-n24 g-0 g-16 g-xl-24 mb-56 mb-lg-80" data-adv-row>
 				{% for item in fields.advantages %}
 					<div class="item col-11 col-sm-7 col-md-5 col-lg-4 col-xl-3">
-						<article class="fp-advantages-item text-center bg-white border border-sandy-brown rounded-16 p-16 pb-32 pb-lg-40">
+						<article data-adv-item class="fp-advantages-item text-center bg-white border border-sandy-brown rounded-16 p-16 pb-32 pb-lg-40">
 							<picture>
 								<source media="(max-width: 680px)"
 										srcset="{{ item.image.url|resize(200, 200, 'center')|towebp }} 1x, {{ item.image.url|resize(300, 300, 'center')|towebp }} 1.5x"
