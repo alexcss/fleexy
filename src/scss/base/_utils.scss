@@ -79,6 +79,11 @@ $utilities: map-merge(
           600: $font-weight-semibold,
         )
       ),
+      "overflow-x": (
+        responsive: true,
+        property: overflow-x,
+        values: auto hidden visible scroll,
+      ),
       'width': (
         responsive: true,
         property: width,
