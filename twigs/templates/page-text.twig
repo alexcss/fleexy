@@ -1,9 +1,16 @@
 {% extends "base.twig" %}
 
 {% block content %}
-	<main class="pt-100">
+	<main class="py-100 py-lg-160 ">
 		<div class="container">
-			{{ post.content }}
+			<div class="row">
+				<div class="col-12"><h1 class="mb-40 mb-lg-80 text-lg-center">{{ post.title }}</h1></div>
+				{% if post.content %}
+					<div class="col-12 col-lg-10 offset-lg-1 col-xl-8 offset-xl-2 text-block">
+						{{ post.content }}
+					</div>
+				{% endif %}
+			</div>
 		</div>
 	</main>
 {% endblock %}

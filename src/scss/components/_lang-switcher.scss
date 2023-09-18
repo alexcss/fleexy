@@ -48,11 +48,19 @@
             opacity: 1;
             visibility: visible;
             transform: translateY(0);
+
           }
         }
       }
     }
-
+    .wpml-ls-first-item.wpml-ls-last-item{
+      .wpml-ls-item-toggle:after{
+        content: none;
+      }
+      .wpml-ls-sub-menu{
+        display: none;
+      }
+    }
     .wpml-ls-sub-menu {
       margin-top: 32px;
       position: absolute;
@@ -67,7 +75,9 @@
       transform: translateY(-5px);
       transition: 0.25s ease-in-out;
       transition-property: opacity, visibility, transform;
-
+      &:empty{
+        display: none;
+      }
       &:before {
         position: absolute;
         content: '';

@@ -34,6 +34,10 @@ $container-max-widths: (
   xl: 1440px
 );
 
+$font-size-base: 1.6rem;
+$body-bg: $bg-light-orange;
+$paragraph-margin-bottom:   2.4rem;
+
 // container padding
 $container-padding: (
   xs : 16px,
@@ -49,19 +53,19 @@ $modal-backdrop-opacity: .5;
 // Offcanvas
 
 // scss-docs-start offcanvas-variables
-$offcanvas-padding-y:               24px;
-$offcanvas-padding-x:               16px;
-$offcanvas-horizontal-width:        400px;
-$offcanvas-vertical-height:         100vh;
-$offcanvas-transition-duration:     .3s;
-$offcanvas-border-color:            $modal-content-border-color;
-$offcanvas-border-width:            $modal-content-border-width;
-$offcanvas-title-line-height:       $modal-title-line-height;
-$offcanvas-bg-color:                $modal-content-bg;
-$offcanvas-color:                   $modal-content-color;
-$offcanvas-box-shadow:              $modal-content-box-shadow-xs;
-$offcanvas-backdrop-bg:             $modal-backdrop-bg;
-$offcanvas-backdrop-opacity:        $modal-backdrop-opacity;
+$offcanvas-padding-y: 24px;
+$offcanvas-padding-x: 16px;
+$offcanvas-horizontal-width: 400px;
+$offcanvas-vertical-height: 100vh;
+$offcanvas-transition-duration: .3s;
+$offcanvas-border-color: $modal-content-border-color;
+$offcanvas-border-width: $modal-content-border-width;
+$offcanvas-title-line-height: $modal-title-line-height;
+$offcanvas-bg-color: $modal-content-bg;
+$offcanvas-color: $modal-content-color;
+$offcanvas-box-shadow: $modal-content-box-shadow-xs;
+$offcanvas-backdrop-bg: $modal-backdrop-bg;
+$offcanvas-backdrop-opacity: $modal-backdrop-opacity;
 // scss-docs-end offcanvas-variables
 
 $link-decoration: none;
@@ -142,7 +146,7 @@ $aspect-ratios: (
   "21x9": calc(9 / 21 * 100%)
 );
 
-$gutters : $spacers;
+$gutters: $spacers;
 
 // colors
 $theme-colors: (
@@ -225,18 +229,18 @@ $headings-styles: (
 // Navs
 
 // scss-docs-start nav-variables
-$nav-link-padding-y:                0;
-$nav-link-padding-x:                0;
-$nav-link-font-size:                null;
-$nav-link-font-weight:              null;
-$nav-link-color:                    $black;
-$nav-link-hover-color:              $primary;
-$nav-link-transition:               color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;
-$nav-link-disabled-color:           $gray-600;
+$nav-link-padding-y: 0;
+$nav-link-padding-x: 0;
+$nav-link-font-size: null;
+$nav-link-font-weight: null;
+$nav-link-color: $black;
+$nav-link-hover-color: $primary;
+$nav-link-transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;
+$nav-link-disabled-color: $gray-600;
 
 // Navbar
 
 // scss-docs-start navbar-variables
-$navbar-padding-y:                  null;
-$navbar-padding-x:                  null;
-$navbar-nav-link-padding-x:         0;
+$navbar-padding-y: null;
+$navbar-padding-x: null;
+$navbar-nav-link-padding-x: 0;
