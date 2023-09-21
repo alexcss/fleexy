@@ -21,6 +21,7 @@ class Core {
 	// TODO: Refactor to use the main block array from Register.php
 	const CUSTOM_BLOCKS = [
 //		'acf/fp-example',
+		'acf/fp-container',
 		'acf/fp-hero',
 		'acf/fp-image',
 		'acf/fp-our-team',

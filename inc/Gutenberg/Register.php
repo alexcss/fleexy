@@ -7,6 +7,7 @@ defined( 'ABSPATH' ) || exit;
 class Register {
 
 	const BLOCKS = [
+		Blocks\Container\Block::class,
 		Blocks\Hero\Block::class,
 		Blocks\Image\Block::class,
 		Blocks\Our_Team\Block::class,

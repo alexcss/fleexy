@@ -38,7 +38,7 @@ class Page extends Post_Type {
 	}
 
 	public function init_fields(): void {
-		$this->add_tab( __( 'Settings', 'fp' ) );
+//		$this->add_tab( __( 'Settings', 'fp' ) );
 
 		$this->add_field( [
 			'name'          => 'header_style',
@@ -49,6 +49,23 @@ class Page extends Post_Type {
 				'is-white' => 'White',
 			],
 			'default_value' => 'is-black',
+			'wrapper' => [
+				'width' => '50%',
+			]
+		] );
+
+		$this->add_field( [
+			'name'          => 'body_bg',
+			'label'         => __( 'Body background', 'fp' ),
+			'type'          => 'button_group',
+			'choices'       => [
+				'body-bg-default' => 'Default',
+				'body-bg-light' => 'Light',
+			],
+			'default_value' => 'body-bg-default',
+			'wrapper' => [
+				'width' => '50%',
+			]
 		] );
 	}
 }

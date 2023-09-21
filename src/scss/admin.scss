@@ -115,7 +115,7 @@ picture {
   .h5,
   .h6 {
     font-family: $headings-font-family;
-    margin-top: 0 !important;
+    margin-top: 0;
     line-height: 1 !important;
     font-weight: 500 !important;
   }
@@ -145,9 +145,9 @@ picture {
   }
 }
 
-button[aria-label="Heading 1"] {
-  display: none !important;
-}
+//button[aria-label="Heading 1"] {
+//  display: none !important;
+//}
 
 .block-editor-default-block-appender .block-editor-inserter {
   top: 20px !important;
@@ -242,6 +242,7 @@ b,
 strong {
   font-weight: $font-weight-bold;
 }
+@import 'base/content';
 
 /*! purgecss end ignore */
 

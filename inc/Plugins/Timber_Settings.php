@@ -42,9 +42,11 @@ class Timber_Settings {
 
 		$context['menu']         = $menus;
 		$context['header_style'] = get_field( 'header_style' ) ?: 'is-black';
+		$context['body_bg']      = get_field( 'body_bg' ) ?: 'body-bg-default';
 		$context['footer']       = get_field( 'footer', 'options' );
 		$context['header']       = get_field( 'header', 'options' );
-		$context['lang'] = defined("ICL_LANGUAGE_CODE") ? ICL_LANGUAGE_CODE : 'en';
+		$context['lang']         = defined( "ICL_LANGUAGE_CODE" ) ? ICL_LANGUAGE_CODE : 'en';
+
 		return $context;
 	}
 
