@@ -37,7 +37,7 @@
           "name": "Accent 2"
         }
       ],
-      "duotone": null,
+      "duotone": [],
       "customDuotone": false
     },
     "appearanceTools": false,
