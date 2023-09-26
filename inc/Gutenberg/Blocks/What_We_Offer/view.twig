@@ -19,8 +19,8 @@
 				<div class="row flex-nowrap fp-no-scroll overflow-x-auto flex-xl-wrap mx-n16 mx-md-n24 g-0 g-16 g-xl-8">
 					{% for offer in fields.offers %}
 						<div class="col-11 col-sm-7 col-md-5 col-lg-4 col-xl-3">
-							<article class="bg-position-center bg-size-cover bg-repeat-no-repeat d-flex align-items-end rounded-16 p-8 pt-180 h-100" style="background-image: url({{ offer.image.url }});">
-								<div class="fp-blur text-white text-center rounded-8 px-8 py-24">
+							<article class="fp-offer-card overflow-hidden position-relative bg-position-center bg-size-cover bg-repeat-no-repeat d-flex align-items-end rounded-16 p-8 pt-180 h-100" style="background-image: url({{ offer.image.url }});">
+								<div class="position-relative z-2 fp-blur text-white text-center rounded-8 px-8 py-24">
 									<h3 class="font-family-body font-weight-600 mb-16">{{ offer.title | e('wp_kses_post') }}</h3>
 									<p class="mb-24">{{ offer.description | e('wp_kses_post') }}</p>
 									<a href="{{ offer.link.url|e('esc_url') }}" class="fp-button fp-button--sm" target="{{ offer.link.target|e('html_attr') ?: '_self' }}">

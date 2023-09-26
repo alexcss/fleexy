@@ -18,7 +18,7 @@ if ( ! isset( $paged ) || ! $paged ) {
 $context = Timber::context();
 
 $data = [
-	'title' => sprintf( "Search results for : %s", get_search_query() ),
+	'title' => sprintf( __( 'Search results for :' ) . " %s", get_search_query() ),
 ];
 
 $context = array_merge( $context, $data );
