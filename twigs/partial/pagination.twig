@@ -4,7 +4,7 @@
             {% if posts.pagination.prev %}
                 <li>
                     <a class="fp-pagination__item d-flex justify-content-center align-items-center prev" href="{{posts.pagination.prev.link}}" aria-label="{{ __('Prev Page', 'fp') }}" title="{{ __('Prev Page', 'fp') }}">
-                        <svg width="40" height="40"><use xlink:href="{{ svg_sprite }}#icon-pagination-prev"></use></svg>
+						<svg width="16" height="16"><use xlink:href="#icon-arrow-left"></use></svg>
                     </a>
                 </li>
             {% endif %}
@@ -20,7 +20,7 @@
             {% if posts.pagination.next %}
                 <li>
                     <a class="fp-pagination__item d-flex justify-content-center align-items-center next" href="{{posts.pagination.next.link}}" aria-label="{{ __('Next Page', 'fp') }}" title="{{ __('Next Page', 'fp') }}">
-                        <svg width="40" height="40"><use xlink:href="{{ svg_sprite }}#icon-pagination-next"></use></svg>
+						<svg width="16" height="16"><use xlink:href="#icon-arrow-right"></use></svg>
                     </a>
                 </li>
             {% endif %}

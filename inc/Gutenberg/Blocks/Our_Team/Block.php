@@ -42,6 +42,12 @@ class Block extends Gutenberg_Block {
 		] );
 
 		$this->add_field( [
+			'name'  => 'team_member_cta',
+			'label' => __( 'CTA', 'fp' ),
+			'type'  => 'link',
+		] );
+
+		$this->add_field( [
 			'name'          => 'description',
 			'label'         => __( 'Description', 'fp' ),
 			'type'          => 'textarea',

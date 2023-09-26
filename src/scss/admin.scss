@@ -149,6 +149,10 @@ picture {
 //  display: none !important;
 //}
 
+.fp-services-nav {
+  flex-shrink: 0;
+}
+
 .block-editor-default-block-appender .block-editor-inserter {
   top: 20px !important;
   right: 20px !important;

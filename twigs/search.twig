@@ -1,14 +1,13 @@
 {% extends "base.twig" %}
 
 {% block content %}
-	<main>
+	<main class="py-100 py-xl-160">
 		<div class="container">
-			<h1>{{ title }}</h1>
-
-			<div class="fp-products-list row row-gap-20 row-gap-md-30 row-gap-lg-45">
+			<h1 class="mb-40">{{ title }}</h1>
+			<div class="row row-gap-20">
 				{% for post in posts %}
-					<div class="col-12 col-md-6 col-lg-4 col-xl-3">
-						{{ post.title }}
+					<div class="col-12 col-md-6 col-lg-4">
+						<a href="{{ post.link }}">{{ post.title }}</a>
 					</div>
 				{% else %}
 					<div class="col-12">
