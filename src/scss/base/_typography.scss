@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Brygada+1918:ital,wght@0,500;1,500&family=Manrope:wght@500;600;700&display=swap');
+
 @each $size, $headers in $headings-styles {
   @include media-breakpoint-up($size) {
     @each $header, $header-defs in $headers {
