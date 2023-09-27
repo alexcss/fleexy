@@ -14,7 +14,7 @@
 
 							<source srcset="{{ image.url|resize(320, 464, 'center')|towebp }} 1x, {{ image.url|resize(320*2, 464*2, 'center')|towebp }} 1.5x"
 									type="image/webp" width="320" height="464">
-							<img class="object-fit-cover" src="{{ image.url|resize(320, 464, 'center') }}" srcset="{{ image.url|resize(320*2, 464*2, 'center') }}" alt="{{ iamge.alt|e('html_attr') }}" width="320" height="464">
+							<img class="object-fit-cover" src="{{ image.url|resize(320, 464, 'center')|tojpg }}" srcset="{{ image.url|resize(320*2, 464*2, 'center')|tojpg }} 1.5x" alt="{{ iamge.alt|e('html_attr') }}" width="320" height="464">
 						</picture>
 					</div>
 				{% endfor %}

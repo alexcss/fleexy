@@ -86,7 +86,7 @@
 
 						<source srcset="{{ fields.image.url|resize(438, 600, 'center')|towebp }} 1x, {{ fields.image.url|resize(438*2, 600*2, 'center')|towebp }} 1.5x"
 								type="image/webp" width="438" height="600">
-						<img class="rounded-16 d-block w-100" src="{{ fields.image.url|resize (438, 600, 'center') }}" srcset="{{ fields.image.url|resize (438*2, 600*2, 'center') }}" alt="{{ fields.image.alt|e('html_attr') }}" width="438" height="600">
+						<img class="rounded-16 d-block w-100" src="{{ fields.image.url|resize (438, 600, 'center')|tojpg }}" srcset="{{ fields.image.url|resize (438*2, 600*2, 'center')|tojpg }} 1.5x" alt="{{ fields.image.alt|e('html_attr') }}" width="438" height="600">
 					</picture>
 				{% endif %}
 				<svg data-draw-line class="fp-what-we-offer-block__smile position-absolute z-1" width="94" height="72" viewBox="0 0 94 72" fill="none" xmlns="http://www.w3.org/2000/svg">

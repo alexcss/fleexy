@@ -59,8 +59,8 @@
 								srcset="{{ service.thumbnail.src|resize(438, 528, 'center')|towebp }} 1x, {{ service.thumbnail.src|resize(438*2, 528*2, 'center')|towebp }} 1.5x"
 								type="image/webp">
 							<img class="object-fit-cover rounded-8 w-100"
-								 src="{{ service.thumbnail.src|resize(438, 528, 'center') }}"
-								 srcset="{{ service.thumbnail.src|resize(438*2, 528*2, 'center') }}"
+								 src="{{ service.thumbnail.src|resize(438, 528, 'center')|tojpg }}"
+								 srcset="{{ service.thumbnail.src|resize(438*2, 528*2, 'center')|tojpg }} 1.5x"
 								 alt="{{ service.thumbnail.alt|e('html_attr') }}" width="438" height="528">
 						</picture>
 					{% endif %}
