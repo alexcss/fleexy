@@ -16,11 +16,11 @@
 				</div>
 			{% endif %}
 			{% if fields.offers | length > 0 %}
-				<div class="row flex-nowrap fp-no-scroll overflow-x-auto flex-xl-wrap mx-n16 mx-md-n24 g-0 g-16 g-xl-8">
+				<div class="row flex-nowrap fp-no-scroll overflow-x-auto flex-xl-wrap mx-n16 mx-md-n24 mx-xl-n12 g-16 g-xl-24">
 					{% for offer in fields.offers %}
-						<div class="col-11 col-sm-7 col-md-5 col-lg-4 col-xl-3">
-							<article class="fp-offer-card overflow-hidden position-relative bg-position-center bg-size-cover bg-repeat-no-repeat d-flex align-items-end rounded-16 p-8 pt-180 h-100" style="background-image: url({{ offer.image.url }});">
-								<div class="position-relative z-2 fp-blur text-white text-center rounded-8 px-8 py-24">
+						<div class="col-11 col-sm-7 col-md-5 col-lg-4">
+							<article class="fp-offer-card overflow-hidden position-relative bg-position-center bg-size-cover bg-repeat-no-repeat d-flex align-items-end rounded-16 p-8 pt-180 pt-xl-280 h-100" style="background-image: url({{ offer.image.url }});">
+								<div class="position-relative z-2 fp-blur text-white text-center rounded-8 p-24">
 									<h3 class="font-family-body font-weight-600 mb-16">{{ offer.title | e('wp_kses_post') }}</h3>
 									<p class="mb-24">{{ offer.description | e('wp_kses_post') }}</p>
 									<a href="{{ offer.link.url|e('esc_url') }}" class="fp-button fp-button--sm" target="{{ offer.link.target|e('html_attr') ?: '_self' }}">
@@ -71,22 +71,22 @@
 				{% if  fields.image.url %}
 					<picture class="d-block w-100">
 						<source media="(max-width: 680px)"
-								srcset="{{ fields.image.url|resize(375, 265, 'center')|towebp }} 1x, {{ fields.image.url|resize(564, 398, 'center')|towebp }} 1.5x"
+								srcset="{{ fields.image.url|resize(375, 265, 'center')|towebp }} 1x, {{ fields.image.url|resize(375*2, 265*2, 'center')|towebp }} 1.5x"
 								type="image/webp" width="375" height="265">
 						<source media="(max-width: 680px)"
-								srcset="{{ fields.image.url|resize(375, 265, 'center')|tojpg }} 1x, {{ fields.image.url|resize(564, 398, 'center')|tojpg }} 1.5x"
+								srcset="{{ fields.image.url|resize(375, 265, 'center')|tojpg }} 1x, {{ fields.image.url|resize(375*2, 265*2, 'center')|tojpg }} 1.5x"
 								width="375" height="265">
 
 						<source media="(max-width: 992px)"
-								srcset="{{ fields.image.url|resize(600, 422, 'center')|towebp }} 1x, {{ fields.image.url|resize(900, 633, 'center')|towebp }} 1.5x"
+								srcset="{{ fields.image.url|resize(600, 422, 'center')|towebp }} 1x, {{ fields.image.url|resize(600*2, 422*2, 'center')|towebp }} 1.5x"
 								type="image/webp" width="600" height="422">
 						<source media="(max-width: 992px)"
-								srcset="{{ fields.image.url|resize(600, 422, 'center')|tojpg }} 1x, {{ fields.image.url|resize(900, 633, 'center')|tojpg }} 1.5x"
+								srcset="{{ fields.image.url|resize(600, 422, 'center')|tojpg }} 1x, {{ fields.image.url|resize(600*2, 422*2, 'center')|tojpg }} 1.5x"
 								width="600" height="422">
 
-						<source srcset="{{ fields.image.url|resize(438, 600, 'center')|towebp }} 1x, {{ fields.image.url|resize(657, 900, 'center')|towebp }} 1.5x"
+						<source srcset="{{ fields.image.url|resize(438, 600, 'center')|towebp }} 1x, {{ fields.image.url|resize(438*2, 600*2, 'center')|towebp }} 1.5x"
 								type="image/webp" width="438" height="600">
-						<img class="rounded-16 d-block w-100" src="{{ fields.image.url|resize (438, 600, 'center') }}" srcset="{{ fields.image.url|resize (657, 900, 'center') }}" alt="{{ fields.image.alt|e('html_attr') }}" width="438" height="600">
+						<img class="rounded-16 d-block w-100" src="{{ fields.image.url|resize (438, 600, 'center') }}" srcset="{{ fields.image.url|resize (438*2, 600*2, 'center') }}" alt="{{ fields.image.alt|e('html_attr') }}" width="438" height="600">
 					</picture>
 				{% endif %}
 				<svg data-draw-line class="fp-what-we-offer-block__smile position-absolute z-1" width="94" height="72" viewBox="0 0 94 72" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -8,18 +8,21 @@
 		{% endif %}
 
 		{% if fields.advantages | length > 0 %}
-			<div class="row flex-nowrap fp-no-scroll overflow-x-auto overflow-x-xl-visible flex-xl-wrap mx-n16 mx-md-n24 g-0 g-16 g-xl-24 mb-56 mb-lg-80" data-adv-row>
+			<div class="row flex-nowrap fp-no-scroll overflow-x-auto overflow-x-xl-visible flex-xl-wrap mx-n16 mx-md-n24 mx-xl-n12 g-16 g-xl-24 mb-56 mb-lg-80" data-adv-row>
 				{% for item in fields.advantages %}
 					<div class="item col-11 col-sm-7 col-md-5 col-lg-4 col-xl-3">
 						<article data-adv-item class="fp-advantages-item text-center bg-white border border-sandy-brown rounded-16 p-16 pb-32 pb-lg-40">
 							<picture>
 								<source media="(max-width: 680px)"
-										srcset="{{ item.image.url|resize(200, 200, 'center')|towebp }} 1x, {{ item.image.url|resize(300, 300, 'center')|towebp }} 1.5x"
+										srcset="{{ item.image.url|resize(200, 200, 'center')|towebp }} 1x, {{ item.image.url|resize(200*2, 200*2, 'center')|towebp }} 1.5x"
 										type="image/webp" width="200" height="200">
 								<source media="(max-width: 680px)"
-										srcset="{{ item.image.url|resize(200, 200, 'center')|tojpg }} 1x, {{ item.image.url|resize(300, 300, 'center')|tojpg }} 1.5x"
+										srcset="{{ item.image.url|resize(200, 200, 'center')|tojpg }} 1x, {{ item.image.url|resize(200*2, 200*2, 'center')|tojpg }} 1.5x"
 										width="200" height="200">
-								<img class="fp-advantages-item__image rounded-circle mb-24" src="{{ item.image.url|resize(290, 290, 'center') }}" srcset="{{ item.image.url|resize(435, 435, 'center') }}" alt="{{ item.image.alt|e('html_attr') }}" width="290" height="290">
+								<source
+									srcset="{{ item.image.url|resize(290, 290, 'center')|towebp }} 1x, {{ item.image.url|resize(290*2, 290*2, 'center')|towebp }} 1.5x"
+									type="image/webp">
+								<img class="fp-advantages-item__image rounded-circle mb-24" src="{{ item.image.url|resize(290, 290, 'center') }}" srcset="{{ item.image.url|resize(290*2, 290*2, 'center') }}" alt="{{ item.image.alt|e('html_attr') }}" width="290" height="290">
 							</picture>
 							<h3 class="font-family-body font-weight-600 mb-16">{{ item.title | e('wp_kses_post') }}</h3>
 							<p class="mb-0">{{ item.description | e('wp_kses_post') }}</p>

@@ -1,4 +1,4 @@
-<section {{ anchor }} {{ attribute }} style="background-image: url({{ fields.background_image.url | resize(1920) }});">
+<section {{ anchor }} {{ attribute }} style="background-image: url({{ fields.background_image.url | resize(1920*1.5) | tojpg }});">
 	<div class="container d-flex justify-content-center">
 		<div class="col-12 col-md-10 col-xl-7">
 			<div class="fp-blur rounded-16 px-16 py-40 p-md-40 px-lg-60 px-xl-100">
