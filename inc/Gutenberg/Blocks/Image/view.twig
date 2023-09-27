@@ -2,22 +2,22 @@
 	<section {{ anchor }} {{ attribute }}>
 		<picture class="w-100 overflow-hidden d-block">
 			<source media="(max-width: 680px)"
-					srcset="{{ fields.image.url|resize(375, 240, 'center')|towebp }} 1x, {{ fields.image.url|resize(564, 336, 'center')|towebp }} 1.5x"
+					srcset="{{ fields.image.url|resize(375, 240, 'center')|towebp }} 1x, {{ fields.image.url|resize(375*2, 240*2, 'center')|towebp }} 1.5x"
 					type="image/webp" width="375" height="240">
 			<source media="(max-width: 680px)"
-					srcset="{{ fields.image.url|resize(375, 240, 'center')|tojpg }} 1x, {{ fields.image.url|resize(564, 336, 'center')|tojpg }} 1.5x"
+					srcset="{{ fields.image.url|resize(375, 240, 'center')|tojpg }} 1x, {{ fields.image.url|resize(375*2, 240*2, 'center')|tojpg }} 1.5x"
 					width="375" height="240">
 
 			<source media="(max-width: 1024px)"
-					srcset="{{ fields.image.url|resize(768, 492, 'center')|towebp }} 1x, {{ fields.image.url|resize(1150, 738, 'center')|towebp }} 1.5x"
+					srcset="{{ fields.image.url|resize(768, 492, 'center')|towebp }} 1x, {{ fields.image.url|resize(768*2, 492*2, 'center')|towebp }} 1.5x"
 					type="image/webp" width="768" height="492">
 			<source media="(max-width: 1024px)"
-					srcset="{{ fields.image.url|resize(768, 492, 'center')|tojpg }} 1x, {{ fields.image.url|resize(1150, 738, 'center')|tojpg }} 1.5x"
+					srcset="{{ fields.image.url|resize(768, 492, 'center')|tojpg }} 1x, {{ fields.image.url|resize(768*2, 492*2, 'center')|tojpg }} 1.5x"
 					width="768" height="492">
 			<source
-				srcset="{{ fields.image.url|resize(1920, false, 'center')|towebp }} 1x, {{ fields.image.url|resize(2880, false, 'center')|towebp }} 1.5x"
+				srcset="{{ fields.image.url|resize(1920, false, 'center')|towebp }} 1x, {{ fields.image.url|resize(1920*2, false, 'center')|towebp }} 1.5x"
 				type="image/webp">
-			<img data-img-scale class="w-100 object-fit-cover" src="{{ fields.image.url|resize(1920, false, 'center') }}" srcset="{{ fields.image.url|resize(2880, false, 'center') }} 1.5x" alt="{{ fields.image.alt|e('html_attr') }}" width="1440" height="680" loading="lazy">
+			<img data-img-scale class="w-100 object-fit-cover" src="{{ fields.image.url|resize(1920, false, 'center') }}" srcset="{{ fields.image.url|resize(1920*2, false, 'center') }} 1.5x" alt="{{ fields.image.alt|e('html_attr') }}" width="1440" height="680" loading="lazy">
 		</picture>
 	</section>
 {% endif %}

@@ -12,29 +12,29 @@
 								<div class="w-sm-100 d-flex align-items-center flex-shrink-0 gap-8">
 									<picture class="w-100">
 										<source media="(max-width: 480px)"
-												srcset="{{ member.thumbnail.src|resize(112, 112, 'center')|towebp }} 1x, {{ member.thumbnail.src|resize(168, 168, 'center')|towebp }} 1.5x"
+												srcset="{{ member.thumbnail.src|resize(112, 112, 'center')|towebp }} 1x, {{ member.thumbnail.src|resize(112*2, 112*2, 'center')|towebp }} 1.5x"
 												width="112" height="112"/>
 										<source media="(max-width: 480px)"
-												srcset="{{ member.thumbnail.src|resize(112, 112, 'center')|towebp }} 1x, {{ member.thumbnail.src|resize(168, 168, 'center')|towebp }} 1.5x"
+												srcset="{{ member.thumbnail.src|resize(112, 112, 'center')|towebp }} 1x, {{ member.thumbnail.src|resize(112*2, 112*2, 'center')|towebp }} 1.5x"
 												type="image/webp" width="112" height="112"/>
 
 										<source media="(max-width: 576px)"
-												srcset="{{ member.thumbnail.src|resize(148, 148, 'center')|towebp }} 1x, {{ member.thumbnail.src|resize(222, 222, 'center')|towebp }} 1.5x"
+												srcset="{{ member.thumbnail.src|resize(148, 148, 'center')|towebp }} 1x, {{ member.thumbnail.src|resize(148*2, 148*2, 'center')|towebp }} 1.5x"
 												width="148" height="148"/>
 										<source media="(max-width: 576px)"
-												srcset="{{ member.thumbnail.src|resize(148, 148, 'center')|towebp }} 1x, {{ member.thumbnail.src|resize(222, 222, 'center')|towebp }} 1.5x"
+												srcset="{{ member.thumbnail.src|resize(148, 148, 'center')|towebp }} 1x, {{ member.thumbnail.src|resize(148, 148, 'center')|towebp }} 1.5x"
 												type="image/webp" width="148" height="148"/>
 
-										<source media="(max-width: 991px)"
-												srcset="{{ member.thumbnail.src|resize(320, 200, 'top')|towebp }} 1x, {{ member.thumbnail.src|resize(480, 300, 'top')|towebp }} 1.5x"
-												width="320" height="200"/>
-										<source media="(max-width: 991px)"
-												srcset="{{ member.thumbnail.src|resize(320, 200, 'top')|towebp }} 1x, {{ member.thumbnail.src|resize(480, 300, 'top')|towebp }} 1.5x"
-												type="image/webp" width="320" height="200"/>
+										<source media="(max-width: 1199px)"
+												srcset="{{ member.thumbnail.src|resize(515, 320, 'top')|towebp }} 1x, {{ member.thumbnail.src|resize(515*2, 320*2, 'top')|towebp }} 1.5x"
+												width="515" height="320"/>
+										<source media="(max-width: 1199px)"
+												srcset="{{ member.thumbnail.src|resize(515, 320, 'top')|towebp }} 1x, {{ member.thumbnail.src|resize(515*2, 320*2, 'top')|towebp }} 1.5x"
+												type="image/webp" width="515" height="320"/>
 
-										<source srcset="{{ member.thumbnail.src|resize(390, 240, 'top')|towebp }} 1x, {{ member.thumbnail.src|resize(585, 360, 'top')|towebp }} 1.5x"
+										<source srcset="{{ member.thumbnail.src|resize(390, 240, 'top')|towebp }} 1x, {{ member.thumbnail.src|resize(390*2, 240*2, 'top')|towebp }} 1.5x"
 												type="image/webp" width="390" height="240"/>
-										<img class="object-fit-cover w-100 rounded-16" src="{{ member.thumbnail.src|resize(390, 240, 'top') }}" srcset="{{ member.thumbnail.src|resize(585, 360, 'top') }}" alt="{{ member.thumbnail.alt|e('html_attr') }}" width="390" height="240">
+										<img class="object-fit-cover w-100 rounded-16" src="{{ member.thumbnail.src|resize(390, 240, 'top') }}" srcset="{{ member.thumbnail.src|resize(390*2, 240*2, 'top') }}" alt="{{ member.thumbnail.alt|e('html_attr') }}" width="390" height="240">
 									</picture>
 									<h3 class="font-family-body font-weight-600 mb-0 d-sm-none">{{ member.post_title }}</h3>
 								</div>

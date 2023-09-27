@@ -6,15 +6,15 @@
 					<div class="splide__slide">
 						<picture>
 							<source media="(max-width: 680px)"
-									srcset="{{ image.url|resize(206, 300, 'center')|towebp }} 1x, {{ image.url|resize(309, 450, 'center')|towebp }} 1.5x"
+									srcset="{{ image.url|resize(206, 300, 'center')|towebp }} 1x, {{ image.url|resize(206*2, 300*2, 'center')|towebp }} 1.5x"
 									type="image/webp" width="206" height="300">
 							<source media="(max-width: 680px)"
-									srcset="{{ image.url|resize(206, 300, 'center')|tojpg }} 1x, {{ image.url|resize(309, 450, 'center')|tojpg }} 1.5x"
+									srcset="{{ image.url|resize(206, 300, 'center')|tojpg }} 1x, {{ image.url|resize(206*2, 300*2, 'center')|tojpg }} 1.5x"
 									width="206" height="300">
 
-							<source srcset="{{ image.url|resize(320, 464, 'center')|towebp }} 1x, {{ image.url|resize(480, 696, 'center')|towebp }} 1.5x"
+							<source srcset="{{ image.url|resize(320, 464, 'center')|towebp }} 1x, {{ image.url|resize(320*2, 464*2, 'center')|towebp }} 1.5x"
 									type="image/webp" width="320" height="464">
-							<img class="object-fit-cover" src="{{ image.url|resize(320, 464, 'center') }}" srcset="{{ image.url|resize(480, 696, 'center') }}" alt="{{ iamge.alt|e('html_attr') }}" width="320" height="464">
+							<img class="object-fit-cover" src="{{ image.url|resize(320, 464, 'center') }}" srcset="{{ image.url|resize(320*2, 464*2, 'center') }}" alt="{{ iamge.alt|e('html_attr') }}" width="320" height="464">
 						</picture>
 					</div>
 				{% endfor %}
