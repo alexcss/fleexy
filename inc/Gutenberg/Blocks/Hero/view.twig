@@ -2,7 +2,7 @@
 	<div class="container">
 		<div class="fp-hero-block__inner mx-n16 mx-md-n24 mx-xl-n32 overflow-hidden position-relative bg-size-cover bg-repeat-no-repeat d-flex align-items-end rounded-top-0 rounded-top-xl-16 rounded-16" {% if not fields.video and fields.image %} style="background-image: url({{ fields.image.url | resize(1920) | tojpg }})" {% endif %}>
 			{% if fields.video %}
-				<video class="position-absolute z-1 start-0 end-0 top-0 bottom-0" {% if fields.image %} poster="{{ fields.image.url }}" {% endif %} autoplay loop muted playsinline>
+				<video class="position-absolute z-1 start-0 top-0 w-100 h-100 object-fit-cover" {% if fields.image %} poster="{{ fields.image.url }}" {% endif %} autoplay loop muted playsinline>
 					<source src="{{ fields.video.url }}" type="{{ fields.video.mime_type }}"/>
 				</video>
 			{% endif %}
