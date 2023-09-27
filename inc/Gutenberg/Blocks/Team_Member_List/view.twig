@@ -4,7 +4,7 @@
 			<h2 class="text-uppercase text-center mb-56">{{ fields.title | highlight_text | e('wp_kses_post') }}</h2>
 		{% endif %}
 		{% if team_members | length > 0 %}
-			<div class="row justify-content-sm-center justify-content-md-start mb-80 mb-lg-120 g-16 g-lg-24">
+			<div class="row justify-content-center mb-80 mb-lg-120 g-16 g-lg-24">
 				{% for member in team_members %}
 					<div class="col-12 col-sm-10 col-md-6 col-xl-4">
 						<div class="fp-team-member h-100 bg-white rounded-16 border border-1 p-16 p-lg-24">
