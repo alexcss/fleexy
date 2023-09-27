@@ -10,14 +10,6 @@
 
 defined( 'ABSPATH' ) || exit;
 
-$context         = Timber::context();
-$context['post'] = get_field( '404_page', 'options' );
-
-$data = [
-	'title' => get_field( '404_page_title', 'options' ) ?: __( 'OOOPS... Page not found', 'fp' ),
-	'link'  => get_field( '404_page_link', 'options' ),
-];
-
-$context = array_merge( $context, $data );
+$context = Timber::context();
 
 Timber::render( '404.twig', $context );

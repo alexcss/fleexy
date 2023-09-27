@@ -22,7 +22,7 @@
 								<source
 									srcset="{{ item.image.url|resize(290, 290, 'center')|towebp }} 1x, {{ item.image.url|resize(290*2, 290*2, 'center')|towebp }} 1.5x"
 									type="image/webp">
-								<img class="fp-advantages-item__image rounded-circle mb-24" src="{{ item.image.url|resize(290, 290, 'center') }}" srcset="{{ item.image.url|resize(290*2, 290*2, 'center') }}" alt="{{ item.image.alt|e('html_attr') }}" width="290" height="290">
+								<img class="fp-advantages-item__image rounded-circle mb-24" src="{{ item.image.url|resize(290, 290, 'center')|tojpg }}" srcset="{{ item.image.url|resize(290*2, 290*2, 'center')|tojpg }} 1.5x" alt="{{ item.image.alt|e('html_attr') }}" width="290" height="290">
 							</picture>
 							<h3 class="font-family-body font-weight-600 mb-16">{{ item.title | e('wp_kses_post') }}</h3>
 							<p class="mb-0">{{ item.description | e('wp_kses_post') }}</p>

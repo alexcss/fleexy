@@ -34,7 +34,7 @@
 
 										<source srcset="{{ member.thumbnail.src|resize(390, 240, 'top')|towebp }} 1x, {{ member.thumbnail.src|resize(390*2, 240*2, 'top')|towebp }} 1.5x"
 												type="image/webp" width="390" height="240"/>
-										<img class="object-fit-cover w-100 rounded-16" src="{{ member.thumbnail.src|resize(390, 240, 'top') }}" srcset="{{ member.thumbnail.src|resize(390*2, 240*2, 'top') }}" alt="{{ member.thumbnail.alt|e('html_attr') }}" width="390" height="240">
+										<img class="object-fit-cover w-100 rounded-16" src="{{ member.thumbnail.src|resize(390, 240, 'top')|tojpg }}" srcset="{{ member.thumbnail.src|resize(390*2, 240*2, 'top')|tojpg }} 1.5x" alt="{{ member.thumbnail.alt|e('html_attr') }}" width="390" height="240">
 									</picture>
 									<h3 class="font-family-body font-weight-600 mb-0 d-sm-none">{{ member.post_title }}</h3>
 								</div>

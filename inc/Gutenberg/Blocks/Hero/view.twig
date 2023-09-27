@@ -1,7 +1,12 @@
 <section {{ anchor }} {{ attribute }} data-section-hero>
 	<div class="container">
-		<div class="fp-hero-block__inner mx-n16 mx-md-n24 mx-xl-n32 overflow-hidden position-relative bg-size-cover bg-repeat-no-repeat d-flex align-items-end rounded-top-0 rounded-top-xl-16 rounded-16" style="background-image: url({{ fields.image.url | resize(1920) | tojpg }})">
-			<div class="position-relative z-1">
+		<div class="fp-hero-block__inner mx-n16 mx-md-n24 mx-xl-n32 overflow-hidden position-relative bg-size-cover bg-repeat-no-repeat d-flex align-items-end rounded-top-0 rounded-top-xl-16 rounded-16" {% if not fields.video and fields.image %} style="background-image: url({{ fields.image.url | resize(1920) | tojpg }})" {% endif %}>
+			{% if fields.video %}
+				<video class="position-absolute z-1 start-0 end-0 top-0 bottom-0" {% if fields.image %} poster="{{ fields.image.url }}" {% endif %} autoplay loop muted playsinline>
+					<source src="{{ fields.video.url }}" type="{{ fields.video.mime_type }}"/>
+				</video>
+			{% endif %}
+			<div class="position-relative z-3">
 				<div class="px-16 pb-68 w-100 px-md-32">
 					<div class="row align-items-end">
 						<div class="col-12 col-lg-8">

@@ -53,6 +53,16 @@ class Block extends Gutenberg_Block {
 			'type'  => 'image',
 		] );
 
+		$this->add_field( [
+			'name'          => 'video',
+			'label'         => __( 'Video', 'fp' ),
+			'type'          => 'file',
+			'instructions'  => 'Max Size 10MB',
+			'return_format' => 'array',
+			'max_size'      => 10,
+			'mime_types'    => 'mp4, m4v, webm, ogv, wmv',
+		] );
+
 	}
 
 }
