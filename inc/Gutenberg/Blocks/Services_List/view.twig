@@ -39,17 +39,10 @@
 					<div class="splide__list">
 						{% for service in services %}
 							<div class="fp-service-card rounded-16 bg-white border border-1 position-relative h-100 splide__slide">
-								<div class="d-flex flex-column flex-lg-row p-16 p-lg-0">
+								<div class="d-flex flex-column flex-lg-row gap-lg-72 p-16 p-lg-0">
 									<div class="flex-shrink-0 mb-24 mb-lg-0 p-lg-8">
 										{% if service.thumbnail.src %}
-											<picture class="w-100">
-												<source media="(max-width: 680px)"
-														srcset="{{ service.thumbnail.src|resize(400, 235, 'center')|towebp }} 1x, {{ service.thumbnail.src|resize(400*2, 235*2, 'center')|towebp }} 1.5x"
-														type="image/webp" width="400" height="235"/>
-												<source media="(max-width: 680px)"
-														srcset="{{ service.thumbnail.src|resize(400, 235, 'center')|tojpg }} 1x, {{ service.thumbnail.src|resize(400*2, 235*2, 'center')|tojpg }} 1.5x"
-														width="400" height="235"/>
-
+											<picture>
 												<source media="(max-width: 991px)"
 														srcset="{{ service.thumbnail.src|resize(566, 294, 'center')|towebp }} 1x, {{ service.thumbnail.src|resize(566*2, 294*2, 'center')|towebp }} 1.5x"
 														type="image/webp" width="566" height="294"/>
@@ -57,13 +50,13 @@
 														srcset="{{ service.thumbnail.src|resize(566, 294, 'center')|tojpg }} 1x, {{ service.thumbnail.src|resize(566*2, 294*2, 'center')|tojpg }} 1.5x"
 														width="566" height="294"/>
 
-												<source srcset="{{ service.thumbnail.src|resize(480, 598, 'center')|towebp }} 1x, {{ service.thumbnail.src|resize(480*2, 598*2, 'center')|towebp }} 1.5x"
-														type="image/webp" width="480" height="598"/>
-												<img class="object-fit-cover rounded-8 w-100" src="{{ service.thumbnail.src|resize(480, 598, 'center')|tojpg }}" srcset="{{ service.thumbnail.src|resize(480*2, 598*2, 'center')|tojpg }} 1.5x" alt="{{ service.thumbnail.alt|e('html_attr') }}" width="480" height="598">
+												<source srcset="{{ service.thumbnail.src|resize(360, 448, 'center')|towebp }} 1x, {{ service.thumbnail.src|resize(360*2, 448*2, 'center')|towebp }} 1.5x"
+														type="image/webp" width="360" height="448"/>
+												<img class="rounded-8" src="{{ service.thumbnail.src|resize(360, 448, 'center')|tojpg }}" srcset="{{ service.thumbnail.src|resize(360*2, 448*2, 'center')|tojpg }} 1.5x" alt="{{ service.thumbnail.alt|e('html_attr') }}" width="360" height="448">
 											</picture>
 										{% endif %}
 									</div>
-									<div class="d-flex flex-column ps-md-16 pt-lg-40 pe-lg-48 pb-lg-24 ps-lg-80">
+									<div class="d-flex flex-column pt-lg-40 pe-lg-48 pb-lg-24">
 										<h3 class="font-family-body mb-24">{{ service.post_title | e('wp_kses_post') }}</h3>
 										<div class="fp-price-wrap d-flex flex-wrap gap-24 gap-md-16 gap-lg-24 mb-40">
 											{% for item in service.price %}
@@ -81,7 +74,7 @@
 										</div>
 										<div class="d-flex flex-grow-1 flex-column">
 											<div class="mb-auto">{{ service.description | e('wp_kses_post') }}</div>
-											<div class="text-center text-md-start">
+											<div class="text-center text-lg-start">
 												<a class="fp-button fp-button--sm fp-button--black justify-content-between" href="#offcanvas-booking">
 													{{ _e('Make an appointment', 'fp') }}
 													<span class="icon-box">
