@@ -12,8 +12,8 @@
 					<div class="col-12 col-sm-10 col-md-6 col-xl-4">
 						<div class="fp-team-member h-100 bg-white rounded-16 border border-1 p-16 p-lg-24">
 							<div class="h-100 d-flex flex-column flex-md-column align-items-start gap-16 gap-lg-24">
-								<div class="w-sm-100 d-flex align-items-center flex-shrink-0 gap-8">
-									<picture class="w-100">
+								<div class="d-flex align-items-center gap-8 gap-sm-20">
+									<picture class="d-block">
 										<source media="(max-width: 480px)"
 												srcset="{{ member.thumbnail.src|resize(112, 112, 'center')|towebp }} 1x, {{ member.thumbnail.src|resize(112*2, 112*2, 'center')|towebp }} 1.5x"
 												width="112" height="112"/>
@@ -21,28 +21,21 @@
 												srcset="{{ member.thumbnail.src|resize(112, 112, 'center')|towebp }} 1x, {{ member.thumbnail.src|resize(112*2, 112*2, 'center')|towebp }} 1.5x"
 												type="image/webp" width="112" height="112"/>
 
-										<source media="(max-width: 576px)"
-												srcset="{{ member.thumbnail.src|resize(148, 148, 'center')|towebp }} 1x, {{ member.thumbnail.src|resize(148*2, 148*2, 'center')|towebp }} 1.5x"
-												width="148" height="148"/>
-										<source media="(max-width: 576px)"
-												srcset="{{ member.thumbnail.src|resize(148, 148, 'center')|towebp }} 1x, {{ member.thumbnail.src|resize(148*2, 148*2, 'center')|towebp }} 1.5x"
-												type="image/webp" width="148" height="148"/>
-
-										<source media="(max-width: 991px)"
-												srcset="{{ member.thumbnail.src|resize(320, 200, 'top')|towebp }} 1x, {{ member.thumbnail.src|resize(320*2, 200*2, 'top')|towebp }} 1.5x"
-												width="320" height="200"/>
-										<source media="(max-width: 991px)"
-												srcset="{{ member.thumbnail.src|resize(320, 200, 'top')|towebp }} 1x, {{ member.thumbnail.src|resize(320*2, 200*2, 'top')|towebp }} 1.5x"
-												type="image/webp" width="320" height="200"/>
+										<source media="(max-width: 767px)"
+												srcset="{{ member.thumbnail.src|resize(200, 200, 'center')|towebp }} 1x, {{ member.thumbnail.src|resize(200*2, 200*2, 'center')|towebp }} 1.5x"
+												width="200" height="200"/>
+										<source media="(max-width: 767px)"
+												srcset="{{ member.thumbnail.src|resize(200, 200, 'center')|towebp }} 1x, {{ member.thumbnail.src|resize(200*2, 200*2, 'center')|towebp }} 1.5x"
+												type="image/webp" width="200" height="200"/>
 
 										<source srcset="{{ member.thumbnail.src|resize(390, 240, 'top')|towebp }} 1x, {{ member.thumbnail.src|resize(390*2, 240*2, 'top')|towebp }} 1.5x"
 												type="image/webp" width="390" height="240"/>
-										<img class="object-fit-cover w-100 rounded-16" src="{{ member.thumbnail.src|resize(390, 240, 'top')|tojpg }}" srcset="{{ member.thumbnail.src|resize(390*2, 240*2, 'top')|tojpg }} 1.5x" alt="{{ member.thumbnail.alt|e('html_attr') }}" width="390" height="240">
+										<img class="d-block w-md-100 rounded-16" src="{{ member.thumbnail.src|resize(390, 240, 'top')|tojpg }}" srcset="{{ member.thumbnail.src|resize(390*2, 240*2, 'top')|tojpg }} 1.5x" alt="{{ member.thumbnail.alt|e('html_attr') }}" width="390" height="240">
 									</picture>
-									<h3 class="font-family-body font-weight-600 mb-0 d-sm-none">{{ member.post_title }}</h3>
+									<h3 class="font-family-body font-weight-600 mb-0 d-md-none">{{ member.post_title }}</h3>
 								</div>
 								<div class="h-100 d-flex flex-column align-items-start">
-									<h3 class="font-family-body font-weight-600 d-none d-sm-block mb-12">{{ member.post_title }}</h3>
+									<h3 class="font-family-body font-weight-600 d-none d-md-block mb-12">{{ member.post_title }}</h3>
 									<div class="mb-16">
 										<div class="d-flex flex-wrap row-gap-8 gap-16">
 											{% for tag in member.terms({taxonomy: 'team_member_tag'}) %}
