@@ -21,6 +21,7 @@ class Register {
 		Blocks\Service\Block::class,
 		Blocks\Services_List\Block::class,
 		Blocks\Team_Member_List\Block::class,
+		Blocks\All_Services\Block::class,
 	];
 
 	const BLOCKS_DIR = 'Blocks';

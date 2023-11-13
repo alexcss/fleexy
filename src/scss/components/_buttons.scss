@@ -11,6 +11,9 @@ button, [type=button], [type=reset], [type=submit] {
   color: $black;
   border: 1px solid $black;
   border-radius: 32px;
+  font-size: 1.6rem;
+  line-height: 1.5;
+  letter-spacing: -0.032rem;
   font-weight: $font-weight-semibold;
   display: inline-flex;
   gap: 8px;

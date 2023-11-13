@@ -1,0 +1,55 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "fp-all-services",
+  "title": "All Services",
+  "description": "All Services",
+  "category": "custom-blocks",
+  "icon": "block-default",
+  "keywords": [
+    "test",
+    "quote"
+  ],
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "view.php",
+    "postTypes": [
+      "post",
+      "page"
+    ]
+  },
+  "supports": {
+    "align": false,
+    "anchor": true,
+    "alignContent": false,
+    "color": {
+      "text": false,
+      "background": false,
+      "link": false
+    },
+    "alignText": false,
+    "spacing": {
+      "customSpacingSize": false,
+      "margin": [
+        "bottom"
+      ]
+    },
+    "typography": {},
+    "fullHeight": false,
+    "mode": false
+  },
+  "attributes": {
+    "backgroundColor": {
+      "type": "string",
+      "default": "purple"
+    }
+  },
+  "example": {
+    "attributes": {
+      "data": {
+        "title": "Your __Health and Wellness__ Space",
+        "description": "Take care of your health and well-being. Relax with your family or alone and melt all your troubles away."
+      }
+    }
+  }
+}

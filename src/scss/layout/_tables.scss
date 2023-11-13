@@ -1,0 +1,133 @@
+.fp-table-wrap {
+  &.primary {
+    background-color: $bg-light-orange;
+  }
+
+  &.blue {
+    background-color: $bg-light-blue;
+  }
+
+  &.green {
+    background-color: $bg-light-green;
+  }
+
+  .fp-mobile-link {
+
+  }
+
+  .fp-desktop-link {
+    .fp-button {
+      right: 24px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+  }
+
+  table {
+    caption-side: top;
+    border-collapse: collapse;
+    table-layout: fixed;
+    thead {
+      letter-spacing: 0.128rem;
+    }
+    caption {
+      @include media-breakpoint-up(lg) {
+        font-size: 4.8rem;
+      }
+    }
+  }
+
+  @include media-breakpoint-up(lg) {
+    table {
+      th {
+        &:nth-child(1) {
+          width: 57%;
+        }
+        &:nth-child(2) {
+          //width: 20%;
+        }
+        &:nth-child(3) {
+          //width: 20%;
+        }
+      }
+      tbody {
+        tr {
+          position: relative;
+          z-index: 3;
+          //td {
+          //  position: relative;
+          //  z-index: 1;
+          //}
+        }
+      }
+    }
+    .stretched-link {
+      &:after {
+        transition: background-color 0.3s ease, opacity 0.3s ease;
+        border-radius: 16px;
+        left: -24px;
+        right: -24px;
+        top: -2px;
+        bottom: -2px;
+      }
+      &:hover {
+        .fp-button {
+          opacity: 1;
+        }
+        &:after {
+          background-color: $white;
+        }
+      }
+    }
+  }
+
+
+  @include media-breakpoint-down(lg) {
+
+    table {
+      thead {
+        border: none;
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
+      }
+
+      tbody {
+        tr {
+          font-size: 2rem;
+        }
+      }
+
+      tr {
+        display: block;
+        &:first-child {
+          padding-top: 0 !important;
+        }
+        &:last-child {
+          padding-bottom: 0 !important;
+          border: none !important;
+        }
+      }
+
+      td {
+        display: block;
+        &::before {
+          content: attr(data-label);
+          display: block;
+          color: $primary;
+          text-transform: uppercase;
+          margin-bottom: 8px;
+          font-size: 1.2rem;
+          font-weight: $font-weight-semibold;
+          line-height: 1.16;
+        }
+      }
+    }
+
+  }
+
+}
