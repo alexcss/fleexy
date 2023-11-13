@@ -51,7 +51,7 @@ abstract class Options_Page extends Group {
 		$args['location'][] = [
 			[
 				'param'    => 'options_page',
-				'operator' => ' == ',
+				'operator' => '==',
 				'value'    => $child['menu_slug'],
 			],
 		];

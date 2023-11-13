@@ -19,7 +19,7 @@
 												type="image/webp" width="112" height="112"/>
 
 										<source media="(max-width: 767px)"
-												srcset="{{ member.thumbnail.src|resize(200, 200, 'center')|towebp }} 1x, {{ member.thumbnail.src|resize(200*2, 200*2, 'center')|towebp }} 1.5x"
+												srcset="{{ member.thumbnail.src|resize(200, 200, 'center')|tojpg }} 1x, {{ member.thumbnail.src|resize(200*2, 200*2, 'center')|tojpg }} 1.5x"
 												width="200" height="200"/>
 										<source media="(max-width: 767px)"
 												srcset="{{ member.thumbnail.src|resize(200, 200, 'center')|towebp }} 1x, {{ member.thumbnail.src|resize(200*2, 200*2, 'center')|towebp }} 1.5x"

@@ -35,6 +35,7 @@ class Core {
 		'acf/fp-service',
 		'acf/fp-services-list',
 		'acf/fp-team-member-list',
+		'acf/fp-all-services',
 	];
 
 

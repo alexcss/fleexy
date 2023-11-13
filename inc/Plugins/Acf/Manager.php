@@ -8,6 +8,8 @@ class Manager {
 
 	private array $option_pages = [
 		Options\Base::class,
+		Page_Templates\Single_Service::class,
+		Page_Templates\Category_Service::class,
 		Post_Types\Page::class,
 		Post_Types\Testimonial::class,
 		Post_Types\Service::class,

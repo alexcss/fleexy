@@ -38,7 +38,7 @@ $utilities: map-merge(
         local-vars: (
           'border-opacity': 1
         ),
-        values: $theme-colors
+        values: map-merge($theme-colors, $utilities-border-colors)
       ),
       'background-color': (
         property: background-color,
@@ -60,9 +60,12 @@ $utilities: map-merge(
         class: bg-size,
         values: (cover, contain)
       ),
-      'text-color': (
+      'color': (
         property: color,
         class: text,
+        local-vars: (
+          'text-opacity': 1
+        ),
         values: $theme-colors
       ),
       'font-family': (
@@ -92,6 +95,7 @@ $utilities: map-merge(
         property: width,
         class: w,
         values: (
+          0: 0%,
           25: 25%,
           50: 50%,
           75: 75%,
@@ -104,6 +108,7 @@ $utilities: map-merge(
         property: height,
         class: h,
         values: (
+          0: 0%,
           25: 25%,
           50: 50%,
           75: 75%,
