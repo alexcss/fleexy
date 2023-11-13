@@ -10,7 +10,7 @@
 						<div class="position-relative w-100 z-2 fp-blur text-white rounded-8 p-16">
 							<h3 class="text-uppercase font-weight-500 mb-16">{{ item.post.title | e('wp_kses_post') }}</h3>
 							<p class="mb-24">{{ item.children.count ~ ' services' | e('wp_kses_post') }}</p>
-							<a href="#{{ item.post.slug }}" class="fp-button fp-button--sm">
+							<a href="#{{ item.post.slug }}" class="stretched-link fp-button fp-button--sm">
 								View more
 								<span class="icon-box">
 									<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -41,7 +41,7 @@
 							<tbody>
 							{% for post in item.children %}
 								{% set service = get_post(post.service) %}
-								<tr class="py-24 py-lg-0 mb-0 h4 font-weight-600 border-bottom border-{{ color }} border-opacity-50 text-black font-family-body">
+								<tr class="position-relative z-1 py-24 py-lg-0 mb-0 h4 font-weight-600 border-bottom border-{{ color }} border-opacity-50 text-black font-family-body">
 									<td class="pb-16 py-lg-24 position-relative z-2 pe-none" data-label="{{ __('Serwis', 'fp') }}">
 										{{ post.title }}
 									</td>
@@ -63,7 +63,7 @@
 											{% endif %}
 										{% endfor %}
 										<div class="d-lg-none mt-24">
-											<a href="{{ post.link }}" class="fp-mobile-link fp-button fp-button--sm">
+											<a href="{{ post.link }}" class="fp-button fp-button--sm stretched-link">
 												View more
 												<span class="icon-box">
 													<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
