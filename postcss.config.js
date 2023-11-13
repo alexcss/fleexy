@@ -1,5 +1,5 @@
 const purgeCss = require('@fullhuman/postcss-purgecss')
-const autoprefixer = require('autoprefixer');
+const autoprefixer = require('autoprefixer')
 
 module.exports = {
   plugins: [
@@ -10,6 +10,7 @@ module.exports = {
         skippedContentGlobs: ['./node_modules/**'],
         css: ['./dist/*.css'],
         safelist: {
+          standard: [/text-primary/, /text-green/, /text-blue/, /border-primary/, /border-green/, /border-blue/],
           deep: [/modal$/, /modal-backdrop$/, /fade/, /show/, /offcanvas$/, /splide/],
         }
       })

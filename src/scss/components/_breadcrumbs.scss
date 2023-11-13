@@ -1,7 +1,9 @@
 .fp-breadcrumbs {
   span {
     display: flex;
+    flex-wrap: wrap;
     gap: 20px;
+    row-gap: 12px;
 
     span:not(:last-child) {
       position: relative;
