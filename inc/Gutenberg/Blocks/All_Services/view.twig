@@ -11,7 +11,7 @@
 							<h3 class="text-uppercase font-weight-500 mb-16">{{ item.post.title | e('wp_kses_post') }}</h3>
 							<p class="mb-24">{{ item.children.count ~ ' services' | e('wp_kses_post') }}</p>
 							<a href="#{{ item.post.slug }}" class="stretched-link fp-button fp-button--sm">
-								View more
+								{{ __('View more', 'fp') }}
 								<span class="icon-box">
 									<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
 										<path fill-rule="evenodd" clip-rule="evenodd" d="M8.23429 2.63431C8.54671 2.32189 9.05324 2.32189 9.36566 2.63431L14.1657 7.43431C14.4781 7.74673 14.4781 8.25326 14.1657 8.56568L9.36566 13.3657C9.05324 13.6781 8.54671 13.6781 8.23429 13.3657C7.92187 13.0533 7.92187 12.5467 8.23429 12.2343L11.6686 8.79999L2.39998 8.8C1.95815 8.79999 1.59998 8.44182 1.59998 7.99999C1.59998 7.55817 1.95815 7.19999 2.39998 7.19999H11.6686L8.23429 3.76568C7.92187 3.45326 7.92187 2.94673 8.23429 2.63431Z" fill="currentColor"/>
@@ -33,19 +33,19 @@
 							<caption class="h3 text-center font-family-body font-weight-600 p-0 mb-40">{{ item.post.title }}</caption>
 							<thead>
 								<tr>
-									<th class="pb-lg-16" scope="col"><span class="text-uppercase text-{{ color }}">{{ __('Serwis', 'fp') }}</span></th>
-									<th class="pb-lg-16" scope="col"><span class="text-uppercase text-{{ color }}">{{ __('trwanie', 'fp') }}</span></th>
-									<th class="pb-lg-16" scope="col"><span class="text-uppercase text-{{ color }}">{{ __('Koszt', 'fp') }}</span></th>
+									<th class="pb-lg-16" scope="col"><span class="text-uppercase text-{{ color }}">{{ __('Service', 'fp') }}</span></th>
+									<th class="pb-lg-16" scope="col"><span class="text-uppercase text-{{ color }}">{{ __('Duration', 'fp') }}</span></th>
+									<th class="pb-lg-16" scope="col"><span class="text-uppercase text-{{ color }}">{{ __('Cost', 'fp') }}</span></th>
 								</tr>
 							</thead>
 							<tbody>
 							{% for post in item.children %}
 								{% set service = get_post(post.service) %}
 								<tr class="position-relative z-1 py-24 py-lg-0 mb-0 h4 font-weight-600 border-bottom border-{{ color }} border-opacity-50 text-black font-family-body">
-									<td class="pb-16 py-lg-24 position-relative z-2 pe-none" data-label="{{ __('Serwis', 'fp') }}">
+									<td class="pb-16 py-lg-24 position-relative z-2 pe-none" data-label="{{ __('Service', 'fp') }}">
 										{{ post.title }}
 									</td>
-									<td class="pb-16 py-lg-24" data-label="{{ __('trwanie', 'fp') }}">
+									<td class="pb-16 py-lg-24" data-label="{{ __('Duration', 'fp') }}">
 										{% for price in service.meta('price') %}
 											<span>
 												{{ price.time }}
@@ -55,7 +55,7 @@
 											</span>
 										{% endfor %}
 									</td>
-									<td class="py-lg-24" data-label="{{ __('Koszt', 'fp') }}">
+									<td class="py-lg-24" data-label="{{ __('Cost', 'fp') }}">
 										{% for price in service.meta('price') %}
 											<span>{{ price.price }} {{ price.currency }}</span>
 											{% if not loop.last %}
@@ -64,7 +64,7 @@
 										{% endfor %}
 										<div class="d-lg-none mt-24">
 											<a href="{{ post.link }}" class="fp-button fp-button--sm stretched-link">
-												View more
+												{{ __('View more', 'fp') }}
 												<span class="icon-box">
 													<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
 														<path fill-rule="evenodd" clip-rule="evenodd" d="M8.23429 2.63431C8.54671 2.32189 9.05324 2.32189 9.36566 2.63431L14.1657 7.43431C14.4781 7.74673 14.4781 8.25326 14.1657 8.56568L9.36566 13.3657C9.05324 13.6781 8.54671 13.6781 8.23429 13.3657C7.92187 13.0533 7.92187 12.5467 8.23429 12.2343L11.6686 8.79999L2.39998 8.8C1.95815 8.79999 1.59998 8.44182 1.59998 7.99999C1.59998 7.55817 1.95815 7.19999 2.39998 7.19999H11.6686L8.23429 3.76568C7.92187 3.45326 7.92187 2.94673 8.23429 2.63431Z" fill="currentColor"/>
@@ -72,9 +72,9 @@
 												</span>
 											</a>
 										</div>
-										<a href="{{ post.link }}" class="fp-desktop-link w-0 h-0 d-none d-lg-block stretched-link">
+										<a href="{{ post.link }}" class="fp-desktop-link w-0 h-0 d-none d-lg-block stretched-link" aria-label="{{ __('View more', 'fp') }}">
 											<span class="position-absolute pe-none z-2 top-50 translate-middle-y fp-button fp-button--sm">
-												View more
+												{{ __('View more', 'fp') }}
 												<span class="icon-box">
 													<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
 														<path fill-rule="evenodd" clip-rule="evenodd" d="M8.23429 2.63431C8.54671 2.32189 9.05324 2.32189 9.36566 2.63431L14.1657 7.43431C14.4781 7.74673 14.4781 8.25326 14.1657 8.56568L9.36566 13.3657C9.05324 13.6781 8.54671 13.6781 8.23429 13.3657C7.92187 13.0533 7.92187 12.5467 8.23429 12.2343L11.6686 8.79999L2.39998 8.8C1.95815 8.79999 1.59998 8.44182 1.59998 7.99999C1.59998 7.55817 1.95815 7.19999 2.39998 7.19999H11.6686L8.23429 3.76568C7.92187 3.45326 7.92187 2.94673 8.23429 2.63431Z" fill="currentColor"/>
