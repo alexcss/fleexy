@@ -1,14 +1,23 @@
 .fp-table-wrap {
   &.primary {
     background-color: $bg-light-orange;
+    td::before {
+      color: $primary;
+    }
   }
 
   &.blue {
     background-color: $bg-light-blue;
+    td::before {
+      color: $blue;
+    }
   }
 
   &.green {
     background-color: $bg-light-green;
+    td::before {
+      color: $green;
+    }
   }
 
   .fp-desktop-link {
@@ -114,7 +123,6 @@
         &::before {
           content: attr(data-label);
           display: block;
-          color: $primary;
           text-transform: uppercase;
           margin-bottom: 8px;
           font-size: 1.2rem;
