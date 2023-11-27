@@ -20,7 +20,13 @@
 
   &__inner {
     background-position: 50% 50%;
-    min-height: 812px;
+    min-height: 712px;
+    @include media-breakpoint-down(sm) {
+      height: -webkit-fill-available;
+    }
+    @include media-breakpoint-up(md) {
+      min-height: 812px;
+    }
     @include media-breakpoint-up(lg) {
       aspect-ratio: 1424/712;
       min-height: auto;
