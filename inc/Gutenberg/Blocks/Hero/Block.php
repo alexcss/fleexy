@@ -17,6 +17,7 @@ class Block extends Gutenberg_Block {
 			'name'          => 'title',
 			'label'         => __( 'Title', 'fp' ),
 			'type'          => 'textarea',
+			'formatting'    => 'br',
 			'default_value' => 'Your __Health and Wellness__ Space',
 			'instructions'  => __( 'if you want to highlight a word use this rule __TEXT__', 'fp' ),
 		] );
