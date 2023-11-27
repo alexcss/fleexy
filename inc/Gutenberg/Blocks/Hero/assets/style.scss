@@ -1,3 +1,8 @@
+.fp-hero-title{
+  @include media-breakpoint-down(sm) {
+    font-size: 42px;
+  }
+}
 .fp-hero-block {
   margin-top: -100px;
   &__content {
