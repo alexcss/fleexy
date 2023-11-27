@@ -60,7 +60,7 @@ jobs:
           echo -n "node: " && node --version
           echo -n "npm: " && npm --version
           echo "Install dependencies"
-          composer require timber/timber
+          composer install
           yarn install
       - name: Report deployment 'building' status to Slack
         uses: voxmedia/github-action-slack-notify-build@v1

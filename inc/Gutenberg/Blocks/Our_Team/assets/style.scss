@@ -8,3 +8,27 @@
     height: 40px;
   }
 }
+.fp-icon-plane{
+  left: 7px;
+  bottom: 35px;
+  @include media-breakpoint-up(lg) {
+    left: 50%;
+    bottom: 64px;
+    transform: translateX(-50%);
+    margin-left: -350px;
+  }
+}
+.fp-team-member-text{
+  min-height: 6em;
+}
+.fp-team-member-excerpt{
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  line-clamp:4;
+  display: -webkit-box;
+  overflow: hidden;
+  transition: opacity .1s ease-in-out;
+  .show ~ &{
+    opacity: 0;
+  }
+}
