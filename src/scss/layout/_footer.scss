@@ -23,6 +23,20 @@
   list-style: none;
 }
 
+.fp-footer-menu-wide {
+  .fp-footer-menu {
+    @include media-breakpoint-up(sm) {
+      display: block !important;
+      flex-direction: row !important;
+      flex-wrap: wrap !important;
+      column-count: 2;
+      column-gap: 24px;
+      li {
+        margin-bottom: 12px;
+      }
+    }
+  }
+}
 .fp-footer-menu-title {
   svg {
     transition: $transition-base;

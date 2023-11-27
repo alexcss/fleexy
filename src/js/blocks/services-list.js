@@ -8,8 +8,7 @@ const initializeBlock = function (block) {
 		arrows: false,
 		isNavigation: true,
 		pagination: false,
-		autoWidth: true,
-		drag: false,
+		autoWidth: true
 	});
 
 	let servicesSlider = new Splide(servicesRefSlider, {
