@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function () {
       isNavigation: true,
       pagination: false,
       autoWidth: true,
-      drag: false,
+      drag: true,
     });
 
     let servicesSlider = new Splide(servicesRefSlider, {
