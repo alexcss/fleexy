@@ -11,7 +11,7 @@
 					<div class="row align-items-end">
 						<div class="col-12 col-lg-8">
 							{% if fields.title %}
-								<h1 class="{{ fields.title_size ?? 'h2' }} text-white text-uppercase mb-0">{{ fields.title | highlight_text | e('wp_kses_post') }}</h1>
+								<h1 class="{{ fields.title_size ?? 'h2' }} fp-hero-title text-white text-uppercase mb-0">{{ fields.title | highlight_text | e('wp_kses_post') }}</h1>
 							{% endif %}
 							{% if fields.cta.url and fields.cta.title %}
 								<a class="fp-button mt-24 mt-lg-40" href="{{ fields.cta.url|e('esc_url') }}" target="{{ fields.cta.target|e('html_attr') ?: '_self' }}">
