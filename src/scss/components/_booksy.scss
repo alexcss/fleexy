@@ -1,281 +1,286 @@
-body{
-  .booksy-widget-container{
-    display: none !important;
-  }
-  &:has(.booksy-widget-overlay){
-    overflow: hidden;
-  }
-  .booksy-widget-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.7);
-    z-index: $zindex-offcanvas + 2;
-    backdrop-filter: blur(3px);
-  }
-  .booksy-widget-container-dialog{
-    .booksy-business-link{
-      display: none;
-    }
-  }
-  .booksy-widget-dialog {
-    top: 50%;
-    left: 50%;
-    height: 90vh;
-    transform: translateY(-50%) translateX(-50%);
-    border-radius: 16px;
-    iframe{
-      height: 100% !important;
-    }
-  }
+
+a.yButton.bottom.right {
+  display: none;
 }
 
-
-.booksy-widget-dialog iframe {
-  border-radius: inherit;
-}
-
-@media screen and (min-width: 320px) and (max-width: 480px) {
-  .booksy-widget-dialog {
-    width: 100% !important;
-    text-align: center;
-    margin-top: 0;
-  }
-
-  .booksy-widget-dialog iframe {
-    width: 100% !important;
-  }
-}
-
-.booksy-widget-dialog > .ui-dialog-titlebar {
-  display: none !important
-}
-
-.booksy-widget-dialog > .ui-dialog-content {
-  padding: 0 !important;
-  background: #fff !important;
-  overflow: hidden !important
-}
-
-/* widget (or button) container */
-.booksy-widget-container-dialog {
-  display: inline-block;
-  width: 200px;
-  height: 70px;
-  text-align: center
-}
-
-.booksy-widget-container-dialog .booksy-widget-button {
-  cursor: pointer;
-  display: inline-block;
-  margin: 0 auto;
-  padding: 0;
-  width: 200px;
-  height: 54px;
-  background-size: cover !important;
-  transition: all 0.5s ease 0s;
-  border-radius: 8px;
-  -moz-border-radius: 8px;
-  -webkit-border-radius: 8px
-}
-
-.booksy-widget-container-dialog .booksy-business-link {
-  cursor: pointer;
-  display: inline-block;
-  width: 200px;
-  height: 16px;
-  background-size: cover !important;
-}
-
-.booksy-widget-container-dialog .booksy-widget-button:hover {
-  transform: scale(1.05);
-  transition: all 0.5s ease 0s
-}
-
-.booksy-widget-container-default .booksy-widget-button {
-  background: url('./images/book-en-green.png') no-repeat center center
-}
-
-.booksy-widget-container-default.booksy-widget-container-pl .booksy-widget-button {
-  background: url('./images/book-pl-green.png') no-repeat center center
-}
-
-.booksy-widget-container-default.booksy-widget-container-es .booksy-widget-button {
-  background: url('./images/book-es-green.png') no-repeat center center
-}
-
-.booksy-widget-container-default.booksy-widget-container-fi .booksy-widget-button {
-  background: url('./images/book-fi-green.png') no-repeat center center
-}
-
-.booksy-widget-container-default.booksy-widget-container-ru .booksy-widget-button {
-  background: url('./images/book-ru-green.png') no-repeat center center
-}
-
-.booksy-widget-container-default.booksy-widget-container-de .booksy-widget-button {
-  background: url('./images/book-de-green.png') no-repeat center center
-}
-
-.booksy-widget-container-default.booksy-widget-container-pt .booksy-widget-button {
-  background: url('./images/book-pt-green.png') no-repeat center center
-}
-
-/* default business link */
-
-.booksy-widget-container-default .booksy-business-link {
-  background: url('./images/book-en-green-p2.png') no-repeat center center
-}
-
-.booksy-widget-container-default.booksy-widget-container-pl .booksy-business-link {
-  background: url('./images/book-pl-green-p2.png') no-repeat center center
-}
-
-.booksy-widget-container-default.booksy-widget-container-es .booksy-business-link {
-  background: url('./images/book-es-green-p2.png') no-repeat center center
-}
-
-.booksy-widget-container-default.booksy-widget-container-fi .booksy-business-link {
-  background: url('./images/book-fi-green-p2.png') no-repeat center center
-}
-
-.booksy-widget-container-default.booksy-widget-container-ru .booksy-business-link {
-  background: url('./images/book-ru-green-p2.png') no-repeat center center
-}
-
-.booksy-widget-container-default.booksy-widget-container-de .booksy-business-link {
-  background: url('./images/book-de-green-p2.png') no-repeat center center
-}
-
-.booksy-widget-container-default.booksy-widget-container-pt .booksy-business-link {
-  background: url('./images/book-pt-green-p2.png') no-repeat center center
-}
-
-
-/*
-    istudio
-*/
-
-.booksy-widget-container-istudio .booksy-widget-button {
-  background: url('./images/book-en-green.png') no-repeat center center
-}
-
-.booksy-widget-container-istudio.booksy-widget-container-pl .booksy-widget-button {
-  background: url('./images/book-pl-green.png') no-repeat center center
-}
-
-.booksy-widget-container-istudio.booksy-widget-container-es .booksy-widget-button {
-  background: url('./images/book-es-green.png') no-repeat center center
-}
-
-.booksy-widget-container-istudio.booksy-widget-container-fi .booksy-widget-button {
-  background: url('./images/book-fi-green.png') no-repeat center center
-}
-
-.booksy-widget-container-istudio.booksy-widget-container-ru .booksy-widget-button {
-  background: url('./images/book-ru-green.png') no-repeat center center
-}
-
-.booksy-widget-container-istudio.booksy-widget-container-de .booksy-widget-button {
-  background: url('./images/book-de-green.png') no-repeat center center
-}
-
-.booksy-widget-container-istudio.booksy-widget-container-pt .booksy-widget-button {
-  background: url('./images/book-pt-green.png') no-repeat center center
-}
-
-/* istudio business link */
-
-.booksy-widget-container-istudio .booksy-widget-button {
-  background: url('./images/book-en-green-p2.png') no-repeat center center
-}
-
-.booksy-widget-container-istudio.booksy-widget-container-pl .booksy-widget-button {
-  background: url('./images/book-pl-green-p2.png') no-repeat center center
-}
-
-.booksy-widget-container-istudio.booksy-widget-container-es .booksy-widget-button {
-  background: url('./images/book-es-green-p2.png') no-repeat center center
-}
-
-.booksy-widget-container-istudio.booksy-widget-container-fi .booksy-widget-button {
-  background: url('./images/book-fi-green-p2.png') no-repeat center center
-}
-
-.booksy-widget-container-istudio.booksy-widget-container-ru .booksy-widget-button {
-  background: url('./images/book-ru-green-p2.png') no-repeat center center
-}
-
-.booksy-widget-container-istudio.booksy-widget-container-de .booksy-widget-button {
-  background: url('./images/book-de-green-p2.png') no-repeat center center
-}
-
-.booksy-widget-container-istudio.booksy-widget-container-pt .booksy-widget-button {
-  background: url('./images/book-pt-green-p2.png') no-repeat center center
-}
-
-
-/* overalay */
-.booksy-widget-mobile-overlay {
-  position: absolute;
-  top: 0px !important;
-  left: 0px !important;
-  width: 100% !important;
-  height: 100% !important;
-  background: #26cbc5;
-  z-index: 99999;
-  display: none !important;
-}
-
-
-.booksy-widget-mobile-overlay
-.booksy-widget-mobile-overlay-container
-.booksy-widget-mobile-overlay-dl {
-  display: block;
-  height: 100%;
-  background: no-repeat 50% 50% #26cbc5;
-  background-image: url('./images/splash-en.png');
-  background-size: contain;
-  width: 100%;
-  position: fixed;
-  margin: auto;
-  transition: all 0.5s ease 0s;
-}
-
-.booksy-widget-mobile-overlay.booksy-widget-mobile-overlay-pl
-.booksy-widget-mobile-overlay-container
-.booksy-widget-mobile-overlay-dl {
-  background-image: url('./images/splash-pl.png')
-}
-
-.booksy-widget-mobile-overlay.booksy-widget-mobile-overlay-es
-.booksy-widget-mobile-overlay-container
-.booksy-widget-mobile-overlay-dl {
-  background-image: url('./images/splash-es.png')
-}
-
-.booksy-widget-mobile-overlay
-.booksy-widget-mobile-overlay-container
-.booksy-widget-mobile-overlay-skip {
-  display: block;
-  width: 100%;
-  position: fixed;
-  bottom: 0;
-  nmargin: auto;
-  transition: all 0.5s ease 0s;
-  z-index: 2;
-  text-indent: -99999px;
-}
-
-@media screen and (orientation: landscape) {
-  .booksy-widget-mobile-overlay-skip {
-    height: 12%;
-  }
-}
-
-@media screen and (orientation: portrait) {
-  .booksy-widget-mobile-overlay-skip {
-    height: 15%;
-  }
-}
+//body{
+//  .booksy-widget-container{
+//    display: none !important;
+//  }
+//  &:has(.booksy-widget-overlay){
+//    overflow: hidden;
+//  }
+//  .booksy-widget-overlay {
+//    position: fixed;
+//    top: 0;
+//    left: 0;
+//    width: 100%;
+//    height: 100%;
+//    background: rgba(0, 0, 0, 0.7);
+//    z-index: $zindex-offcanvas + 2;
+//    backdrop-filter: blur(3px);
+//  }
+//  .booksy-widget-container-dialog{
+//    .booksy-business-link{
+//      display: none;
+//    }
+//  }
+//  .booksy-widget-dialog {
+//    top: 50%;
+//    left: 50%;
+//    height: 90vh;
+//    transform: translateY(-50%) translateX(-50%);
+//    border-radius: 16px;
+//    iframe{
+//      height: 100% !important;
+//    }
+//  }
+//}
+//
+//
+//.booksy-widget-dialog iframe {
+//  border-radius: inherit;
+//}
+//
+//@media screen and (min-width: 320px) and (max-width: 480px) {
+//  .booksy-widget-dialog {
+//    width: 100% !important;
+//    text-align: center;
+//    margin-top: 0;
+//  }
+//
+//  .booksy-widget-dialog iframe {
+//    width: 100% !important;
+//  }
+//}
+//
+//.booksy-widget-dialog > .ui-dialog-titlebar {
+//  display: none !important
+//}
+//
+//.booksy-widget-dialog > .ui-dialog-content {
+//  padding: 0 !important;
+//  background: #fff !important;
+//  overflow: hidden !important
+//}
+//
+///* widget (or button) container */
+//.booksy-widget-container-dialog {
+//  display: inline-block;
+//  width: 200px;
+//  height: 70px;
+//  text-align: center
+//}
+//
+//.booksy-widget-container-dialog .booksy-widget-button {
+//  cursor: pointer;
+//  display: inline-block;
+//  margin: 0 auto;
+//  padding: 0;
+//  width: 200px;
+//  height: 54px;
+//  background-size: cover !important;
+//  transition: all 0.5s ease 0s;
+//  border-radius: 8px;
+//  -moz-border-radius: 8px;
+//  -webkit-border-radius: 8px
+//}
+//
+//.booksy-widget-container-dialog .booksy-business-link {
+//  cursor: pointer;
+//  display: inline-block;
+//  width: 200px;
+//  height: 16px;
+//  background-size: cover !important;
+//}
+//
+//.booksy-widget-container-dialog .booksy-widget-button:hover {
+//  transform: scale(1.05);
+//  transition: all 0.5s ease 0s
+//}
+//
+//.booksy-widget-container-default .booksy-widget-button {
+//  background: url('./images/book-en-green.png') no-repeat center center
+//}
+//
+//.booksy-widget-container-default.booksy-widget-container-pl .booksy-widget-button {
+//  background: url('./images/book-pl-green.png') no-repeat center center
+//}
+//
+//.booksy-widget-container-default.booksy-widget-container-es .booksy-widget-button {
+//  background: url('./images/book-es-green.png') no-repeat center center
+//}
+//
+//.booksy-widget-container-default.booksy-widget-container-fi .booksy-widget-button {
+//  background: url('./images/book-fi-green.png') no-repeat center center
+//}
+//
+//.booksy-widget-container-default.booksy-widget-container-ru .booksy-widget-button {
+//  background: url('./images/book-ru-green.png') no-repeat center center
+//}
+//
+//.booksy-widget-container-default.booksy-widget-container-de .booksy-widget-button {
+//  background: url('./images/book-de-green.png') no-repeat center center
+//}
+//
+//.booksy-widget-container-default.booksy-widget-container-pt .booksy-widget-button {
+//  background: url('./images/book-pt-green.png') no-repeat center center
+//}
+//
+///* default business link */
+//
+//.booksy-widget-container-default .booksy-business-link {
+//  background: url('./images/book-en-green-p2.png') no-repeat center center
+//}
+//
+//.booksy-widget-container-default.booksy-widget-container-pl .booksy-business-link {
+//  background: url('./images/book-pl-green-p2.png') no-repeat center center
+//}
+//
+//.booksy-widget-container-default.booksy-widget-container-es .booksy-business-link {
+//  background: url('./images/book-es-green-p2.png') no-repeat center center
+//}
+//
+//.booksy-widget-container-default.booksy-widget-container-fi .booksy-business-link {
+//  background: url('./images/book-fi-green-p2.png') no-repeat center center
+//}
+//
+//.booksy-widget-container-default.booksy-widget-container-ru .booksy-business-link {
+//  background: url('./images/book-ru-green-p2.png') no-repeat center center
+//}
+//
+//.booksy-widget-container-default.booksy-widget-container-de .booksy-business-link {
+//  background: url('./images/book-de-green-p2.png') no-repeat center center
+//}
+//
+//.booksy-widget-container-default.booksy-widget-container-pt .booksy-business-link {
+//  background: url('./images/book-pt-green-p2.png') no-repeat center center
+//}
+//
+//
+///*
+//    istudio
+//*/
+//
+//.booksy-widget-container-istudio .booksy-widget-button {
+//  background: url('./images/book-en-green.png') no-repeat center center
+//}
+//
+//.booksy-widget-container-istudio.booksy-widget-container-pl .booksy-widget-button {
+//  background: url('./images/book-pl-green.png') no-repeat center center
+//}
+//
+//.booksy-widget-container-istudio.booksy-widget-container-es .booksy-widget-button {
+//  background: url('./images/book-es-green.png') no-repeat center center
+//}
+//
+//.booksy-widget-container-istudio.booksy-widget-container-fi .booksy-widget-button {
+//  background: url('./images/book-fi-green.png') no-repeat center center
+//}
+//
+//.booksy-widget-container-istudio.booksy-widget-container-ru .booksy-widget-button {
+//  background: url('./images/book-ru-green.png') no-repeat center center
+//}
+//
+//.booksy-widget-container-istudio.booksy-widget-container-de .booksy-widget-button {
+//  background: url('./images/book-de-green.png') no-repeat center center
+//}
+//
+//.booksy-widget-container-istudio.booksy-widget-container-pt .booksy-widget-button {
+//  background: url('./images/book-pt-green.png') no-repeat center center
+//}
+//
+///* istudio business link */
+//
+//.booksy-widget-container-istudio .booksy-widget-button {
+//  background: url('./images/book-en-green-p2.png') no-repeat center center
+//}
+//
+//.booksy-widget-container-istudio.booksy-widget-container-pl .booksy-widget-button {
+//  background: url('./images/book-pl-green-p2.png') no-repeat center center
+//}
+//
+//.booksy-widget-container-istudio.booksy-widget-container-es .booksy-widget-button {
+//  background: url('./images/book-es-green-p2.png') no-repeat center center
+//}
+//
+//.booksy-widget-container-istudio.booksy-widget-container-fi .booksy-widget-button {
+//  background: url('./images/book-fi-green-p2.png') no-repeat center center
+//}
+//
+//.booksy-widget-container-istudio.booksy-widget-container-ru .booksy-widget-button {
+//  background: url('./images/book-ru-green-p2.png') no-repeat center center
+//}
+//
+//.booksy-widget-container-istudio.booksy-widget-container-de .booksy-widget-button {
+//  background: url('./images/book-de-green-p2.png') no-repeat center center
+//}
+//
+//.booksy-widget-container-istudio.booksy-widget-container-pt .booksy-widget-button {
+//  background: url('./images/book-pt-green-p2.png') no-repeat center center
+//}
+//
+//
+///* overalay */
+//.booksy-widget-mobile-overlay {
+//  position: absolute;
+//  top: 0px !important;
+//  left: 0px !important;
+//  width: 100% !important;
+//  height: 100% !important;
+//  background: #26cbc5;
+//  z-index: 99999;
+//  display: none !important;
+//}
+//
+//
+//.booksy-widget-mobile-overlay
+//.booksy-widget-mobile-overlay-container
+//.booksy-widget-mobile-overlay-dl {
+//  display: block;
+//  height: 100%;
+//  background: no-repeat 50% 50% #26cbc5;
+//  background-image: url('./images/splash-en.png');
+//  background-size: contain;
+//  width: 100%;
+//  position: fixed;
+//  margin: auto;
+//  transition: all 0.5s ease 0s;
+//}
+//
+//.booksy-widget-mobile-overlay.booksy-widget-mobile-overlay-pl
+//.booksy-widget-mobile-overlay-container
+//.booksy-widget-mobile-overlay-dl {
+//  background-image: url('./images/splash-pl.png')
+//}
+//
+//.booksy-widget-mobile-overlay.booksy-widget-mobile-overlay-es
+//.booksy-widget-mobile-overlay-container
+//.booksy-widget-mobile-overlay-dl {
+//  background-image: url('./images/splash-es.png')
+//}
+//
+//.booksy-widget-mobile-overlay
+//.booksy-widget-mobile-overlay-container
+//.booksy-widget-mobile-overlay-skip {
+//  display: block;
+//  width: 100%;
+//  position: fixed;
+//  bottom: 0;
+//  nmargin: auto;
+//  transition: all 0.5s ease 0s;
+//  z-index: 2;
+//  text-indent: -99999px;
+//}
+//
+//@media screen and (orientation: landscape) {
+//  .booksy-widget-mobile-overlay-skip {
+//    height: 12%;
+//  }
+//}
+//
+//@media screen and (orientation: portrait) {
+//  .booksy-widget-mobile-overlay-skip {
+//    height: 15%;
+//  }
+//}
